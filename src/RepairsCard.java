@@ -1,3 +1,3 @@
-public class RepairsCard {
+public class RepairsCard extends MonopolyCode {
     
 }

@@ -1,0 +1,8 @@
+BIENVENIDO AL MONOPOLY,WELCOME TO MONOPOLY
+Introduzca el lenguaje que desea utilizar,Introduce the language you want to use
+¿Desea continuar con una partida guardada?,Do you want to continue with a saved game?
+Espanol,Spanish
+Ingles,English
+Catalan,Catalan
+Euskera,Basque
+Gallego,Galician

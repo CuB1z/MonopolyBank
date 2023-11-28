@@ -1,3 +1,3 @@
-public class PaymentCharge {
+public class PaymentCharge extends MonopolyCode {
     
 }
