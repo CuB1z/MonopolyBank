@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import utils.Constants;
+
 public class TranslatorManager {
     private Translator currentLanguage;
     private ArrayList<Translator> languages = new ArrayList<Translator>();

@@ -1,3 +1,7 @@
+package utils;
+
+// This class contains the constants used in the game
+
 public class Constants {
     public static final String MONOPOLY_CODE_FILE_PATH = "/config/monopolyCode.txt";
 

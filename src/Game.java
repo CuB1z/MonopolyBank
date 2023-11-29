@@ -1,9 +1,12 @@
 import java.io.*;
 
+import utils.Constants;
+import utils.PathUtils;
+
 public class Game implements Serializable{
     private MonopolyCode [] monopolyCodeArray = new MonopolyCode[80];
 
-    // Constructor
+    // Constructor ========================================================================================================
     public Game() throws Exception {
         this.loadMonopolyCodes();
     }
@@ -12,18 +15,18 @@ public class Game implements Serializable{
         this.loadMonopolyCodes();
     }
 
-    // Public methods
+    // Public methods =====================================================================================================
     public void play() {
         System.out.println("Jugando...");
     }
 
-    // Private methods
+    // Private methods ====================================================================================================
     private void createPlayers(){
-
+        // TODO Implement createPlayers method
     }
 
     private void loadMonopolyCodes() throws Exception {
-        String file = Utils.getFilePath(Constants.MONOPOLY_CODE_FILE_PATH);
+        String file = PathUtils.getFilePath(Constants.MONOPOLY_CODE_FILE_PATH);
 
         Reader in = new FileReader(file);
         BufferedReader buffer = new BufferedReader(in);
