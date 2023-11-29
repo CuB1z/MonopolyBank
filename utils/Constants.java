@@ -18,7 +18,9 @@ public class Constants {
     public static final String COMPANY_ID = "SERVICE";
 
     public static final String DATA_SEPARATOR = ";";
-    public static final String PRICE_DATA_SEPARATOR = "€";
+    public static final String PRICE_DATA_SEPARATOR = "EUR";
+    public static final String ALTERNATIVE_DATA_SEPARATOR = " ";
+
 
     // Default values
     public static final String DEFAULT_LANGUAGE = "spanish";

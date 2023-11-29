@@ -1,3 +1,5 @@
+import utils.Constants;
+
 public class PaymentCharge extends MonopolyCode {
     private int amount;
 
@@ -8,6 +10,9 @@ public class PaymentCharge extends MonopolyCode {
         super(Integer.parseInt(info[0]), info[2], terminal);
 
         // Set the amount
-        this.amount = Integer.parseInt(info[3]);
+        String [] value = info[2].split(Constants.ALTERNATIVE_DATA_SEPARATOR);
+        String amount = value[value.length - 1].split(Constants.PRICE_DATA_SEPARATOR)[0];
+
+        this.amount = Integer.parseInt(amount);
     }
 }
