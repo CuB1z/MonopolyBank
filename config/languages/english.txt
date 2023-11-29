@@ -17,4 +17,5 @@ Introduce el numero de jugadores (2-4): ,Introduce the number of players (2-4):
 Numero de jugadores incorrecto,Incorrect number of players
 Introduce el nombre del jugador ,Enter the name of the player 
 Player %s (%s) Balance: %d,Player %s (%s) Balance: %d
-€,$
+---Jugadores---,---Players---
+Comenzando operacion...,Starting operation...

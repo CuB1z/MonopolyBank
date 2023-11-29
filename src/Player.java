@@ -30,8 +30,7 @@ public class Player implements Serializable {
     public String toString() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg = trs.translate("Player %s (%s) Balance: %d");
-        String sym = trs.translate("€");
 
-        return String.format(msg + sym, this.name, this.color, this.balance);
+        return String.format(msg, this.name, this.color, this.balance);
     }
 }

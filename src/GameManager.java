@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 import utils.Constants;
 
 import java.io.File;
@@ -32,8 +30,6 @@ public class GameManager {
             this.terminal.show("Cargando partida...");
             game = new Game(fileName);
         }
-
-        // TODO Check loading game implementation
 
         // Play the game
         game.play();
