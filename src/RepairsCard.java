@@ -13,9 +13,6 @@ public class RepairsCard extends MonopolyCode {
         // Split the last element of the array to get the prices
         String [] prices = info[info.length - 1].split(Constants.PRICE_DATA_SEPARATOR);
 
-        System.out.println("PRICES[0]:"+ prices[0]);
-        System.out.println("PRICES[1]:"+ prices[1]);
-
         // Set the prices spliting each price element by " "
         String [] prices_1 = prices[0].split(Constants.ALTERNATIVE_DATA_SEPARATOR);
         this.amountForHouse = Integer.parseInt(prices_1[prices_1.length - 1]);

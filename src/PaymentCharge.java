@@ -10,9 +10,13 @@ public class PaymentCharge extends MonopolyCode {
         super(Integer.parseInt(info[0]), info[2], terminal);
 
         // Set the amount
-        String [] value = info[2].split(Constants.ALTERNATIVE_DATA_SEPARATOR);
-        String amount = value[value.length - 1].split(Constants.PRICE_DATA_SEPARATOR)[0];
-
-        this.amount = Integer.parseInt(amount);
+        if (info[2].contains(Constants.PRICE_DATA_SEPARATOR)) {
+            String [] value = info[2].split(Constants.ALTERNATIVE_DATA_SEPARATOR);
+            String amount = value[value.length - 1].split(Constants.PRICE_DATA_SEPARATOR)[0];
+    
+            this.amount = Integer.parseInt(amount);
+        } else {
+            this.amount = 0;
+        }
     }
 }
