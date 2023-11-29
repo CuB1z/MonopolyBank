@@ -1,8 +1,8 @@
-,BIENVENIDO AL MONOPOLY
-,Introduzca el lenguaje que desea utilizar
-,¿Desea continuar con una partida guardada?
-,Espanol
-,Ingles
-,Catalan
-,Euskera
-,Gallego
+BIENVENIDO AL MONOPOLY,BIENVENIDO AL MONOPOLY
+Introduzca el lenguaje que desea utilizar,Introduzca el lenguaje que desea utilizar
+¿Desea continuar con una partida guardada?,¿Desea continuar con una partida guardada?
+Espanol,Espanol
+Ingles,Ingles
+Catalan,Catalan
+Euskera,Euskera
+Gallego,Gallego

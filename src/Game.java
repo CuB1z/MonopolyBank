@@ -23,7 +23,9 @@ public class Game implements Serializable{
     }
 
     private void loadMonopolyCodes() throws Exception {
-        Reader in = new FileReader(Constants.MONOPOLY_CODE_FILE_PATH);
+        String file = Utils.getFilePath(Constants.MONOPOLY_CODE_FILE_PATH);
+
+        Reader in = new FileReader(file);
         BufferedReader buffer = new BufferedReader(in);
 
         String line;

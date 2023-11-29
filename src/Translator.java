@@ -8,10 +8,14 @@ public class Translator {
 
     // Constructor ========================================================================================================
     public Translator(String filename) throws Exception {
+        
+        // Get the absolute path of the file
+        String absolutePath = System.getProperty("user.dir");
+        filename = absolutePath + filename;
 
         // Get the language from the filename
         String rootFile = filename.split("/")[filename.split("/").length - 1];
-        this.language = rootFile.split(".")[0];
+        this.language = rootFile.split("\\.")[0];
 
         // Read the file and complete the dictionary
         Reader in = new FileReader(filename);

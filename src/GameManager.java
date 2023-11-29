@@ -32,7 +32,7 @@ public class GameManager {
         // TODO Check loading game implementation
 
         // Play the game
-        game.play();
+        // game.play();
     }
 
     // Private methods ====================================================================================================
@@ -43,15 +43,11 @@ public class GameManager {
 
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
+        System.out.println();
         scanner.close();
 
-        if (answer.equals("S")) {
-            return this.showFileNames();
-            
-        } else {
-            this.terminal.show("Creando nueva partida...");
-            return null;
-        }
+        if (answer.equals("S")) return this.showFileNames();
+        else return null;
 
     }
 
@@ -65,10 +61,10 @@ public class GameManager {
         this.terminal.show("Ficheros disponibles: ");
 
         // Show the file names if there are any
-        if (list.length == 0) {
-            this.terminal.show("No hay ficheros disponibles");
+        if (list == null || list.length == 0) {
+            this.terminal.show("-- No hay ficheros disponibles");
+            this.terminal.show("");
             return null;
-
         }
         
         for (String name : list) {
