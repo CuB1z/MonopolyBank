@@ -5,9 +5,13 @@ import utils.PathUtils;
 
 public class Game implements Serializable{
     private MonopolyCode [] monopolyCodeArray = new MonopolyCode[80];
+    private Terminal terminal;
+    private Player [] players = new Player[4];
 
     // Constructor ========================================================================================================
     public Game() throws Exception {
+        this.terminal = new TextTerminal();
+        this.createPlayers();
         this.loadMonopolyCodes();
     }
 
@@ -22,7 +26,30 @@ public class Game implements Serializable{
 
     // Private methods ====================================================================================================
     private void createPlayers(){
-        // TODO Implement createPlayers method
+        
+        // Ask for the number of players
+        this.terminal.show("Introduce el numero de jugadores (2-4): ");
+        int answer = this.terminal.readInt();
+        this.terminal.show("");
+
+        if (answer < 2 || answer > Constants.MAX_NUMBER_OF_PLAYERS) {
+            this.terminal.show("Numero de jugadores incorrecto");
+            this.createPlayers();
+        } else {
+            // Translate the message
+            Translator trs = this.terminal.getTranslatorManager().getTranslator();
+            String msg = trs.translate("Introduce el nombre del jugador ");
+
+            // Create the players
+            for (int i = 0; i < answer; i++) {
+                this.terminal.show(msg + (i + 1) + ": ");
+                String name = this.terminal.readStr();
+                this.terminal.show("");
+
+                this.players[i] = new Player(i, name, this.terminal);
+                System.out.println(this.players[i].toString());
+            }
+        }
     }
 
     private void loadMonopolyCodes() throws Exception {

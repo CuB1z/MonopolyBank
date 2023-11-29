@@ -7,11 +7,13 @@ import java.io.File;
 public class GameManager {
     private Terminal terminal;
 
+    // Constructor ========================================================================================================
+    public GameManager() throws Exception {
+        this.terminal = new TextTerminal();
+    }
+
     // Public methods =====================================================================================================
     public void start() throws Exception {
-
-        // Initialize the terminal and the translator
-        this.terminal = new TextTerminal();
 
         // Show the welcome message
         this.terminal.show("BIENVENIDO AL MONOPOLY BANK");
@@ -25,7 +27,6 @@ public class GameManager {
         if (fileName == null) {
             this.terminal.show("Creando nueva partida...");
             game = new Game();
-            game.play();
 
         } else {
             this.terminal.show("Cargando partida...");
@@ -35,7 +36,7 @@ public class GameManager {
         // TODO Check loading game implementation
 
         // Play the game
-        // game.play();
+        game.play();
     }
 
     // Private methods ====================================================================================================
@@ -43,11 +44,8 @@ public class GameManager {
     // Ask if the user wants to resume a game
     private String askForResumeGame() {
         this.terminal.show("¿Quieres reanudar una partida? (S/N)");
-
-        Scanner scanner = new Scanner(System.in);
-        String answer = scanner.nextLine();
+        String answer = this.terminal.readStr();
         System.out.println();
-        scanner.close();
 
         if (answer.equals("S")) return this.showFileNames();
         else return null;
@@ -65,7 +63,7 @@ public class GameManager {
 
         // Show the file names if there are any
         if (list == null || list.length == 0) {
-            this.terminal.show("-- No hay ficheros disponibles");
+            this.terminal.show("-- No hay ficheros disponibles --");
             this.terminal.show("");
             return null;
         }
@@ -83,10 +81,7 @@ public class GameManager {
     // Ask for the file name and check if it exists
     private String askForFileName(String[] fileNames) {
         this.terminal.show("Introduce el nombre del fichero: / (S para salir)");
-
-        Scanner scanner = new Scanner(System.in);
-        String fileName = scanner.nextLine();
-        scanner.close();
+        String fileName = this.terminal.readStr();
 
         boolean fileExists = false;
 
@@ -98,7 +93,7 @@ public class GameManager {
 
             if (!fileExists) {
                 this.terminal.show("El fichero no existe, introduce otro nombre: / (S para salir)");
-                fileName = scanner.nextLine();
+                fileName = this.terminal.readStr();
             }
         } while (!fileExists && !fileName.equals("S"));
 

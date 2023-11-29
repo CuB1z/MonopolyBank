@@ -11,9 +11,18 @@ public class Terminal {
     // Public methods =====================================================================================================
 
     // If needed, override this method in a subclass
-    public int read(){
+    public int readInt(){
         Scanner scanner = new Scanner(System.in);
         int answer = scanner.nextInt();
+        scanner.close();
+        
+        return answer;
+    }
+    
+    // If needed, override this method in a subclass
+    public String readStr(){
+        Scanner scanner = new Scanner(System.in);
+        String answer = scanner.next();
         scanner.close();
 
         return answer;

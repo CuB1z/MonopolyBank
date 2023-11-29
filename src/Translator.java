@@ -1,6 +1,7 @@
 import java.util.Map;
 import java.util.HashMap;
 import java.io.*;
+import utils.PathUtils;
 
 public class Translator {
     private String language;
@@ -10,8 +11,7 @@ public class Translator {
     public Translator(String filename) throws Exception {
         
         // Get the absolute path of the file
-        String absolutePath = System.getProperty("user.dir");
-        filename = absolutePath + filename;
+        filename = PathUtils.getFilePath(filename);
 
         // Get the language from the filename
         String rootFile = filename.split("/")[filename.split("/").length - 1];
@@ -26,7 +26,7 @@ public class Translator {
             line = buffer.readLine();
 
             if (line != null) {
-                dictionary.put(line.split(",")[0], line.split(",")[1]);
+                this.dictionary.put(line.split(",")[0], line.split(",")[1]);
             }
             
         } while (line != null);
