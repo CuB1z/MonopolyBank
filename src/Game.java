@@ -64,7 +64,7 @@ public class Game implements Serializable{
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
         String output;
-        output = trs.translate("Fin del juego, %s es el ganador!!");
+        output = trs.translate("Fin del juego: %s es el ganador!!");
         output = String.format(output, winner);
 
         this.terminal.show(output);

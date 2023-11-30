@@ -1,10 +1,12 @@
 import java.io.Serializable;
+import java.util.*;
 
 import utils.Constants;
 
 public class Player implements Serializable {
     private Color color;
     private String name;
+    private List<Property> ownedProperties = new ArrayList<Property>();
     private int balance;
     private boolean bankrupt;
     private Terminal terminal;
@@ -35,6 +37,31 @@ public class Player implements Serializable {
         String msg = trs.translate("Jugador %s (%s ) Presupuesto: %d");
 
         return String.format(msg, this.name, color, this.balance);
+    }
+
+    public void pay(int amount, boolean mandatory) {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String msg;
+
+        if (!mandatory) {
+            if (this.balance < amount) {
+                this.terminal.show("No tienes suficiente dinero para pagar");
+                this.terminal.show("Vuelve a intentarlo cuando tengas mas dinero");
+            } else {
+                msg = trs.translate("Desea pagar %d? (S/N)");
+                msg = String.format(msg, amount);
+
+                this.terminal.show(msg);
+                String answer = this.terminal.readStr();
+            }
+        } else {
+            this.balance -= amount;
+            
+            if (this.balance < 0) {
+                this.bankrupt = true;
+                this.terminal.show("Has quebrado");
+            }
+        }
     }
 
     // Getters ============================================================================================================

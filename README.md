@@ -9,4 +9,4 @@ Final project for POO - Software Engineering course at URJC (Universidad Rey Jua
 ## ToDo
 - [ ] Implement loading game from file
 - [ ] Implement saving game to file
-- [ ] Implement language selection
+- [ ] Implement doOperation() method
