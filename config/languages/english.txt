@@ -28,3 +28,6 @@ Comenzando operacion...,Starting operation...
 Cargando datos del juego...,Loading game data...
 Datos cargados correctamente,Data loaded correctly
 Introduce un numero valido,Enter a valid number
+Introduzca código de tarjeta:,Enter card code:
+Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):, Introduce player code (1: red 2: blue 3: green 4: black):
+Fin del juego, %s es el ganador!!,Game Over, %s is the winner!!

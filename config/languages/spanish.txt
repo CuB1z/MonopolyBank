@@ -28,3 +28,6 @@ Comenzando operacion...,Comenzando operacion...
 Cargando datos del juego...,Cargando datos del juego...
 Datos cargados correctamente,Datos cargados correctamente
 Introduce un numero valido,Introduce un numero valido
+Introduzca código de tarjeta:,Introduzca código de tarjeta:
+Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):,Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):
+Fin del juego, %s es el ganador!!,Fin del juego, %s es el ganador!!

@@ -1,11 +1,12 @@
 import java.io.*;
+import java.util.*;
 
 import utils.*;
 
 public class Game implements Serializable{
     private MonopolyCode [] monopolyCodeArray = new MonopolyCode[81];
     private Terminal terminal;
-    private Player [] players = new Player[4];
+    private List<Player> players = new ArrayList<Player>(4);
  
     // BufferedReader to read the file (no need to close it)
     private BufferedReader buffer;
@@ -34,6 +35,39 @@ public class Game implements Serializable{
     // Public methods =====================================================================================================
     public void play() {
         this.terminal.show("Jugando...");
+
+        while (this.players.size() > 1) {
+            // Ask for code ID
+            this.terminal.show("Introduzca código de tarjeta:");
+            int codeId = this.terminal.readInt();
+            this.terminal.show("");
+
+            // Ask for player ID
+            this.terminal.show("Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):");
+            int playerId = this.terminal.readInt();
+            this.terminal.show("");
+
+            // Get monopolyCode and player
+            MonopolyCode mCode = this.monopolyCodeArray[codeId];
+            Player player = this.players.get(playerId - 1);
+
+            // Call doOperation method
+            mCode.doOperation(player);
+
+            // Update players array
+            if (player.isBankrupt()) this.players.remove(player);
+        }
+
+        Player player_winner = this.players.get(0);
+        String winner = player_winner.getName();
+
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+        String output;
+        output = trs.translate("Fin del juego, %s es el ganador!!");
+        output = String.format(output, winner);
+
+        this.terminal.show(output);
     }
 
     // Private methods ====================================================================================================
@@ -59,8 +93,8 @@ public class Game implements Serializable{
                 String name = this.terminal.readStr();
                 this.terminal.show("");
 
-                this.players[i] = new Player(i, name, this.terminal);
-                output += this.players[i].toString() + "\n";
+                this.players.add(new Player(i, name, this.terminal)) ;
+                output += this.players.get(i).toString() + "\n";
             }
 
             // Show the players
@@ -69,6 +103,7 @@ public class Game implements Serializable{
         }
     }
 
+    // Method used to load the monopoly codes
     private void loadMonopolyCodes() throws Exception {
         String file = PathUtils.getFilePath(Constants.MONOPOLY_CODE_FILE_PATH);
 
