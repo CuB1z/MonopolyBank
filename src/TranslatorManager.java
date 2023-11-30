@@ -8,26 +8,31 @@ public class TranslatorManager {
 
     // Constructor ========================================================================================================
     public TranslatorManager() throws Exception {
-        String fileName = String.format(Constants.LANGUAGES_FILE_PATH, Constants.DEFAULT_LANGUAGE);
-        this.currentLanguage = new Translator(fileName);
+        for (String lang : Constants.AVAILABLE_LANGUAGES) {
+            this.addLanguage(lang);
+        }
 
-        this.languages.add(this.currentLanguage);
-    }
-
-    public TranslatorManager(String fileName) throws Exception {
-        fileName = String.format(Constants.LANGUAGES_FILE_PATH, fileName);
-        this.currentLanguage = new Translator(fileName);
-
-        this.languages.add(this.currentLanguage);
+        this.setLanguage(Constants.DEFAULT_LANGUAGE);
     }
 
     // Public methods =====================================================================================================
-    public void changeLanguage() {
+    public void addLanguage(String fileName) throws Exception {
+        fileName = String.format(Constants.LANGUAGES_FILE_PATH, fileName);
+        Translator translator = new Translator(fileName);
 
+        this.languages.add(translator);
     }
 
-    // Getters and setters =================================================================================================
+    // Getters and setters ================================================================================================
     public Translator getTranslator() {
         return this.currentLanguage;
+    }
+
+    public void setLanguage(String language) {
+        for (Translator translator : languages) {
+            if (translator.getLanguage().equals(language)) {
+                this.currentLanguage = translator;
+            }
+        }
     }
 }

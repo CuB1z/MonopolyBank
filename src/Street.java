@@ -27,7 +27,7 @@ public class Street extends Property{
         this.housePrice = Integer.parseInt(info[9]);
     }
 
-    // Getters ===========================================================================================================
+    // Getters ============================================================================================================
     public int getHousePrice() {
         return this.housePrice;
     }

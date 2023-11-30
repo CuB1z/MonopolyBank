@@ -21,7 +21,7 @@ public class RepairsCard extends MonopolyCode {
         this.amountForHouse = Integer.parseInt(prices_2[prices_2.length - 1]);
     }
 
-    // Getters ===========================================================================================================
+    // Getters ============================================================================================================
     public int getAmountForHouse() {
         return this.amountForHouse;
     }

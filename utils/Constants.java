@@ -9,6 +9,7 @@ package utils;
 */
 
 public class Constants {
+    
     // Paths
     public static final String MONOPOLY_CODE_FILE_PATH = "/config/monopolyCode.txt";
     public static final String LANGUAGES_FILE_PATH = "/config/languages/%s.txt";
@@ -25,17 +26,17 @@ public class Constants {
     public static final String DATA_SEPARATOR = ";";
     public static final String PRICE_DATA_SEPARATOR = "EUR";
     public static final String ALTERNATIVE_DATA_SEPARATOR = " ";
-
-
-    // Default values
-    public static final String DEFAULT_LANGUAGE = "spanish";
-
+ 
     // Players constants
     public static final int MAX_NUMBER_OF_PLAYERS = 4;
     public static final int INITIAL_BALANCE = 1500;
-
+    
     // Available languages
-    public static final String SPANISH = "spanish";
+    public static final String SPANISH = "español";
     public static final String ENGLISH = "english";
     
+    public static final String[] AVAILABLE_LANGUAGES = {"spanish", "english"};
+    
+    // Default values
+    public static final String DEFAULT_LANGUAGE = "spanish";
 }

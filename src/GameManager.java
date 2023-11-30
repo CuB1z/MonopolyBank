@@ -1,20 +1,24 @@
+import java.util.Scanner;
+
 import utils.Constants;
 
 import java.io.File;
 
 public class GameManager {
-    private Terminal terminal;
+
+    // Scanner to read the user input before the game starts
+    private Scanner scanner;
 
     // Constructor ========================================================================================================
-    public GameManager() throws Exception {
-        this.terminal = new TextTerminal();
+    public GameManager() {
+        this.scanner = new Scanner(System.in);
     }
 
     // Public methods =====================================================================================================
     public void start() throws Exception {
 
         // Show the welcome message
-        this.terminal.show("BIENVENIDO AL MONOPOLY BANK");
+        System.out.println("BIENVENIDO AL MONOPOLY BANK");
         System.out.println();
 
         // Ask if the user wants to resume a game
@@ -23,12 +27,12 @@ public class GameManager {
         // Create a new game or load a saved one
         Game game = null;
         if (fileName == null) {
-            this.terminal.show("Creando nueva partida...");
+            System.out.println("Creando nueva partida...");
             game = new Game();
 
         } else {
-            this.terminal.show("Cargando partida...");
-            game = new Game(fileName);
+            System.out.println("Cargando partida...");
+            // game = new Game(fileName); Implement saved game constructor
         }
 
         // Play the game
@@ -36,24 +40,11 @@ public class GameManager {
     }
 
     // Private methods ====================================================================================================
-    
-    // Ask desired language and set it
-    // private void askForLanguage() {
-    //     this.terminal.show("Introduce el idioma deseado: ");
-    //     String answer = this.terminal.readStr();
-    //     System.out.println();
-
-    //     if (answer.equals("E")) {
-    //         this.terminal.getTranslatorManager().setLanguage("es");
-    //     } else {
-    //         this.terminal.getTranslatorManager().setLanguage("en");
-    //     }
-    // }
 
     // Ask if the user wants to resume a game
     private String askForResumeGame() {
-        this.terminal.show("¿Quieres reanudar una partida? (S/N)");
-        String answer = this.terminal.readStr();
+        System.out.println("¿Quieres reanudar una partida? (S/N)");
+        String answer = this.scanner.next();
         System.out.println();
 
         if (answer.equals("S")) return this.showFileNames();
@@ -68,12 +59,12 @@ public class GameManager {
         File folder = new File(Constants.MONOPOLY_OLD_GAMES_PATH);
         String[] list = folder.list();
 
-        this.terminal.show("Ficheros disponibles: ");
+        System.out.println("Ficheros disponibles: ");
 
         // Show the file names if there are any
         if (list == null || list.length == 0) {
-            this.terminal.show("-- No hay ficheros disponibles --");
-            this.terminal.show("");
+            System.out.println("-- No hay ficheros disponibles --");
+            System.out.println("");
             return null;
         }
         
@@ -89,8 +80,8 @@ public class GameManager {
 
     // Ask for the file name and check if it exists
     private String askForFileName(String[] fileNames) {
-        this.terminal.show("Introduce el nombre del fichero: / (S para salir)");
-        String fileName = this.terminal.readStr();
+        System.out.println("Introduce el nombre del fichero: / (S para salir)");
+        String fileName = this.scanner.next();
 
         boolean fileExists = false;
 
@@ -101,19 +92,19 @@ public class GameManager {
             }
 
             if (!fileExists) {
-                this.terminal.show("El fichero no existe, introduce otro nombre: / (S para salir)");
-                fileName = this.terminal.readStr();
+                System.out.println("El fichero no existe, introduce otro nombre: / (S para salir)");
+                fileName = this.scanner.next();
             }
         } while (!fileExists && !fileName.equals("S"));
 
         if (!fileExists) {
-            this.terminal.show("La operacion ha sido cancelada...");
-            this.terminal.show("Creando nueva partida...");
+            System.out.println("La operacion ha sido cancelada...");
+            System.out.println("Creando nueva partida...");
             return null;
 
         } else {
-            this.terminal.show("Fichero encontrado...");
-            this.terminal.show("Cargando partida...");
+            System.out.println("Fichero encontrado...");
+            System.out.println("Cargando partida...");
             return fileName;
         }
     }

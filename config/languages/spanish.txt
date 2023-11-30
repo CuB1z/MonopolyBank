@@ -1,6 +1,12 @@
 BIENVENIDO AL MONOPOLY,BIENVENIDO AL MONOPOLY
-Introduzca el lenguaje que desea utilizar,Introduzca el lenguaje que desea utilizar
+Lenguajes disponibles: ,Lenguajes disponibles: 
+Introduzca el lenguaje que desea utilizar: ,Introduzca el lenguaje que desea utilizar: 
+Valor invalido, introduzca otro: ,Valor invalido, introduzca otro: 
 ¿Quieres reanudar una partida? (S/N),¿Quieres reanudar una partida? (S/N)
+RED, ROJO
+BLUE, AZUL
+GREEN, VERDE
+BLACK, NEGRO
 Espanol,Espanol
 Ingles,Ingles
 Catalan,Catalan
@@ -16,9 +22,9 @@ Jugando...,Jugando...
 Introduce el numero de jugadores (2-4): ,Introduce el numero de jugadores (2-4): 
 Numero de jugadores incorrecto,Numero de jugadores incorrecto
 Introduce el nombre del jugador ,Introduce el nombre del jugador 
-Player %s (%s) Balance: %d,Player %s (%s) Balance: %d
+Jugador %s (%s ) Presupuesto: %d,Jugador %s (%s ) Presupuesto: %d
 ---Jugadores---,---Jugadores---
 Comenzando operacion...,Comenzando operacion...
 Cargando datos del juego...,Cargando datos del juego...
-Los datos del juego se han cargado correctamente,Los datos del juego se han cargado correctamente
+Datos cargados correctamente,Datos cargados correctamente
 Introduce un numero valido,Introduce un numero valido

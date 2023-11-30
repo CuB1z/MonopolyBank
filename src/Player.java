@@ -30,12 +30,14 @@ public class Player implements Serializable {
     // Public methods =====================================================================================================
     public String toString() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String msg = trs.translate("Player %s (%s) Balance: %d");
+        String color = trs.translate(this.color.toString());
+        
+        String msg = trs.translate("Jugador %s (%s ) Presupuesto: %d");
 
-        return String.format(msg, this.name, this.color, this.balance);
+        return String.format(msg, this.name, color, this.balance);
     }
 
-    // Getters ===========================================================================================================
+    // Getters ============================================================================================================
     public Color getColor() {
         return this.color;
     }

@@ -6,21 +6,34 @@ public class Game implements Serializable{
     private MonopolyCode [] monopolyCodeArray = new MonopolyCode[81];
     private Terminal terminal;
     private Player [] players = new Player[4];
+ 
+    // BufferedReader to read the file (no need to close it)
+    private BufferedReader buffer;
 
     // Constructor ========================================================================================================
     public Game() throws Exception {
-        this.terminal = new TextTerminal();
+        this.terminal = new Terminal();
+
+        // Ask for language and set it
+        int lang_id = this.askForLanguage();
+        this.terminal.getTranslatorManager().setLanguage(Constants.AVAILABLE_LANGUAGES[lang_id]);
+
+        // Create players
         this.createPlayers();
+
+        // Load monopoly codes
         this.loadMonopolyCodes();
     }
 
-    public Game(String fileName) throws Exception {
-        this.loadMonopolyCodes();
-    }
+    // Constructor used to load a saved game
+    // public Game(String fileName) throws Exception {
+    //     this.createPlayers(fileName);
+    //     this.loadMonopolyCodes(fileName);
+    // }
 
     // Public methods =====================================================================================================
     public void play() {
-        System.out.println("Jugando...");
+        this.terminal.show("Jugando...");
     }
 
     // Private methods ====================================================================================================
@@ -61,7 +74,7 @@ public class Game implements Serializable{
 
         // Configure the reader
         Reader in = new FileReader(file);
-        BufferedReader buffer = new BufferedReader(in);
+        this.buffer = new BufferedReader(in);
 
         this.terminal.show("Cargando datos del juego...");
 
@@ -93,9 +106,7 @@ public class Game implements Serializable{
 
         } while (configString != null);
 
-        buffer.close();
-
-        this.terminal.show("Los datos del juego se han cargado correctamente");
+        this.terminal.show("Datos cargados correctamente");
     }
 
     //Method used to set the monopoly code in the array
@@ -118,5 +129,48 @@ public class Game implements Serializable{
     // Method used to destructure the config line
     private String [] destructureConfigLine(String config) {
         return config.split(Constants.DATA_SEPARATOR);
+    }
+
+    // Language methods ===================================================================================================
+    // Ask desired language and return the index of the language
+    private int askForLanguage() {
+        int answer = 0;
+        boolean validAnswer = false;
+
+        // Show available languages
+        this.terminal.show("Lenguajes disponibles: ");
+        this.showAvailableLanguages();
+
+        this.terminal.show("Introduzca el lenguaje que desea utilizar: ");
+
+        // Ask for the language and check if it is valid
+        while (!validAnswer) {
+            try {
+                answer = this.terminal.readInt();
+                this.terminal.show("");
+
+                if (answer < 0 || answer > Constants.AVAILABLE_LANGUAGES.length - 1) {
+                    this.terminal.show("Valor invalido, introduzca otro!!");
+                    this.terminal.show("");
+
+                } else
+                    validAnswer = true;
+            } catch (Exception e) {
+                this.terminal.show("Introduzca un valor valido!!");
+                this.terminal.show("");
+            }
+        }
+
+        return answer;
+    }
+
+    // Print available languages
+    private void showAvailableLanguages() {
+        for (int i = 0; i < Constants.AVAILABLE_LANGUAGES.length; i++) {
+            String outString = String.format("%d: %s", i, Constants.AVAILABLE_LANGUAGES[i]);
+            this.terminal.show(outString);
+        }
+
+        this.terminal.show("");
     }
 }

@@ -21,7 +21,7 @@ public class MonopolyCode implements Serializable {
     public String toString() {
         return String.format("[%s] %s", this.id, this.description);
     }
-    // Getters and setters =================================================================================================
+    // Getters and setters ================================================================================================
     public String getDescription() {
         return this.description;
     }

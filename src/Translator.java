@@ -43,7 +43,7 @@ public class Translator {
         return this.dictionary.get(word);
     }
 
-    // Getters and setters =================================================================================================
+    // Getters and setters ================================================================================================
     public String getLanguage() {
         return this.language;
     }
