@@ -1,7 +1,7 @@
 # MonopolyBank
 
-## Description
+## Author
+Diego Sánchez Rincón
 
-### ToDo
-+ [ ] Implement loadMonopolyCodes()
-+ [ ] Implement changeLanguage()
+## Description
+Final project for POO - Software Engineering course at URJC (Universidad Rey Juan Carlos).

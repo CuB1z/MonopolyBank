@@ -1,7 +1,12 @@
 package utils;
 
-// This class contains the constants used in the game
-// Asuming that { monopolyCode.txt format = (id;type;description;amounts) }
+/* This class contains the constants used in the game
+    Asuming that { monopolyCode.txt format = (id;type;description) }
+    Asuming that { monopolyCode.txt money format = ( charges (-amount) && payments (+amount) ) }
+    Asuming that { languages/{language}.txt format = (default_language;translation) }
+
+    If needed, the constants can be changed here
+*/
 
 public class Constants {
     // Paths
@@ -28,5 +33,9 @@ public class Constants {
     // Players constants
     public static final int MAX_NUMBER_OF_PLAYERS = 4;
     public static final int INITIAL_BALANCE = 1500;
+
+    // Available languages
+    public static final String SPANISH = "spanish";
+    public static final String ENGLISH = "english";
     
 }

@@ -3,7 +3,7 @@ import java.io.*;
 import utils.*;
 
 public class Game implements Serializable{
-    private MonopolyCode [] monopolyCodeArray = new MonopolyCode[80];
+    private MonopolyCode [] monopolyCodeArray = new MonopolyCode[81];
     private Terminal terminal;
     private Player [] players = new Player[4];
 
@@ -63,6 +63,8 @@ public class Game implements Serializable{
         Reader in = new FileReader(file);
         BufferedReader buffer = new BufferedReader(in);
 
+        this.terminal.show("Cargando datos del juego...");
+
         // Read the file line by line and initialize the monopolyCodeArray
         String configString;
         do {
@@ -92,6 +94,8 @@ public class Game implements Serializable{
         } while (configString != null);
 
         buffer.close();
+
+        this.terminal.show("Los datos del juego se han cargado correctamente");
     }
 
     //Method used to set the monopoly code in the array

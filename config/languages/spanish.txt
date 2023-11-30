@@ -19,3 +19,6 @@ Introduce el nombre del jugador ,Introduce el nombre del jugador
 Player %s (%s) Balance: %d,Player %s (%s) Balance: %d
 ---Jugadores---,---Jugadores---
 Comenzando operacion...,Comenzando operacion...
+Cargando datos del juego...,Cargando datos del juego...
+Los datos del juego se han cargado correctamente,Los datos del juego se han cargado correctamente
+Introduce un numero valido,Introduce un numero valido

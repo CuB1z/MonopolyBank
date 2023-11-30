@@ -37,6 +37,19 @@ public class GameManager {
 
     // Private methods ====================================================================================================
     
+    // Ask desired language and set it
+    // private void askForLanguage() {
+    //     this.terminal.show("Introduce el idioma deseado: ");
+    //     String answer = this.terminal.readStr();
+    //     System.out.println();
+
+    //     if (answer.equals("E")) {
+    //         this.terminal.getTranslatorManager().setLanguage("es");
+    //     } else {
+    //         this.terminal.getTranslatorManager().setLanguage("en");
+    //     }
+    // }
+
     // Ask if the user wants to resume a game
     private String askForResumeGame() {
         this.terminal.show("¿Quieres reanudar una partida? (S/N)");

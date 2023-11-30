@@ -11,12 +11,13 @@ public class PaymentCharge extends MonopolyCode {
 
         // Set the amount
         if (info[2].contains(Constants.PRICE_DATA_SEPARATOR)) {
-            String [] value = info[2].split(Constants.ALTERNATIVE_DATA_SEPARATOR);
-            String amount = value[value.length - 1].split(Constants.PRICE_DATA_SEPARATOR)[0];
+            String [] value = info[2].split(Constants.PRICE_DATA_SEPARATOR);
+            String [] amount = value[0].split(Constants.ALTERNATIVE_DATA_SEPARATOR);
+
+            String amount_value = amount[amount.length - 1];
     
-            this.amount = Integer.parseInt(amount);
-        } else {
-            this.amount = 0;
-        }
+            this.amount = Integer.parseInt(amount_value);
+
+        } else this.amount = 0;
     }
 }
