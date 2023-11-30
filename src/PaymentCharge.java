@@ -20,4 +20,9 @@ public class PaymentCharge extends MonopolyCode {
 
         } else this.amount = 0;
     }
+
+    // Getters ===========================================================================================================
+    public int getAmount() {
+        return this.amount;
+    }
 }

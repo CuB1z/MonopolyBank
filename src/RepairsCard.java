@@ -20,4 +20,13 @@ public class RepairsCard extends MonopolyCode {
         String [] prices_2 = prices[1].split(Constants.ALTERNATIVE_DATA_SEPARATOR);
         this.amountForHouse = Integer.parseInt(prices_2[prices_2.length - 1]);
     }
+
+    // Getters ===========================================================================================================
+    public int getAmountForHouse() {
+        return this.amountForHouse;
+    }
+
+    public int getAmountForHotel() {
+        return this.amountForHotel;
+    }
 }

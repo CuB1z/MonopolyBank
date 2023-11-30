@@ -26,4 +26,9 @@ public class Street extends Property{
         // Set the house price
         this.housePrice = Integer.parseInt(info[9]);
     }
+
+    // Getters ===========================================================================================================
+    public int getHousePrice() {
+        return this.housePrice;
+    }
 }

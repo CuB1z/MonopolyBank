@@ -24,6 +24,7 @@ public class Player implements Serializable {
         this.name = name;
         this.terminal = terminal;
         this.balance = Constants.INITIAL_BALANCE;
+        this.bankrupt = false;
     }
 
     // Public methods =====================================================================================================
@@ -32,5 +33,22 @@ public class Player implements Serializable {
         String msg = trs.translate("Player %s (%s) Balance: %d");
 
         return String.format(msg, this.name, this.color, this.balance);
+    }
+
+    // Getters ===========================================================================================================
+    public Color getColor() {
+        return this.color;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getBalance() {
+        return this.balance;
+    }
+
+    public boolean isBankrupt() {
+        return this.bankrupt;
     }
 }
