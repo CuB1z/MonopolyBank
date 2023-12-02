@@ -3,10 +3,10 @@ Lenguajes disponibles: ,Available languages:
 Introduzca el lenguaje que desea utilizar: ,Introduce the language you want to use: 
 Valor invalido, introduzca otro: ,Invalid value, enter another:
 ¿Quieres reanudar una partida? (S/N),Do you want to resume a game? (Y/N)
-RED, RED
-BLUE, BLUE
-GREEN, GREEN
-BLACK, BLACK
+RED,RED
+BLUE,BLUE
+GREEN,GREEN
+BLACK,BLACK
 Espanol,Spanish
 Ingles,English
 Catalan,Catalan
@@ -33,3 +33,12 @@ Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):, Introduce pl
 Fin del juego: %s es el ganador!!,Game Over: %s is the winner!!
 Pago efectuado,Payment made
 Vuelve a intentarlo cuando tengas mas dinero,Try again when you have more money
+Desea pagar %d? (S/N),Do you want to pay %d? (S/N)
+Introduzca la propiedad que desea vender:,Introduce desired property to sell:
+Propiedades de %s:,%s's properties:
+Propiedad no encontrada,Property not found
+Vende propiedades,Sell properties
+Nuevo presupuesto: %d,New balance: %d
+No se ha realizado el pago,Payment hasn't been made
+El jugador %s ha quebrado,The player %s has gone bankrupt,
+La propiedad no es tuya,This property doesn't belong to you

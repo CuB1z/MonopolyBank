@@ -14,6 +14,9 @@ public class MonopolyCode implements Serializable {
 
     // Public methods =====================================================================================================
     public void doOperation(Player p) {
+
+        // Get player ID
+        int playerId = p.getId();
         this.terminal.show("Comenzando operacion...");
         // TODO: Implement
     }

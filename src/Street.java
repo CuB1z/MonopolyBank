@@ -1,4 +1,7 @@
+import utils.Constants;
+
 public class Street extends Property{
+    private int builtHouses;
     private int housePrice;
     private int [] costStaying = new int[6];
 
@@ -25,10 +28,37 @@ public class Street extends Property{
 
         // Set the house price
         this.housePrice = Integer.parseInt(info[9]);
+
+        // Set the builtHouses
+        this.builtHouses = 0;
     }
 
+    // Public methods =====================================================================================================
+    public void buildHouse() {
+        if (this.builtHouses < Constants.MAX_NUMBER_OF_HOUSES) this.builtHouses++;
+    }
+
+    public int sellHouse() {
+        if (this.builtHouses > 0) this.builtHouses--;
+        return this.housePrice / 2;
+    }
+
+    public boolean isBuilt() {
+        return this.builtHouses > 0;
+    }
+
+    
     // Getters ============================================================================================================
     public int getHousePrice() {
         return this.housePrice;
+    }
+    
+    public int getBuiltHouses() {
+        return this.builtHouses;
+    }
+
+    @Override
+    public int getPaymentForRent() {
+        return this.costStaying[this.builtHouses];
     }
 }

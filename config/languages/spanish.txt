@@ -33,3 +33,12 @@ Introduzca c√≥digo de jugador (1: rojo 2: azul 3: verde 4: negro):,Introduzca c√
 Fin del juego, %s es el ganador!!,Fin del juego, %s es el ganador!!
 Pago efectuado,Pago efectuado
 Vuelve a intentarlo cuando tengas mas dinero,Vuelve a intentarlo cuando tengas mas dinero
+Desea pagar %d? (S/N),Desea pagar %d? (S/N)
+Introduzca la propiedad que desea vender:,Introduzca la propiedad que desea vender:
+Propiedades de %s:,Propiedades de %s:
+Propiedad no encontrada,Propiedad no encontrada
+Vende propiedades,Vende propiedades
+Nuevo presupuesto: %d,Nuevo presupuesto: %d
+No se ha realizado el pago,No se ha realizado el pago
+El jugador %s ha quebrado,El jugador %s ha quebrado
+La propiedad no es tuya,La propiedad no es tuya
