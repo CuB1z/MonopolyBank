@@ -36,7 +36,7 @@ public class Game implements Serializable{
     public void play() {
         this.terminal.show("Jugando...");
 
-        while (this.players.size() > 1) {
+        while (!this.isFinished()) {
             // Ask for code ID
             this.terminal.show("Introduzca código de tarjeta:");
             int codeId = this.terminal.readInt();
@@ -71,6 +71,8 @@ public class Game implements Serializable{
     }
 
     // Private methods ====================================================================================================
+
+    //Method used to initialize players
     private void createPlayers(){
         
         // Ask for the number of players
@@ -103,6 +105,10 @@ public class Game implements Serializable{
         }
     }
 
+    // Method used to check if the game is finished
+    private boolean isFinished() {
+        return this.players.size() == 1;
+    }
     // Method used to load the monopoly codes
     private void loadMonopolyCodes() throws Exception {
         String file = PathUtils.getFilePath(Constants.MONOPOLY_CODE_FILE_PATH);

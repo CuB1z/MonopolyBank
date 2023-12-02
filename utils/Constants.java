@@ -1,5 +1,4 @@
 package utils;
-import java.util.*;
 
 /* This class contains the constants used in the game
     Asuming that { monopolyCode.txt format = (id;type;description) }
