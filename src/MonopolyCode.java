@@ -2,7 +2,7 @@ import java.io.Serializable;
 
 public class MonopolyCode implements Serializable {
     private String description;
-    private Terminal terminal;
+    protected Terminal terminal;
     private int id;
 
     // Constructor ========================================================================================================
@@ -13,12 +13,10 @@ public class MonopolyCode implements Serializable {
     }
 
     // Public methods =====================================================================================================
-    public void doOperation(Player p) {
 
-        // Get player ID
-        int playerId = p.getId();
-        this.terminal.show("Comenzando operacion...");
-        // TODO: Implement
+    // Method to be implemented by the subclasses (Override it)
+    public void doOperation(Player p) {
+        // To be implemented by subclasses
     }
 
     public String toString() {

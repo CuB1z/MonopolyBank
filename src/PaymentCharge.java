@@ -21,6 +21,15 @@ public class PaymentCharge extends MonopolyCode {
         } else this.amount = 0;
     }
 
+    // Public methods =====================================================================================================
+
+    // Overriden doOperation() method
+    @Override
+    public void doOperation(Player player) {
+        this.terminal.show(this.getDescription());
+        player.pay(this.amount, true);
+    }
+
     // Getters ============================================================================================================
     public int getAmount() {
         return this.amount;

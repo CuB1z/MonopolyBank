@@ -47,6 +47,17 @@ public class Street extends Property{
         return this.builtHouses > 0;
     }
 
+    public int getHouses() {
+        return this.builtHouses - 1;
+    }
+
+    public int getHotels() {
+        return this.builtHouses == Constants.MAX_NUMBER_OF_HOUSES ? 1 : 0;
+    }
+    
+    public boolean hasHotel() {
+        return this.builtHouses == Constants.MAX_NUMBER_OF_HOUSES;
+    }
     
     // Getters ============================================================================================================
     public int getHousePrice() {

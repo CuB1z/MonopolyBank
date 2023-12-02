@@ -21,6 +21,31 @@ public class RepairsCard extends MonopolyCode {
         this.amountForHouse = Integer.parseInt(prices_2[prices_2.length - 1]);
     }
 
+    // Public methods =====================================================================================================
+
+    
+    @Override
+    public void doOperation(Player p) {
+        int houses = 0;
+        int hotels = 0;
+
+        // Get the amount of houses and hotels
+        for (Property property : p.getOwnedProperties()) {
+            if (property instanceof Street) {
+                Street street = (Street) property;
+
+                houses += street.getHouses();
+                hotels += street.getHotels();
+            }
+        }
+
+        // Calculate the amount to pay
+        int amount = (houses * this.amountForHouse) + (hotels * this.amountForHotel);
+
+        // Pay the amount
+        p.pay(amount, true);
+    }
+
     // Getters ============================================================================================================
     public int getAmountForHouse() {
         return this.amountForHouse;

@@ -51,9 +51,19 @@ public class Game implements Serializable{
             MonopolyCode mCode = this.monopolyCodeArray[codeId];
             Player player = this.players.get(playerId - 1);
 
-            // Call doOperation method
-            mCode.doOperation(player);
+            // Cast the mCode variable and exec doOperation()
+            if (mCode instanceof Property){
+                Property property = (Property) mCode;
+                property.doOperation(player);
 
+            } else if (mCode instanceof PaymentCharge){
+                PaymentCharge payCh = (PaymentCharge) mCode;
+                payCh.doOperation(player);
+            } else {
+                RepairsCard repCard = (RepairsCard) mCode;
+                repCard.doOperation(player);
+            }
+            
             // Update players array
             if (player.isBankrupt()) this.players.remove(player);
         }
