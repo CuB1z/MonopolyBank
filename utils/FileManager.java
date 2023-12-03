@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.io.*;
 
 public class FileManager {
-    public String getActualDate() {
+    public static String getActualDate() {
         LocalDateTime date = LocalDateTime.now();
         String formatedDate;
         formatedDate = date.toString().split(".")[0];
@@ -12,12 +12,16 @@ public class FileManager {
         return formatedDate;
     }
 
-
     public static void saveFile(Object obj) {
+        String filePath = Constants.MONOPOLY_OLD_GAMES_PATH + getActualDate() + ".xml";
+        String finalPath = PathUtils.getFilePath(filePath);
+
         try {
             XMLEncoder encoder = new XMLEncoder(
-                                    new BufferedOutputStream(
-                                        new FileOutputStream("pelis.xml")));
+                                 new BufferedOutputStream(
+                                 new FileOutputStream(finalPath))
+                                );
+                                
             encoder.writeObject(obj);
             encoder.close();
 
