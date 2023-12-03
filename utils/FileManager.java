@@ -69,8 +69,4 @@ public class FileManager {
 
         return formatedDate;
     }
-
-    public static void main(String[] args) {
-        FileManager.readFile("2023-12-03_14-37-28");
-    }
 }
