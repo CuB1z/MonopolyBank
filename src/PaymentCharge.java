@@ -1,5 +1,3 @@
-import utils.Constants;
-
 public class PaymentCharge extends MonopolyCode {
     private int amount;
 

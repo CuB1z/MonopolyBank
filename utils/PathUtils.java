@@ -1,5 +1,3 @@
-package utils;
-
 // This class contains methods related to paths
 
 public class PathUtils {

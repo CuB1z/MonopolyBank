@@ -1,8 +1,6 @@
 import java.io.Serializable;
 import java.util.*;
 
-import utils.Constants;
-
 public class Player implements Serializable {
     private Color color;
     private String name;

@@ -1,8 +1,6 @@
 import java.io.Serializable;
 import java.util.*;
 
-import utils.Constants;
-
 public class TranslatorManager implements Serializable {
     private Translator currentLanguage;
     private List<Translator> languages = new ArrayList<Translator>();

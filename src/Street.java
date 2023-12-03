@@ -1,5 +1,3 @@
-import utils.Constants;
-
 public class Street extends Property{
     private int builtHouses;
     private int housePrice;

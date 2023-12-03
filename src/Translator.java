@@ -1,7 +1,6 @@
 import java.util.Map;
 import java.util.HashMap;
 import java.io.*;
-import utils.PathUtils;
 
 public class Translator implements Serializable {
     private String language;

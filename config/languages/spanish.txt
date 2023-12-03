@@ -42,3 +42,4 @@ Nuevo presupuesto: %d,Nuevo presupuesto: %d
 No se ha realizado el pago,No se ha realizado el pago
 El jugador %s ha quebrado,El jugador %s ha quebrado
 La propiedad no es tuya,La propiedad no es tuya
+Error al guardar el archivo,Error al guardar el archivo

@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import utils.Constants;
-
 import java.io.File;
 
 public class GameManager {

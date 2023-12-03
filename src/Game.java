@@ -1,9 +1,8 @@
 import java.io.*;
 import java.util.*;
 
-import utils.*;
-
 public class Game implements Serializable{
+    private String fileName;
     private MonopolyCode [] monopolyCodeArray = new MonopolyCode[81];
     private Terminal terminal;
     private List<Player> players = new ArrayList<Player>(4);
@@ -36,6 +35,9 @@ public class Game implements Serializable{
     public void play() {
         this.terminal.show("Jugando...");
 
+        // Set the fileName with the actual date
+        this.setFileName(FileManager.getActualDate());
+
         while (!this.isFinished()) {
             // Ask for code ID
             this.terminal.show("Introduzca código de tarjeta:");
@@ -67,6 +69,8 @@ public class Game implements Serializable{
 
             // Update players array
             if (player.isBankrupt()) this.players.remove(player);
+
+            FileManager.saveFile(this, this.fileName);
         }
 
         Player player_winner = this.players.get(0);
@@ -249,5 +253,13 @@ public class Game implements Serializable{
 
     public void setPlayers(List<Player> players) {
         this.players = players;
+    }
+
+    public String getFileName() {
+        return this.fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 }
