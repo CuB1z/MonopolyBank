@@ -24,17 +24,34 @@ public class Property extends MonopolyCode {
         return 0;
     }
 
+    // Method that returns if the property is owned or not
+    public boolean isOwned() {
+        return this.owner != null;
+    }
+
     // Getters and setters ================================================================================================
     public int getPrice() {
         return this.price;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public int getMortgageValue() {
         return this.mortgageValue;
+    }
+
+    public void setMortgageValue(int mortgageValue) {
+        this.mortgageValue = mortgageValue;
     }
     
     public Player getOwner() {
         return this.owner;
+    }
+
+    public void setOwner(Player owner) {
+        this.owner = owner;
     }
 
     public boolean isMortgaged() {
@@ -45,7 +62,4 @@ public class Property extends MonopolyCode {
         this.mortgaged = mortgaged;
     }
 
-    public void setOwner(Player owner) {
-        this.owner = owner;
-    }
 }

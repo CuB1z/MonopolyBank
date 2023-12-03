@@ -108,4 +108,13 @@ public class GameManager {
             return fileName;
         }
     }
+
+    // Getters & setters ==================================================================================================
+    public Scanner getScanner() {
+        return this.scanner;
+    }
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
 }

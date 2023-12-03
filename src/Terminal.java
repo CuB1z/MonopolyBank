@@ -1,6 +1,7 @@
 import java.util.Scanner;
+import java.io.Serializable;
 
-public class Terminal {
+public class Terminal implements Serializable{
     private TranslatorManager translatorManager;
     private Scanner scanner;
     
@@ -49,8 +50,12 @@ public class Terminal {
         System.out.println(translatedMessage);
     }
 
-    // Getters and setters =================================================================================================
+    // Getters & setters ==================================================================================================
     public TranslatorManager getTranslatorManager() {
         return this.translatorManager;
+    }
+
+    public void setTranslatorManager(TranslatorManager translatorManager) {
+        this.translatorManager = translatorManager;
     }
 }

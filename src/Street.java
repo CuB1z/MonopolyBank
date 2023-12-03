@@ -59,17 +59,33 @@ public class Street extends Property{
         return this.builtHouses == Constants.MAX_NUMBER_OF_HOUSES;
     }
     
-    // Getters ============================================================================================================
+    @Override
+    public int getPaymentForRent() {
+        return this.costStaying[this.builtHouses];
+    }
+
+    // Getters & Setters ==================================================================================================
     public int getHousePrice() {
         return this.housePrice;
+    }
+
+    public void setHousePrice(int housePrice) {
+        this.housePrice = housePrice;
     }
     
     public int getBuiltHouses() {
         return this.builtHouses;
     }
 
-    @Override
-    public int getPaymentForRent() {
-        return this.costStaying[this.builtHouses];
+    public void setBuiltHouses(int builtHouses) {
+        this.builtHouses = builtHouses;
+    }
+
+    public int[] getCostStaying() {
+        return this.costStaying;
+    }
+
+    public void setCostStaying(int[] costStaying) {
+        this.costStaying = costStaying;
     }
 }

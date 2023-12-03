@@ -18,4 +18,15 @@ public class Service extends Property{
         this.costStaying[0] = Integer.parseInt(info[3]);
         this.costStaying[1] = Integer.parseInt(info[4]);
     }
+
+    // Public methods =====================================================================================================
+
+    // Getters & setters ==================================================================================================
+    public int [] getCostStaying() {
+        return this.costStaying;
+    }
+
+    public void setCostStaying(int [] costStaying) {
+        this.costStaying = costStaying;
+    }
 }

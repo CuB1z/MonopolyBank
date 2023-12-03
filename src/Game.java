@@ -59,11 +59,12 @@ public class Game implements Serializable{
             } else if (mCode instanceof PaymentCharge){
                 PaymentCharge payCh = (PaymentCharge) mCode;
                 payCh.doOperation(player);
+                
             } else {
                 RepairsCard repCard = (RepairsCard) mCode;
                 repCard.doOperation(player);
             }
-            
+
             // Update players array
             if (player.isBankrupt()) this.players.remove(player);
         }
@@ -223,5 +224,30 @@ public class Game implements Serializable{
         }
 
         this.terminal.show("");
+    }
+
+    // Getters & Setters ==================================================================================================
+    public MonopolyCode [] getMonopolyCodeArray() {
+        return this.monopolyCodeArray;
+    }
+
+    public void setMonopolyCodeArray(MonopolyCode [] monopolyCodeArray) {
+        this.monopolyCodeArray = monopolyCodeArray;
+    }
+
+    public Terminal getTerminal() {
+        return this.terminal;
+    }
+
+    public void setTerminal(Terminal terminal) {
+        this.terminal = terminal;
+    }
+
+    public List<Player> getPlayers() {
+        return this.players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
     }
 }

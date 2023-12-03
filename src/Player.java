@@ -15,12 +15,7 @@ public class Player implements Serializable {
     public Player(int id, String name, Terminal terminal) {
 
         // Set the color based on the id
-        switch (id) {
-            case Constants.RED_ID: this.color = Color.RED; break;
-            case Constants.BLUE_ID: this.color = Color.BLUE; break;
-            case Constants.GREEN_ID: this.color = Color.GREEN; break;
-            default: this.color = Color.BLACK; break;
-        }
+        this.setId(id);
 
         // Set the other attributes
         this.name = name;
@@ -158,16 +153,32 @@ public class Player implements Serializable {
         return this.color;
     }
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
     public String getName() {
         return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name; 
     }
 
     public int getBalance() {
         return this.balance;
     }
 
+    public void setBalance(int balance) {
+        this.balance = balance; 
+    }
+
     public List<Property> getOwnedProperties() {
         return this.ownedProperties;
+    }
+
+    public void setOwnedProperties(List<Property> ownedProperties) {
+        this.ownedProperties = ownedProperties;
     }
 
     public int getId() {
@@ -179,7 +190,28 @@ public class Player implements Serializable {
         }
     }
 
+    public void setId(int id) {
+        switch (id) {
+            case Constants.RED_ID: this.color = Color.RED; break;
+            case Constants.BLUE_ID: this.color = Color.BLUE; break;
+            case Constants.GREEN_ID: this.color = Color.GREEN; break;
+            default: this.color = Color.BLACK; break;
+        }
+    }
+
     public boolean isBankrupt() {
         return this.bankrupt;
+    }
+
+    public void setBankrupt(boolean bankrupt) {
+        this.bankrupt = bankrupt;
+    }
+
+    public Terminal getTerminal() {
+        return this.terminal;
+    }
+
+    public void setTerminal(Terminal terminal) {
+        this.terminal = terminal;
     }
 }

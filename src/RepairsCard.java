@@ -51,7 +51,15 @@ public class RepairsCard extends MonopolyCode {
         return this.amountForHouse;
     }
 
+    public void setAmountForHouse(int amountForHouse) {
+        this.amountForHouse = amountForHouse;
+    }
+
     public int getAmountForHotel() {
         return this.amountForHotel;
+    }
+
+    public void setAmountForHotel(int amountForHotel) {
+        this.amountForHotel = amountForHotel;
     }
 }

@@ -1,10 +1,11 @@
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.*;
 
 import utils.Constants;
 
-public class TranslatorManager {
+public class TranslatorManager implements Serializable {
     private Translator currentLanguage;
-    private ArrayList<Translator> languages = new ArrayList<Translator>();
+    private List<Translator> languages = new ArrayList<Translator>();
 
     // Constructor ========================================================================================================
     public TranslatorManager() throws Exception {
@@ -23,16 +24,29 @@ public class TranslatorManager {
         this.languages.add(translator);
     }
 
-    // Getters and setters ================================================================================================
-    public Translator getTranslator() {
-        return this.currentLanguage;
-    }
-
     public void setLanguage(String language) {
         for (Translator translator : languages) {
             if (translator.getLanguage().equals(language)) {
                 this.currentLanguage = translator;
             }
         }
+    }
+
+    // Getters & setters ==================================================================================================
+    public Translator getTranslator() {
+        return this.currentLanguage;
+    }
+
+    public void setTranslator(Translator translator) {
+        this.currentLanguage = translator;
+    }
+
+
+    public List<Translator> getLanguages() {
+        return this.languages;
+    }
+
+    public void setLanguages(List<Translator> languages) {
+        this.languages = languages;
     }
 }

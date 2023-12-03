@@ -7,9 +7,9 @@ public class MonopolyCode implements Serializable {
 
     // Constructor ========================================================================================================
     public MonopolyCode(int id, String description, Terminal terminal) {
-        this.description = description;
-        this.terminal = terminal;
-        this.id = id;
+        this.setDescription(description);
+        this.setTerminal(terminal);
+        this.setId(id);
     }
 
     // Public methods =====================================================================================================
@@ -27,7 +27,23 @@ public class MonopolyCode implements Serializable {
         return this.description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Terminal getTerminal() {
+        return this.terminal;
+    }
+
+    public void setTerminal(Terminal terminal) {
+        this.terminal = terminal;
+    }
+
     public int getId() {
         return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

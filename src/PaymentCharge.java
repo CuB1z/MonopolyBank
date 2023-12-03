@@ -30,8 +30,12 @@ public class PaymentCharge extends MonopolyCode {
         player.pay(this.amount, true);
     }
 
-    // Getters ============================================================================================================
+    // Getters & Setters ==================================================================================================
     public int getAmount() {
         return this.amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

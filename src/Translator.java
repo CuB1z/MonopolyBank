@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.io.*;
 import utils.PathUtils;
 
-public class Translator {
+public class Translator implements Serializable {
     private String language;
     private Map<String, String> dictionary = new HashMap<String, String>();
 
@@ -43,8 +43,20 @@ public class Translator {
         return this.dictionary.get(word);
     }
 
-    // Getters and setters ================================================================================================
+    // Getters & setters ==================================================================================================
     public String getLanguage() {
         return this.language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public Map<String, String> getDictionary() {
+        return this.dictionary;
+    }
+
+    public void setDictionary(Map<String, String> dictionary) {
+        this.dictionary = dictionary;
     }
 }

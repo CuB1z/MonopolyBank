@@ -1,4 +1,4 @@
-public class Transport extends Property{
+public class Transport extends Property {
     private int [] costStaying = new int[4];
 
     // Constructor ========================================================================================================
@@ -19,5 +19,14 @@ public class Transport extends Property{
         this.costStaying[1] = Integer.parseInt(info[4]);
         this.costStaying[2] = Integer.parseInt(info[5]);
         this.costStaying[3] = Integer.parseInt(info[6]);
+    }
+
+    // Getters & Setters ==================================================================================================
+    public int [] getCostStaying() {
+        return this.costStaying;
+    }
+
+    public void setCostStaying(int [] costStaying) {
+        this.costStaying = costStaying;
     }
 }
