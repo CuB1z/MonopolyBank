@@ -5,6 +5,11 @@ public class Property extends MonopolyCode {
     private Player owner;
 
     // Constructor ========================================================================================================
+
+    // Zero Constructor
+    public Property() {}
+
+    // Default Constructor
     public Property(int id, String description, Terminal terminal, int price, boolean mortgaged ,int mortgageValue) {
         
         // Call the super constructor

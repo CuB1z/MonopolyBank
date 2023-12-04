@@ -4,6 +4,11 @@ public class Street extends Property{
     private int [] costStaying = new int[6];
 
     // Constructor ========================================================================================================
+
+    // Zero Constructor
+    public Street() {}
+
+    // Default Constructor
     public Street(String [] info, Terminal terminal) {
 
         // Call the super constructor

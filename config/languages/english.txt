@@ -7,11 +7,11 @@ RED,RED
 BLUE,BLUE
 GREEN,GREEN
 BLACK,BLACK
-Espanol,Spanish
-Ingles,English
-Catalan,Catalan
-Euskera,Basque
-Gallego,Galician
+spanish,Spanish
+english,english
+catalan,catalan
+euskera,basque
+gallego,galician
 -- No hay ficheros disponibles --,-- No files available --
 El fichero no existe, introduce otro nombre: / (S para salir),The file does not exist, enter another name: / (S to exit)
 La operacion ha sido cancelada...,The operation has been canceled...

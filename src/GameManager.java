@@ -8,6 +8,8 @@ public class GameManager implements Serializable {
     private Scanner scanner;
 
     // Constructor ========================================================================================================
+
+    // Zero Constructor
     public GameManager() {
         this.scanner = new Scanner(System.in);
     }
@@ -88,6 +90,8 @@ public class GameManager implements Serializable {
         System.out.println("Introduce el nombre del fichero: / (S para salir)");
         String fileName = this.scanner.next();
 
+        if (fileName.toLowerCase().equals("s")) return null;
+
         boolean fileExists = false;
 
         do {
@@ -100,11 +104,10 @@ public class GameManager implements Serializable {
                 System.out.println("El fichero no existe, introduce otro nombre: / (S para salir)");
                 fileName = this.scanner.next();
             }
-        } while (!fileExists && !fileName.toLowerCase().equals("S"));
+        } while (!fileExists && !fileName.toLowerCase().equals("s"));
 
         if (!fileExists) {
             System.out.println("La operacion ha sido cancelada...");
-            System.out.println("Creando nueva partida...");
             return null;
 
         } else {

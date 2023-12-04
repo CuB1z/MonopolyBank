@@ -2,6 +2,11 @@ public class PaymentCharge extends MonopolyCode {
     private int amount;
 
     // Constructor ========================================================================================================
+
+    // Zero Constructor
+    public PaymentCharge() {}
+    
+    // Default Constructor
     public PaymentCharge(String [] info, Terminal terminal) {
 
         // Call the super constructor

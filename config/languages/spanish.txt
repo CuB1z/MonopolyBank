@@ -7,11 +7,11 @@ RED, ROJO
 BLUE, AZUL
 GREEN, VERDE
 BLACK, NEGRO
-Espanol,Espanol
-Ingles,Ingles
-Catalan,Catalan
-Euskera,Euskera
-Gallego,Gallego
+spanish,espanol
+english,ingles
+catalan,catalan
+euskera,euskera
+gallego,gallego
 -- No hay ficheros disponibles --,-- No hay ficheros disponibles --
 El fichero no existe, introduce otro nombre: / (S para salir),El fichero no existe, introduce otro nombre: / (S para salir)
 La operacion ha sido cancelada...,La operacion ha sido cancelada...

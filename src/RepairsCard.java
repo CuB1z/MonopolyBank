@@ -3,6 +3,11 @@ public class RepairsCard extends MonopolyCode {
     private int amountForHotel;
 
     // Constructor ========================================================================================================
+
+    // Zero Constructor
+    public RepairsCard() {}
+
+    // Default Constructor
     public RepairsCard(String [] info, Terminal terminal) {
 
         // Call the super constructor

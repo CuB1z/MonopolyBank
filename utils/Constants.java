@@ -40,10 +40,7 @@ public class Constants {
     public static final int GREEN_ID = 2;
     public static final int BLACK_ID = 3;
     
-    // Available languages
-    public static final String SPANISH = "español";
-    public static final String ENGLISH = "english";
-    
+    // Available languages    
     public static final String[] AVAILABLE_LANGUAGES = {"spanish", "english"};
     
     // Default values

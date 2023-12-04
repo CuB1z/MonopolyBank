@@ -10,6 +10,11 @@ public class Player implements Serializable {
     private Terminal terminal;
 
     // Constructor ========================================================================================================
+
+    // Zero Constructor
+    public Player() {}
+    
+    // Default Constructor
     public Player(int id, String name, Terminal terminal) {
 
         // Set the color based on the id

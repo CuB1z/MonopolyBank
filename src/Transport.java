@@ -2,6 +2,11 @@ public class Transport extends Property {
     private int [] costStaying = new int[4];
 
     // Constructor ========================================================================================================
+
+    // Zero Constructor
+    public Transport() {}
+
+    // Default Constructor
     public Transport(String [] info, Terminal terminal) {
 
         // Call the super constructor

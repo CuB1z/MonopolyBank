@@ -6,6 +6,8 @@ public class TranslatorManager implements Serializable {
     private List<Translator> languages = new ArrayList<Translator>();
 
     // Constructor ========================================================================================================
+
+    // Zero Constructor
     public TranslatorManager() throws Exception {
         for (String lang : Constants.AVAILABLE_LANGUAGES) {
             this.addLanguage(lang);

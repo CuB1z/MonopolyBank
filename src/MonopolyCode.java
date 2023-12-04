@@ -6,6 +6,11 @@ public class MonopolyCode implements Serializable {
     private int id;
 
     // Constructor ========================================================================================================
+
+    // Zero Constructor
+    public MonopolyCode() {}
+
+    // Default Constructor
     public MonopolyCode(int id, String description, Terminal terminal) {
         this.setDescription(description);
         this.setTerminal(terminal);

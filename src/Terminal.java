@@ -6,6 +6,8 @@ public class Terminal implements Serializable{
     private Scanner scanner;
     
     // Constructor ========================================================================================================
+
+    // Zero Constructor
     public Terminal() throws Exception {
         this.translatorManager = new TranslatorManager();
         this.scanner = new Scanner(System.in);

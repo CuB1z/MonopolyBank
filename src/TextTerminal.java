@@ -1,6 +1,8 @@
 public class TextTerminal extends Terminal {
     
     // Constructor ========================================================================================================
+
+    // Zero Constructor
     public TextTerminal() throws Exception {
         super();
     }

@@ -7,6 +7,11 @@ public class Translator implements Serializable {
     private Map<String, String> dictionary = new HashMap<String, String>();
 
     // Constructor ========================================================================================================
+
+    // Zero Constructor
+    public Translator() {}
+
+    // Default Constructor
     public Translator(String filename) throws Exception {
         
         // Get the absolute path of the file

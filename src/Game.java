@@ -11,6 +11,8 @@ public class Game implements Serializable{
     private BufferedReader buffer;
 
     // Constructor ========================================================================================================
+    
+    // Zero Constructor
     public Game() throws Exception {
         this.terminal = new Terminal();
     }
@@ -228,7 +230,11 @@ public class Game implements Serializable{
     // Print available languages
     private void showAvailableLanguages() {
         for (int i = 0; i < Constants.AVAILABLE_LANGUAGES.length; i++) {
-            String outString = String.format("%d: %s", i, Constants.AVAILABLE_LANGUAGES[i]);
+            Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+            String lang = trs.translate(Constants.AVAILABLE_LANGUAGES[i]);
+            String outString = String.format("%d: %s", i, lang);
+            
             this.terminal.show(outString);
         }
 

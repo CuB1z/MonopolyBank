@@ -2,6 +2,11 @@ public class Service extends Property{
     private int [] costStaying = new int[2];
 
     // Constructor ========================================================================================================
+
+    // Zero Constructor
+    public Service() {}
+
+    // Default Constructor
     public Service(String [] info, Terminal terminal) {
 
         // Call the super constructor
