@@ -1,8 +1,8 @@
+import java.io.Serializable;
 import java.util.Scanner;
-
 import java.io.File;
 
-public class GameManager {
+public class GameManager implements Serializable {
 
     // Scanner to read the user input before the game starts
     private Scanner scanner;

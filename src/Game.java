@@ -13,20 +13,28 @@ public class Game implements Serializable{
     // Constructor ========================================================================================================
     public Game() throws Exception {
         this.terminal = new Terminal();
-
+    }
+    
+    // Public methods =====================================================================================================
+    public void play() {
+        
         // Ask for language and set it
         int lang_id = this.askForLanguage();
         this.terminal.getTranslatorManager().setLanguage(Constants.AVAILABLE_LANGUAGES[lang_id]);
 
         // Create players
         this.createPlayers();
-
+        
         // Load monopoly codes
-        this.loadMonopolyCodes();
-    }
+        try {
+            this.loadMonopolyCodes();
 
-    // Public methods =====================================================================================================
-    public void play() {
+        } catch (Exception e) {
+            this.terminal.show("Error!!");
+            // Cancel the game
+            System.exit(0);
+        }
+
         this.terminal.show("Jugando...");
 
         // Set the fileName with the actual date
