@@ -28,8 +28,8 @@ Comenzando operacion...,Comenzando operacion...
 Cargando datos del juego...,Cargando datos del juego...
 Datos cargados correctamente,Datos cargados correctamente
 Introduce un numero valido,Introduce un numero valido
-Introduzca código de tarjeta:,Introduzca código de tarjeta:
-Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):,Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):
+Introduzca codigo de tarjeta:,Introduzca codigo de tarjeta:
+Introduzca codigo de jugador (1: rojo 2: azul 3: verde 4: negro):,Introduzca codigo de jugador (1: rojo 2: azul 3: verde 4: negro):
 Fin del juego, %s es el ganador!!,Fin del juego, %s es el ganador!!
 Pago efectuado,Pago efectuado
 Vuelve a intentarlo cuando tengas mas dinero,Vuelve a intentarlo cuando tengas mas dinero
@@ -43,3 +43,4 @@ No se ha realizado el pago,No se ha realizado el pago
 El jugador %s ha quebrado,El jugador %s ha quebrado
 La propiedad no es tuya,La propiedad no es tuya
 Error al guardar el archivo,Error al guardar el archivo
+Codigo invalido,Codigo invalido

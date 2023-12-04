@@ -45,7 +45,7 @@ public class GameManager {
         String answer = this.scanner.next();
         System.out.println();
 
-        if (answer.equals("S")) return this.showFileNames();
+        if (answer.toLowerCase().equals("s")) return this.showFileNames();
         else return null;
 
     }
@@ -53,8 +53,11 @@ public class GameManager {
     // Show the file names in the "oldGames" directory
     private String showFileNames() {
 
+        // Get final path
+        String path = PathUtils.getFilePath(Constants.MONOPOLY_OLD_GAMES_PATH);
+
         // Get the file names
-        File folder = new File(Constants.MONOPOLY_OLD_GAMES_PATH);
+        File folder = new File(path);
         String[] list = folder.list();
 
         System.out.println("Ficheros disponibles: ");

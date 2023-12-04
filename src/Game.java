@@ -54,18 +54,21 @@ public class Game implements Serializable{
             Player player = this.players.get(playerId - 1);
 
             // Cast the mCode variable and exec doOperation()
-            if (mCode instanceof Property){
-                Property property = (Property) mCode;
-                property.doOperation(player);
+            if (mCode != null) {
+                if (mCode instanceof Property){
+                    Property property = (Property) mCode;
+                    property.doOperation(player);
+    
+                } else if (mCode instanceof PaymentCharge){
+                    PaymentCharge payCh = (PaymentCharge) mCode;
+                    payCh.doOperation(player);
+                    
+                } else {
+                    RepairsCard repCard = (RepairsCard) mCode;
+                    repCard.doOperation(player);
+                }
 
-            } else if (mCode instanceof PaymentCharge){
-                PaymentCharge payCh = (PaymentCharge) mCode;
-                payCh.doOperation(player);
-                
-            } else {
-                RepairsCard repCard = (RepairsCard) mCode;
-                repCard.doOperation(player);
-            }
+            } else this.terminal.show("Codigo invalido");
 
             // Update players array
             if (player.isBankrupt()) this.players.remove(player);
