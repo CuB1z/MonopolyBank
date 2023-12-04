@@ -3,9 +3,9 @@ import java.util.*;
 
 public class Game implements Serializable{
     private String fileName;
-    private MonopolyCode [] monopolyCodeArray = new MonopolyCode[81];
+    private MonopolyCode [] monopolyCodeArray = new MonopolyCode[Constants.MONOPOLY_CODE_ARRAY_SIZE];
     private Terminal terminal;
-    private List<Player> players = new ArrayList<Player>(4);
+    private List<Player> players = new ArrayList<Player>();
  
     // BufferedReader to read the file (no need to close it)
     private BufferedReader buffer;

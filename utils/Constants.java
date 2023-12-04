@@ -26,6 +26,8 @@ public class Constants {
     public static final String PRICE_DATA_SEPARATOR = "EUR";
     public static final String ALTERNATIVE_DATA_SEPARATOR = " ";
 
+    public static final int MONOPOLY_CODE_ARRAY_SIZE = 81;
+
     // Monopoly Rules Constants
     public static final int MAX_NUMBER_OF_HOUSES = 5;
  
