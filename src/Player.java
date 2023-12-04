@@ -181,9 +181,9 @@ public class Player implements Serializable {
 
     public int getId() {
         switch (this.color) {
-            case Color.RED: return Constants.RED_ID;
-            case Color.BLUE: return Constants.BLUE_ID;
-            case Color.GREEN: return Constants.GREEN_ID;
+            case RED: return Constants.RED_ID;
+            case BLUE: return Constants.BLUE_ID;
+            case GREEN: return Constants.GREEN_ID;
             default: return Constants.BLACK_ID;
         }
     }
