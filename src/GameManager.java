@@ -22,6 +22,10 @@ public class GameManager {
         // Ask if the user wants to resume a game
         String fileName = this.askForResumeGame();
 
+        // Get absolute path of the file
+        if (fileName != null)
+            fileName = PathUtils.getFilePath(String.format(Constants.MONOPOLY_OLD_GAME, fileName));
+
         // Create a new game or load a saved one
         Game game = null;
         if (fileName == null) {
@@ -30,7 +34,7 @@ public class GameManager {
 
         } else {
             System.out.println("Cargando partida...");
-            // game = new Game(fileName); Implement saved game constructor
+            game = FileManager.readFile(fileName);
         }
 
         // Play the game
@@ -53,7 +57,7 @@ public class GameManager {
     // Show the file names in the "oldGames" directory
     private String showFileNames() {
 
-        // Get final path
+        // Get absolute path
         String path = PathUtils.getFilePath(Constants.MONOPOLY_OLD_GAMES_PATH);
 
         // Get the file names

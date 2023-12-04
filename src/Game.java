@@ -25,12 +25,6 @@ public class Game implements Serializable{
         this.loadMonopolyCodes();
     }
 
-    // Constructor used to load a saved game
-    // public Game(String fileName) throws Exception {
-    //     this.createPlayers(fileName);
-    //     this.loadMonopolyCodes(fileName);
-    // }
-
     // Public methods =====================================================================================================
     public void play() {
         this.terminal.show("Jugando...");
