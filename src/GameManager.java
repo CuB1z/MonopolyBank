@@ -100,7 +100,7 @@ public class GameManager {
                 System.out.println("El fichero no existe, introduce otro nombre: / (S para salir)");
                 fileName = this.scanner.next();
             }
-        } while (!fileExists && !fileName.equals("S"));
+        } while (!fileExists && !fileName.toLowerCase().equals("S"));
 
         if (!fileExists) {
             System.out.println("La operacion ha sido cancelada...");

@@ -7,7 +7,7 @@ public class FileManager {
     public static void saveFile(Game game, String fileName) {
 
         // Create finalPath with actualDate
-        String filePath = String.format(Constants.MONOPOLY_OLD_GAMES_PATH, fileName);
+        String filePath = String.format(Constants.MONOPOLY_OLD_GAME, fileName);
         String finalPath = PathUtils.getFilePath(filePath);
 
         //Try to save the file

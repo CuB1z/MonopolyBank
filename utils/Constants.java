@@ -12,7 +12,7 @@ public class Constants {
     public static final String MONOPOLY_CODE_FILE_PATH = "/config/monopolyCode.txt";
     public static final String LANGUAGES_FILE_PATH = "/config/languages/%s.txt";
     public static final String MONOPOLY_OLD_GAMES_PATH = "/config/oldGames";
-    public static final String MONOPOLY_OLD_GAME = "/config/oldGames/%s";
+    public static final String MONOPOLY_OLD_GAME = "/config/oldGames/%s.xml";
 
     // Monopoly code constants
     public static final String PAYMENT_CHARGE_ID = "PAYMENT_CHARGE_CARD";
