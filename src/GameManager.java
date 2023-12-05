@@ -51,9 +51,11 @@ public class GameManager implements Serializable {
         String answer = this.scanner.next();
         System.out.println();
 
-        if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return this.showFileNames();
+        if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)){
+            String file = this.showFileNames();
+            return file;
+        }
         else return null;
-
     }
 
     // Show the file names in the "oldGames" directory
@@ -82,7 +84,8 @@ public class GameManager implements Serializable {
         System.out.println();
 
         // Ask for the file name
-        return this.askForFileName(list);
+        String fileName = this.askForFileName(list);
+        return fileName;
     }
 
     // Ask for the file name and check if it exists
@@ -114,7 +117,6 @@ public class GameManager implements Serializable {
 
         } else {
             System.out.println("Fichero encontrado...");
-            System.out.println("Cargando partida...");
             return fileName;
         }
     }
