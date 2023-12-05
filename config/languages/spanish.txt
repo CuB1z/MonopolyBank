@@ -4,6 +4,7 @@ Introduzca el lenguaje que desea utilizar: ,Introduzca el lenguaje que desea uti
 Valor invalido, introduzca otro: ,Valor invalido, introduzca otro: 
 ¿Quieres reanudar una partida? (%s/n),¿Quieres reanudar una partida? (%s/n)
 Introduce el nombre del fichero: / (%s para salir),Introduce el nombre del fichero: / (%s para salir)
+Error, el fichero es corrupto o invalido, creando nueva partida...,Error, el fichero es corrupto o invalido, creando nueva partida...
 RED, ROJO
 BLUE, AZUL
 GREEN, VERDE

@@ -8,11 +8,18 @@
 
 public class Constants {
     
+    // Default values ===============================================================
+    public static final String DEFAULT_LANGUAGE = "spanish";
+    public static final String DEFAULT_GAMES_EXTENSION = ".xml";
+
+    // Default aproval string should always be lowercase so toLowerCase() can be used
+    public static final String DEFAULT_APROVE_STRING = "s";
+
     // Paths ========================================================================
     public static final String MONOPOLY_CODE_FILE_PATH = "/config/monopolyCode.txt";
     public static final String LANGUAGES_FILE_PATH = "/config/languages/%s.txt";
     public static final String MONOPOLY_OLD_GAMES_PATH = "/config/oldGames";
-    public static final String MONOPOLY_OLD_GAME = "/config/oldGames/%s.xml";
+    public static final String MONOPOLY_OLD_GAME = "/config/oldGames/%s" + DEFAULT_GAMES_EXTENSION;
 
     // Monopoly code constants ======================================================
     public static final String PAYMENT_CHARGE_ID = "PAYMENT_CHARGE_CARD";
@@ -43,9 +50,4 @@ public class Constants {
     // Available languages ==========================================================
     public static final String[] AVAILABLE_LANGUAGES = {"spanish", "english"};
     
-    // Default values ===============================================================
-    public static final String DEFAULT_LANGUAGE = "spanish";
-
-    // Default aproval string should always be lowercase so toLowerCase() can be used
-    public static final String DEFAULT_APROVE_STRING = "s";
 }

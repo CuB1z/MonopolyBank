@@ -35,7 +35,7 @@ public class FileManager {
     public static Game readFile(String fileName) {
 
         // Create finalPath with fileName
-        String filePath = String.format(Constants.MONOPOLY_OLD_GAMES_PATH, fileName);
+        String filePath = String.format(Constants.MONOPOLY_OLD_GAME, fileName);
         String finalPath = PathUtils.getFilePath(filePath);
 
         // Try to read the file

@@ -4,6 +4,7 @@ Introduzca el lenguaje que desea utilizar: ,Introduce the language you want to u
 Valor invalido, introduzca otro: ,Invalid value, enter another:
 ¿Quieres reanudar una partida? (%s/n),Do you want to resume a game? (%s/n)
 Introduce el nombre del fichero: / (%s para salir),Enter the file name: / (%s to exit)
+Error, el fichero es corrupto o invalido, creando nueva partida...,Error, the file is corrupt or invalid, creating new game...
 RED,RED
 BLUE,BLUE
 GREEN,GREEN

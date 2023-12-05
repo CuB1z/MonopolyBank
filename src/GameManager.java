@@ -23,11 +23,7 @@ public class GameManager implements Serializable {
 
         // Ask if the user wants to resume a game
         String fileName = this.askForResumeGame();
-
-        // Get absolute path of the file
-        if (fileName != null)
-            fileName = PathUtils.getFilePath(String.format(Constants.MONOPOLY_OLD_GAME, fileName));
-
+        
         // Create a new game or load a saved one
         Game game = null;
         if (fileName == null) {
@@ -37,6 +33,12 @@ public class GameManager implements Serializable {
         } else {
             System.out.println("Cargando partida...");
             game = FileManager.readFile(fileName);
+
+            // If the file is not valid, create a new game
+            if (game == null) {
+                System.out.println("Error, el fichero es corrupto o invalido, creando nueva partida...");
+                game = new Game();
+            }
         }
 
         // Play the game
@@ -99,7 +101,7 @@ public class GameManager implements Serializable {
 
         do {
             for (String name : fileNames) {
-                if (name.equals(fileName))
+                if (name.replace(Constants.DEFAULT_GAMES_EXTENSION, "").equals(fileName))
                     fileExists = true;
             }
 
