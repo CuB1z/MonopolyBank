@@ -9,6 +9,34 @@ public class TextTerminal extends Terminal {
 
     // Public methods =====================================================================================================
 
-    // No need to override the read() method because it is the same as the one in the superclass
-    // No need to override the show() method because it is the same as the one in the superclass
+    // Method to read an integer
+    public int readInt(){
+        while (true) {
+
+            // Try to read an integer
+            try {
+                String answer = this.scanner.next();  
+                int value = Integer.parseInt(answer);
+                return value;
+
+            // If the input is not an integer, show an error message
+            } catch (Exception e) {
+                this.show("Introduce un numero valido");
+            }  
+        }
+    }
+
+    // Method to read a string
+    public String readStr() {
+        String answer = this.scanner.next();
+        return answer;
+    }
+
+    // Method to show a translated message
+    public void show(String message) {
+        Translator translator = this.translatorManager.getTranslator();
+        String translatedMessage = translator.translate(message);
+
+        System.out.println(translatedMessage);
+    }
 }
