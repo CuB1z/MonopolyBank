@@ -64,10 +64,17 @@ public class Game implements Serializable{
         boolean finishGame = false;
 
         while (!this.isFinished() && !finishGame) {
+
             // Ask for code ID
-            this.terminal.show("Introduzca código de tarjeta:");
-            int codeId = this.terminal.readInt();
-            this.terminal.show("");
+            int codeId = Constants.MONOPOLY_CODE_ARRAY_SIZE;
+            
+            while (codeId > Constants.MONOPOLY_CODE_ARRAY_SIZE - 1 || codeId < 0) {
+                this.terminal.show("Introduzca código de tarjeta:");
+                codeId = this.terminal.readInt();
+                this.terminal.show("");
+
+                if (codeId > Constants.MONOPOLY_CODE_ARRAY_SIZE - 1 || codeId < 0) this.terminal.show("Codigo invalido");
+            }
 
             // Ask for player ID
             this.terminal.show("Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):");
