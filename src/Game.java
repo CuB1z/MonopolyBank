@@ -63,36 +63,25 @@ public class Game implements Serializable{
 
         while (!this.isFinished() && !finishGame) {
 
-            // Ask for code ID
+            // Ask for code ID and get mCode
             int codeId = this.getCodeId();
-
-            // Ask for player ID
-            int playerId = this.getPlayerId();
-
-            // Get monopolyCode and player
             MonopolyCode mCode = this.monopolyCodeArray[codeId];
+
+            // Ask for player ID and get player
+            int playerId = this.getPlayerId();
             Player player = this.players.get(playerId - 1);
 
-            // Cast the mCode variable and exec doOperation()
-            if (mCode != null) {
-                if (mCode instanceof Property){
-                    Property property = (Property) mCode;
-                    property.doOperation(player);
-    
-                } else if (mCode instanceof PaymentCharge){
-                    PaymentCharge payCh = (PaymentCharge) mCode;
-                    payCh.doOperation(player);
-                    
-                } else {
-                    RepairsCard repCard = (RepairsCard) mCode;
-                    repCard.doOperation(player);
-                }
-
-            } else this.terminal.show("Codigo invalido");
+            if (mCode != null) this.execDoOperation(mCode, player);
+            else {
+                this.terminal.show("Codigo invalido");
+                this.terminal.show("");
+                player.showResume();
+            }
 
             // Update players array
             if (player.isBankrupt()) this.players.remove(player);
 
+            // Save the game
             FileManager.saveFile(this, this.fileName);
 
             // Check if the user wants to finish the game
@@ -130,6 +119,22 @@ public class Game implements Serializable{
         }
 
         return playerId;
+    }
+
+    // Method used to exec doOperation depending of class
+    private void execDoOperation(MonopolyCode mCode, Player player) {
+        if (mCode instanceof Property){
+            Property property = (Property) mCode;
+            property.doOperation(player);
+
+        } else if (mCode instanceof PaymentCharge){
+            PaymentCharge payCh = (PaymentCharge) mCode;
+            payCh.doOperation(player);
+        
+        } else {
+            RepairsCard repCard = (RepairsCard) mCode;
+            repCard.doOperation(player);
+        }
     }
 
     //Method used to show the winner

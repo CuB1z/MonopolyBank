@@ -37,6 +37,10 @@ public class Player implements Serializable {
         return String.format(msg, this.name, color, this.balance);
     }
 
+    public void showResume() {
+        this.terminal.show(this.toString());
+    }
+
     // Method to exec a payment (mandatory or not)
     public void pay(int amount, boolean mandatory) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
