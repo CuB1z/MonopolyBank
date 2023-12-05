@@ -1,25 +1,23 @@
 import java.io.Serializable;
-import java.util.Scanner;
 import java.io.File;
 
 public class GameManager implements Serializable {
 
-    // Scanner to read the user input before the game starts
-    private Scanner scanner;
+    private Terminal terminal;
 
     // Constructor ========================================================================================================
 
     // Zero Constructor
-    public GameManager() {
-        this.scanner = new Scanner(System.in);
+    public GameManager() throws Exception {
+        this.terminal = new TextTerminal();
     }
 
     // Public methods =====================================================================================================
     public void start() throws Exception {
 
         // Show the welcome message
-        System.out.println("BIENVENIDO AL MONOPOLY BANK");
-        System.out.println();
+        this.terminal.show("BIENVENIDO AL MONOPOLY BANK");
+        this.terminal.show("");
 
         // Ask if the user wants to resume a game
         String fileName = this.askForResumeGame();
@@ -27,18 +25,14 @@ public class GameManager implements Serializable {
         // Create a new game or load a saved one
         Game game = null;
         if (fileName == null) {
-            System.out.println("Creando nueva partida...");
+            this.terminal.show("Creando nueva partida...");
             game = new Game();
+            game.setTerminal(this.terminal);
 
         } else {
-            System.out.println("Cargando partida...");
+            this.terminal.show("Cargando partida...");
             game = FileManager.readFile(fileName);
-
-            // If the file is not valid, create a new game
-            if (game == null) {
-                System.out.println("Error, el fichero es corrupto o invalido, creando nueva partida...");
-                game = new Game();
-            }
+            game.setTerminal(this.terminal);
         }
 
         // Play the game
@@ -49,9 +43,9 @@ public class GameManager implements Serializable {
 
     // Ask if the user wants to resume a game
     private String askForResumeGame() {
-        System.out.println(String.format("¿Quieres reanudar una partida? (%s/n)", Constants.DEFAULT_APROVE_STRING));
-        String answer = this.scanner.next();
-        System.out.println();
+        this.terminal.show(String.format("¿Quieres reanudar una partida? (%s/n)", Constants.DEFAULT_APROVE_STRING));
+        String answer = this.terminal.readStr();
+        this.terminal.show("");
 
         if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)){
             String file = this.showFileNames();
@@ -70,20 +64,20 @@ public class GameManager implements Serializable {
         File folder = new File(path);
         String[] list = folder.list();
 
-        System.out.println("Ficheros disponibles: ");
+        this.terminal.show("Ficheros disponibles: ");
 
         // Show the file names if there are any
         if (list == null || list.length == 0) {
-            System.out.println("-- No hay ficheros disponibles --");
-            System.out.println("");
+            this.terminal.show("-- No hay ficheros disponibles --");
+            this.terminal.show("");
             return null;
         }
         
         for (String name : list) {
-            System.out.println(name);
+            this.terminal.show(name);
         }
 
-        System.out.println();
+        this.terminal.show("");
 
         // Ask for the file name
         String fileName = this.askForFileName(list);
@@ -92,8 +86,8 @@ public class GameManager implements Serializable {
 
     // Ask for the file name and check if it exists
     private String askForFileName(String[] fileNames) {
-        System.out.println(String.format("Introduce el nombre del fichero: / (%s para salir)", Constants.DEFAULT_APROVE_STRING));
-        String fileName = this.scanner.next();
+        this.terminal.show(String.format("Introduce el nombre del fichero: / (%s para salir)", Constants.DEFAULT_APROVE_STRING));
+        String fileName = this.terminal.readStr();
 
         if (fileName.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return null;
 
@@ -106,29 +100,29 @@ public class GameManager implements Serializable {
             }
 
             if (!fileExists) {
-                System.out.println(String.format("El fichero %s no existe, prueba de nuevo: / (%s para salir)",
+                this.terminal.show(String.format("El fichero %s no existe, prueba de nuevo: / (%s para salir)",
                     fileName, Constants.DEFAULT_APROVE_STRING));
 
-                fileName = this.scanner.next();
+                fileName = this.terminal.readStr();
             }
         } while (!fileExists && !fileName.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING));
 
         if (!fileExists) {
-            System.out.println("La operacion ha sido cancelada...");
+            this.terminal.show("La operacion ha sido cancelada...");
             return null;
 
         } else {
-            System.out.println("Fichero encontrado...");
+            this.terminal.show("Fichero encontrado...");
             return fileName;
         }
     }
 
     // Getters & setters ==================================================================================================
-    public Scanner getScanner() {
-        return this.scanner;
+    public Terminal getTerminal() {
+        return this.terminal;
     }
 
-    public void setScanner(Scanner scanner) {
-        this.scanner = scanner;
+    public void setTerminal(Terminal terminal) {
+        this.terminal = terminal;
     }
 }

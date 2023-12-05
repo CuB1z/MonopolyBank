@@ -13,9 +13,7 @@ public class Game implements Serializable{
     // Constructor ========================================================================================================
     
     // Zero Constructor
-    public Game() throws Exception {
-        this.terminal = new TextTerminal();
-    }
+    public Game() {}
     
     // Public methods =====================================================================================================
     public void play() {
@@ -182,7 +180,7 @@ public class Game implements Serializable{
                 String name = this.terminal.readStr();
                 this.terminal.show("");
 
-                this.players.add(new Player(i, name, this.terminal)) ;
+                this.players.add(new Player(i, name, this.terminal));
                 output += this.players.get(i).toString() + "\n";
             }
 
