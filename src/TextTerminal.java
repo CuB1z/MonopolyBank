@@ -1,10 +1,14 @@
+import java.util.Scanner;
+
 public class TextTerminal extends Terminal {
+    private Scanner scanner;
     
     // Constructor ========================================================================================================
 
     // Zero Constructor
     public TextTerminal() throws Exception {
         super();
+        this.scanner = new Scanner(System.in);
     }
 
     // Public methods =====================================================================================================
