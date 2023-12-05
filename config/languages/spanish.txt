@@ -47,3 +47,4 @@ El jugador %s ha quebrado,El jugador %s ha quebrado
 La propiedad no es tuya,La propiedad no es tuya
 Error al guardar el archivo,Error al guardar el archivo
 Codigo invalido,Codigo invalido
+ID invalido,ID invalido

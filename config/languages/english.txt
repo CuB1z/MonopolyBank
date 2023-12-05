@@ -47,3 +47,4 @@ El jugador %s ha quebrado,The player %s has gone bankrupt,
 La propiedad no es tuya,This property doesn't belong to you
 Error al guardar el archivo,Error while trying to save the file
 Codigo invalido,Invalid code
+ID invalido,Invalid ID

@@ -66,20 +66,10 @@ public class Game implements Serializable{
         while (!this.isFinished() && !finishGame) {
 
             // Ask for code ID
-            int codeId = Constants.MONOPOLY_CODE_ARRAY_SIZE;
-            
-            while (codeId > Constants.MONOPOLY_CODE_ARRAY_SIZE - 1 || codeId < 0) {
-                this.terminal.show("Introduzca código de tarjeta:");
-                codeId = this.terminal.readInt();
-                this.terminal.show("");
-
-                if (codeId > Constants.MONOPOLY_CODE_ARRAY_SIZE - 1 || codeId < 0) this.terminal.show("Codigo invalido");
-            }
+            int codeId = this.getCodeId();
 
             // Ask for player ID
-            this.terminal.show("Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):");
-            int playerId = this.terminal.readInt();
-            this.terminal.show("");
+            int playerId = this.getPlayerId();
 
             // Get monopolyCode and player
             MonopolyCode mCode = this.monopolyCodeArray[codeId];
@@ -110,6 +100,38 @@ public class Game implements Serializable{
             // Check if the user wants to finish the game
             finishGame = this.wantsToFinished();
         }
+    }
+
+    //Method used to get the code id
+    private int getCodeId() {
+        int codeId = Constants.MONOPOLY_CODE_ARRAY_SIZE;
+            
+        while (codeId > Constants.MONOPOLY_CODE_ARRAY_SIZE - 1 || codeId < 0) {
+            this.terminal.show("Introduzca código de tarjeta:");
+            codeId = this.terminal.readInt();
+            this.terminal.show("");
+
+            if (codeId > Constants.MONOPOLY_CODE_ARRAY_SIZE - 1 || codeId < 0)
+                this.terminal.show("Codigo invalido");
+        }
+
+        return codeId;
+    }
+
+    // Method used to get the player id
+    private int getPlayerId() {
+        int playerId = Constants.MAX_NUMBER_OF_PLAYERS + 1;
+
+        while (playerId > this.players.size() || playerId < 1) {
+            this.terminal.show("Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):");
+            playerId = this.terminal.readInt();
+            this.terminal.show("");
+
+            if (playerId > this.players.size() || playerId < 1)
+                this.terminal.show("ID invalido");
+        }
+
+        return playerId;
     }
 
     //Method used to show the winner
