@@ -23,10 +23,9 @@ public class Game implements Serializable{
         // Initialize the game if the fileName is null
         if (this.fileName == null) this.initGame();
         
+        // Show message
         this.terminal.show("Jugando...");
-
-        // Set the fileName with the actual date
-        this.setFileName(FileManager.getActualDate());
+        this.terminal.show("");
 
         // Main Loop
         this.mainLoop();
@@ -55,6 +54,9 @@ public class Game implements Serializable{
             // Cancel the game
             System.exit(0);
         }
+
+        // Set the fileName with the actual date
+        this.setFileName(FileManager.getActualDate());
     }
 
     // Method used to execute the main loop
