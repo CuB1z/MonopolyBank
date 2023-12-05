@@ -42,7 +42,9 @@ public class Game implements Serializable{
         // Set the fileName with the actual date
         this.setFileName(FileManager.getActualDate());
 
-        while (!this.isFinished()) {
+        boolean finishGame = false;
+
+        while (!this.isFinished() && !finishGame) {
             // Ask for code ID
             this.terminal.show("Introduzca código de tarjeta:");
             int codeId = this.terminal.readInt();
@@ -78,6 +80,9 @@ public class Game implements Serializable{
             if (player.isBankrupt()) this.players.remove(player);
 
             FileManager.saveFile(this, this.fileName);
+
+            // Check if the user wants to finish the game
+            finishGame = this.wantsToFinished();
         }
 
         Player player_winner = this.players.get(0);
@@ -131,6 +136,18 @@ public class Game implements Serializable{
     private boolean isFinished() {
         return this.players.size() == 1;
     }
+
+    // Method used to check if the user wants to finish the game
+    private boolean wantsToFinished() {
+
+        this.terminal.show(String.format("¿Desea salir y guardar el juego? (%s/n)", Constants.DEFAULT_APROVE_STRING));
+        String input = this.terminal.readStr();
+        this.terminal.show("");
+
+        if (input.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return true;
+        else return false;
+    }
+
     // Method used to load the monopoly codes
     private void loadMonopolyCodes() throws Exception {
         String file = PathUtils.getFilePath(Constants.MONOPOLY_CODE_FILE_PATH);

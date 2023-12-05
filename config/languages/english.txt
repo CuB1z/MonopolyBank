@@ -2,7 +2,8 @@ BIENVENIDO AL MONOPOLY,WELCOME TO MONOPOLY
 Lenguajes disponibles: ,Available languages: 
 Introduzca el lenguaje que desea utilizar: ,Introduce the language you want to use: 
 Valor invalido, introduzca otro: ,Invalid value, enter another:
-¿Quieres reanudar una partida? (S/N),Do you want to resume a game? (Y/N)
+¿Quieres reanudar una partida? (%s/n),Do you want to resume a game? (%s/n)
+Introduce el nombre del fichero: / (%s para salir),Enter the file name: / (%s to exit)
 RED,RED
 BLUE,BLUE
 GREEN,GREEN
@@ -13,7 +14,7 @@ catalan,catalan
 euskera,basque
 gallego,galician
 -- No hay ficheros disponibles --,-- No files available --
-El fichero no existe, introduce otro nombre: / (S para salir),The file does not exist, enter another name: / (S to exit)
+El fichero no existe, introduce otro nombre: / (%s para salir),The file doesn't exist, enter another name: / (%s to exit)
 La operacion ha sido cancelada...,The operation has been canceled...
 Fichero encontrado...,File found...
 Creando nueva partida...,Creating new game...
@@ -30,6 +31,7 @@ Datos cargados correctamente,Data loaded correctly
 Introduce un numero valido,Enter a valid number
 Introduzca código de tarjeta:,Enter card code:
 Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):,Enter player code (1: red 2: blue 3: green 4: black):
+¿Desea salir y guardar el juego? (%s/n),Do you want to exit and save the game? (%s/n)
 Fin del juego: %s es el ganador!!,Game Over: %s is the winner!!
 Pago efectuado,Payment made
 Vuelve a intentarlo cuando tengas mas dinero,Try again when you have more money

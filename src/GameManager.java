@@ -47,11 +47,11 @@ public class GameManager implements Serializable {
 
     // Ask if the user wants to resume a game
     private String askForResumeGame() {
-        System.out.println("¿Quieres reanudar una partida? (S/N)");
+        System.out.println(String.format("¿Quieres reanudar una partida? (%s/n)", Constants.DEFAULT_APROVE_STRING));
         String answer = this.scanner.next();
         System.out.println();
 
-        if (answer.toLowerCase().equals("s")) return this.showFileNames();
+        if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return this.showFileNames();
         else return null;
 
     }
@@ -87,10 +87,10 @@ public class GameManager implements Serializable {
 
     // Ask for the file name and check if it exists
     private String askForFileName(String[] fileNames) {
-        System.out.println("Introduce el nombre del fichero: / (S para salir)");
+        System.out.println(String.format("Introduce el nombre del fichero: / (%s para salir)", Constants.DEFAULT_APROVE_STRING));
         String fileName = this.scanner.next();
 
-        if (fileName.toLowerCase().equals("s")) return null;
+        if (fileName.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return null;
 
         boolean fileExists = false;
 
@@ -101,10 +101,12 @@ public class GameManager implements Serializable {
             }
 
             if (!fileExists) {
-                System.out.println("El fichero no existe, introduce otro nombre: / (S para salir)");
+                System.out.println(String.format("El fichero %s no existe, prueba de nuevo: / (%s para salir)",
+                    fileName, Constants.DEFAULT_APROVE_STRING));
+
                 fileName = this.scanner.next();
             }
-        } while (!fileExists && !fileName.toLowerCase().equals("s"));
+        } while (!fileExists && !fileName.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING));
 
         if (!fileExists) {
             System.out.println("La operacion ha sido cancelada...");
