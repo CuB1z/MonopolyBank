@@ -43,4 +43,10 @@ public class TextTerminal extends Terminal {
 
         System.out.println(translatedMessage);
     }
+
+    // Method to flush the screen
+    public void flushScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
 }

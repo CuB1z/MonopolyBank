@@ -39,9 +39,11 @@ public class Game implements Serializable{
     private void initGame() {
        // Ask for language and set it
         this.askAndSetLanguage();
+        this.terminal.flushScreen();
 
         // Create players
         this.createPlayers();
+        this.terminal.flushScreen();
         
         // Load monopoly codes
         try {
@@ -188,10 +190,10 @@ public class Game implements Serializable{
                 this.players.add(new Player(i, name, this.terminal));
                 output += this.players.get(i).toString() + "\n";
             }
-
+            
             // Show the players
-            this.terminal.show("---Jugadores---");
-            this.terminal.show(output);
+            this.terminal.flushScreen();
+            this.showPlayers(output);
         }
     }
 
@@ -320,6 +322,15 @@ public class Game implements Serializable{
         }
 
         this.terminal.show("");
+    }
+
+    // Show the players
+    private void showPlayers(String output) {
+        this.terminal.show("---Jugadores---");
+        this.terminal.show(output);
+        this.terminal.show("");
+        this.terminal.show("Introduce cualquier valor para continuar...");
+        this.terminal.readStr();
     }
 
     // Getters & Setters ==================================================================================================
