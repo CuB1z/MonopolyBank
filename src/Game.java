@@ -19,10 +19,29 @@ public class Game implements Serializable{
     
     // Public methods =====================================================================================================
     public void play() {
+
+        // Initialize the game if the fileName is null
+        if (this.fileName == null) this.initGame();
         
-        // Ask for language and set it
-        int lang_id = this.askForLanguage();
-        this.terminal.getTranslatorManager().setLanguage(Constants.AVAILABLE_LANGUAGES[lang_id]);
+        this.terminal.show("Jugando...");
+
+        // Set the fileName with the actual date
+        this.setFileName(FileManager.getActualDate());
+
+        // Main Loop
+        this.mainLoop();
+
+        // Show the winner if the game is finished || Show the end game message
+        if (this.isFinished()) this.showWinner();
+        else this.showEndGame();
+    }
+
+    // Private methods ====================================================================================================
+
+    //Method used to initialize the game
+    private void initGame() {
+       // Ask for language and set it
+        this.askAndSetLanguage();
 
         // Create players
         this.createPlayers();
@@ -36,12 +55,10 @@ public class Game implements Serializable{
             // Cancel the game
             System.exit(0);
         }
+    }
 
-        this.terminal.show("Jugando...");
-
-        // Set the fileName with the actual date
-        this.setFileName(FileManager.getActualDate());
-
+    // Method used to execute the main loop
+    private void mainLoop() {
         boolean finishGame = false;
 
         while (!this.isFinished() && !finishGame) {
@@ -84,7 +101,10 @@ public class Game implements Serializable{
             // Check if the user wants to finish the game
             finishGame = this.wantsToFinished();
         }
+    }
 
+    //Method used to show the winner
+    private void showWinner() {
         Player player_winner = this.players.get(0);
         String winner = player_winner.getName();
 
@@ -97,7 +117,16 @@ public class Game implements Serializable{
         this.terminal.show(output);
     }
 
-    // Private methods ====================================================================================================
+    //Method used to show the end game message
+    private void showEndGame() {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+        String output;
+        output = trs.translate("El juego ha sido guardado en el fichero %s");
+        output = String.format(output, this.fileName + Constants.DEFAULT_GAMES_EXTENSION);
+
+        this.terminal.show(output);
+    }
 
     //Method used to initialize players
     private void createPlayers(){
@@ -212,8 +241,9 @@ public class Game implements Serializable{
     }
 
     // Language methods ===================================================================================================
+
     // Ask desired language and return the index of the language
-    private int askForLanguage() {
+    private void askAndSetLanguage() {
         int answer = 0;
         boolean validAnswer = false;
 
@@ -241,7 +271,7 @@ public class Game implements Serializable{
             }
         }
 
-        return answer;
+        this.terminal.getTranslatorManager().setLanguage(Constants.AVAILABLE_LANGUAGES[answer]);
     }
 
     // Print available languages
