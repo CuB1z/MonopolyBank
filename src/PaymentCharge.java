@@ -9,8 +9,10 @@ public class PaymentCharge extends MonopolyCode {
     // Default Constructor
     public PaymentCharge(String [] info, Terminal terminal) {
 
-        // Call the super constructor
-        super(Integer.parseInt(info[0]), info[2], terminal);
+        // Assign superclass attributes
+        this.setId(Integer.parseInt(info[0]));
+        this.setDescription(info[2]);
+        this.setTerminal(terminal);
 
         // Set the amount
         if (info[2].contains(Constants.PRICE_DATA_SEPARATOR)) {

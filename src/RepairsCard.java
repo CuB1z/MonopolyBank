@@ -10,8 +10,10 @@ public class RepairsCard extends MonopolyCode {
     // Default Constructor
     public RepairsCard(String [] info, Terminal terminal) {
 
-        // Call the super constructor
-        super(Integer.parseInt(info[0]), info[2], terminal);
+        // Assign superclass attributes
+        this.setId(Integer.parseInt(info[0]));
+        this.setDescription(info[2]);
+        this.setTerminal(terminal);
 
         // Split the last element of the array to get the prices
         String [] prices = info[info.length - 1].split(Constants.PRICE_DATA_SEPARATOR);

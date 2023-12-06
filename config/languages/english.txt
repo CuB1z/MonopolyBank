@@ -49,3 +49,4 @@ Error al guardar el archivo,Error while trying to save the file
 Codigo invalido,Invalid code
 ID invalido,Invalid ID
 Introduce cualquier valor para continuar...,Enter any value to continue...
+Jugador %s (%s) Presupuesto: %d,Player %s (%s) Budget: %d

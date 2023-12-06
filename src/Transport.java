@@ -9,15 +9,13 @@ public class Transport extends Property {
     // Default Constructor
     public Transport(String [] info, Terminal terminal) {
 
-        // Call the super constructor
-        super(
-            Integer.parseInt(info[0]),
-            info[2],
-            terminal,
-            Integer.parseInt(info[info.length -1]) * 2,         // Get the price by multiplying the mortgagedValue by 2
-            false,
-            Integer.parseInt(info[info.length -1])
-        );
+        // Assign superclass attributes
+        this.setId(Integer.parseInt(info[0]));
+        this.setDescription(info[2]);
+        this.setTerminal(terminal);
+        this.setPrice(Integer.parseInt(info[info.length -1]) * 2);      // Get the price by multiplying the mortgagedValue by 2
+        this.setMortgaged(false);
+        this.setMortgageValue(Integer.parseInt(info[info.length -1]));
 
         // Set the costStaying
         this.costStaying[0] = Integer.parseInt(info[3]);
