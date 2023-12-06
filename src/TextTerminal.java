@@ -19,6 +19,7 @@ public class TextTerminal extends Terminal {
 
             // Try to read an integer
             try {
+                System.out.print(">> ");
                 String answer = this.scanner.next();  
                 int value = Integer.parseInt(answer);
                 return value;
@@ -32,6 +33,7 @@ public class TextTerminal extends Terminal {
 
     // Method to read a string
     public String readStr() {
+        System.out.print(">> ");
         String answer = this.scanner.next();
         return answer;
     }
