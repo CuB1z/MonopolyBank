@@ -48,5 +48,5 @@ La propiedad no es tuya;La propiedad no es tuya
 Error al guardar el archivo;Error al guardar el archivo
 Codigo invalido;Codigo invalido
 ID invalido;ID invalido
-Introduce cualquier valor para continuar...;Introduce cualquier valor para continuar...
+Introduce CONTINUAR;Introduce CONTINUAR
 Jugador %s (%s) Presupuesto: %d;Jugador %s (%s) Presupuesto: %d

@@ -54,7 +54,8 @@ public class TextTerminal extends Terminal {
 
     // Method to wait for the user to press enter
     public void waitForEnter() {
-        this.show("Introduce cualquier valor para continuar...");
+        this.show("Introduce CONTINUAR");
+        System.out.print(">> ");
         this.scanner.next();
     }
 }
