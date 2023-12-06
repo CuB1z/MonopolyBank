@@ -17,6 +17,7 @@ public abstract class Terminal implements Serializable {
     public abstract void show(String message);
 
     // Method to flush the screen (implement if needed)
+    public abstract void waitForEnter();
     public abstract void flushScreen();
 
     // Getters & setters ==================================================================================================

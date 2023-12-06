@@ -49,4 +49,10 @@ public class TextTerminal extends Terminal {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+
+    // Method to wait for the user to press enter
+    public void waitForEnter() {
+        this.show("Introduce cualquier valor para continuar...");
+        this.scanner.next();
+    }
 }

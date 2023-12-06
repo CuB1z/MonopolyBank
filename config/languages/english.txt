@@ -1,52 +1,52 @@
-BIENVENIDO AL MONOPOLY,WELCOME TO MONOPOLY
-Lenguajes disponibles: ,Available languages: 
-Introduzca el lenguaje que desea utilizar: ,Introduce the language you want to use: 
-Valor invalido, introduzca otro: ,Invalid value, enter another:
-¿Quieres reanudar una partida? (%s/n),Do you want to resume a game? (%s/n)
-Introduce el nombre del fichero: / (%s para salir),Enter the file name: / (%s to exit)
-Error, el fichero es corrupto o invalido, creando nueva partida...,Error, the file is corrupt or invalid, creating new game...
-RED,RED
-BLUE,BLUE
-GREEN,GREEN
-BLACK,BLACK
-spanish,Spanish
-english,english
-catalan,catalan
-euskera,basque
-gallego,galician
--- No hay ficheros disponibles --,-- No files available --
-El fichero no existe, introduce otro nombre: / (%s para salir),The file doesn't exist, enter another name: / (%s to exit)
-La operacion ha sido cancelada...,The operation has been canceled...
-Fichero encontrado...,File found...
-Creando nueva partida...,Creating new game...
-Cargando partida guardada...,Loading saved game...
-Jugando...,Playing...
-Introduce el numero de jugadores (2-4): ,Enter the number of players (2-4): 
-Numero de jugadores incorrecto,Incorrect number of players
-Introduce el nombre del jugador ,Enter the name of the player 
-Jugador %s (%s ) Presupuesto: %d,Player %s (%s ) Budget: %d
----Jugadores---,---Players---
-Comenzando operacion...,Starting operation...
-Cargando datos del juego...,Loading game data...
-Datos cargados correctamente,Data loaded correctly
-Introduce un numero valido,Enter a valid number
-Introduzca código de tarjeta:,Enter card code:
-Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):,Enter player code (1: red 2: blue 3: green 4: black):
-¿Desea salir y guardar el juego? (%s/n),Do you want to exit and save the game? (%s/n)
-Fin del juego: %s es el ganador!!,Game Over: %s is the winner!!
-Pago efectuado,Payment made
-Vuelve a intentarlo cuando tengas mas dinero,Try again when you have more money
-Desea pagar %d? (S/N),Do you want to pay %d? (S/N)
-Introduzca la propiedad que desea vender:,Enter desired property to sell:
-Propiedades de %s:,%s's properties:
-Propiedad no encontrada,Property not found
-Vende propiedades,Sell properties
-Nuevo presupuesto: %d,New balance: %d
-No se ha realizado el pago,Payment hasn't been made
-El jugador %s ha quebrado,The player %s has gone bankrupt,
-La propiedad no es tuya,This property doesn't belong to you
-Error al guardar el archivo,Error while trying to save the file
-Codigo invalido,Invalid code
-ID invalido,Invalid ID
-Introduce cualquier valor para continuar...,Enter any value to continue...
-Jugador %s (%s) Presupuesto: %d,Player %s (%s) Budget: %d
+BIENVENIDO AL MONOPOLY;WELCOME TO MONOPOLY
+Lenguajes disponibles: ;Available languages: 
+Introduzca el lenguaje que desea utilizar: ;Introduce the language you want to use: 
+Valor invalido, introduzca otro: ;Invalid value, enter another:
+¿Quieres reanudar una partida? (%s/n);Do you want to resume a game? (%s/n)
+Introduce el nombre del fichero: / (%s para salir);Enter the file name: / (%s to exit)
+Error, el fichero es corrupto o invalido, creando nueva partida...;Error, the file is corrupt or invalid, creating new game...
+RED;RED
+BLUE;BLUE
+GREEN;GREEN
+BLACK;BLACK
+spanish;Spanish
+english;english
+catalan;catalan
+euskera;basque
+gallego;galician
+-- No hay ficheros disponibles --;-- No files available --
+El fichero no existe, introduce otro nombre: / (%s para salir);The file doesn't exist, enter another name: / (%s to exit)
+La operacion ha sido cancelada...;The operation has been canceled...
+Fichero encontrado...;File found...
+Creando nueva partida...;Creating new game...
+Cargando partida guardada...;Loading saved game...
+Jugando...;Playing...
+Introduce el numero de jugadores (2-4): ;Enter the number of players (2-4): 
+Numero de jugadores incorrecto;Incorrect number of players
+Introduce el nombre del jugador ;Enter the name of the player 
+Jugador %s (%s ) Presupuesto: %d;Player %s (%s ) Budget: %d
+---Jugadores---;---Players---
+Comenzando operacion...;Starting operation...
+Cargando datos del juego...;Loading game data...
+Datos cargados correctamente;Data loaded correctly
+Introduce un numero valido;Enter a valid number
+Introduzca código de tarjeta:;Enter card code:
+Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):;Enter player code (1: red 2: blue 3: green 4: black):
+¿Desea salir y guardar el juego? (%s/n);Do you want to exit and save the game? (%s/n)
+Fin del juego: %s es el ganador!!;Game Over: %s is the winner!!
+Pago efectuado;Payment made
+Vuelve a intentarlo cuando tengas mas dinero;Try again when you have more money
+Desea pagar %d? (S/N);Do you want to pay %d? (S/N)
+Introduzca la propiedad que desea vender:;Enter desired property to sell:
+Propiedades de %s:;%s's properties:
+Propiedad no encontrada;Property not found
+Vende propiedades;Sell properties
+Nuevo presupuesto: %d;New balance: %d
+No se ha realizado el pago;Payment hasn't been made
+El jugador %s ha quebrado;The player %s has gone bankrupt
+La propiedad no es tuya;This property doesn't belong to you
+Error al guardar el archivo;Error while trying to save the file
+Codigo invalido;Invalid code
+ID invalido;Invalid ID
+Introduce cualquier valor para continuar...;Enter any value to continue...
+Jugador %s (%s) Presupuesto: %d;Player %s (%s) Budget: %d

@@ -21,6 +21,7 @@ public class GameManager implements Serializable {
 
         // Ask if the user wants to resume a game
         String fileName = this.askForResumeGame();
+        this.terminal.waitForEnter();
         this.terminal.flushScreen();
         
         // Create a new game or load a saved one
@@ -28,12 +29,10 @@ public class GameManager implements Serializable {
         if (fileName == null) {
             this.terminal.show("Creando nueva partida...");
             game = new Game();
-            game.setTerminal(this.terminal);
 
         } else {
             this.terminal.show("Cargando partida...");
             game = FileManager.readFile(fileName);
-            game.setTerminal(this.terminal);
         }
 
         // Play the game
@@ -117,7 +116,7 @@ public class GameManager implements Serializable {
             return fileName;
         }
     }
-
+    
     // Getters & setters ==================================================================================================
     public Terminal getTerminal() {
         return this.terminal;

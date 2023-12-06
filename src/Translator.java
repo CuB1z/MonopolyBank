@@ -30,7 +30,9 @@ public class Translator implements Serializable {
             line = buffer.readLine();
 
             if (line != null) {
-                this.dictionary.put(line.split(",")[0], line.split(",")[1]);
+                this.dictionary.put(line.split(Constants.DATA_SEPARATOR)[0],
+                                    line.split(Constants.DATA_SEPARATOR)[1]
+                );
             }
             
         } while (line != null);

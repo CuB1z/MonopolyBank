@@ -13,7 +13,9 @@ public class Game implements Serializable{
     // Constructor ========================================================================================================
     
     // Zero Constructor
-    public Game() {}
+    public Game() throws Exception {
+        this.terminal = new TextTerminal();
+    }
     
     // Public methods =====================================================================================================
     public void play() {
