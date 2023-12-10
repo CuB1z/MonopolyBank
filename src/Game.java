@@ -70,6 +70,7 @@ public class Game implements Serializable{
 
             int answer = this.showMainLoopMenu();
 
+            // Check the answer and execute the corresponding action
             if (answer == Constants.SHOW_SUMMARY_ID) {
                 this.terminal.flushScreen();
                 this.showSummary();
@@ -80,7 +81,7 @@ public class Game implements Serializable{
             } else if (answer == Constants.CONTINUE_PLAYING_ID) {
                 this.terminal.flushScreen();
                 this.playTurn();
-                
+
             } else {
                 this.terminal.show("Opcion invalida");
                 this.terminal.show("");
@@ -268,18 +269,6 @@ public class Game implements Serializable{
     private boolean isFinished() {
         return this.players.size() == 1;
     }
-
-    // // Method used to check if the user wants to finish the game
-    // private boolean wantsToFinished() {
-    //     Translator trs = this.terminal.getTranslatorManager().getTranslator();
-    //     String output = trs.translate("¿Desea salir y guardar el juego? (%s/n)");
-
-    //     this.terminal.show(String.format(output, Constants.DEFAULT_APROVE_STRING));
-    //     String input = this.terminal.readStr();
-    //     this.terminal.show("");
-
-    //     return input.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
-    // }
 
     // Method used to load the monopoly codes
     private void loadMonopolyCodes() throws Exception {
