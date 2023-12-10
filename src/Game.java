@@ -66,6 +66,7 @@ public class Game implements Serializable{
         boolean finishGame = false;
 
         while (!this.isFinished() && !finishGame) {
+            this.terminal.flushScreen();
 
             // Ask for code ID and get mCode
             int codeId = this.getCodeId();
@@ -81,6 +82,8 @@ public class Game implements Serializable{
                 this.terminal.show("");
                 player.showResume();
             }
+
+            this.terminal.show("");
 
             // Update players array
             if (player.isBankrupt()) this.players.remove(player);
@@ -206,13 +209,14 @@ public class Game implements Serializable{
 
     // Method used to check if the user wants to finish the game
     private boolean wantsToFinished() {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String output = trs.translate("¿Desea salir y guardar el juego? (%s/n)");
 
-        this.terminal.show(String.format("¿Desea salir y guardar el juego? (%s/n)", Constants.DEFAULT_APROVE_STRING));
+        this.terminal.show(String.format(output, Constants.DEFAULT_APROVE_STRING));
         String input = this.terminal.readStr();
         this.terminal.show("");
 
-        if (input.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return true;
-        else return false;
+        return input.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
     }
 
     // Method used to load the monopoly codes
@@ -331,8 +335,7 @@ public class Game implements Serializable{
         this.terminal.show("---Jugadores---");
         this.terminal.show(output);
         this.terminal.show("");
-        this.terminal.show("Introduce cualquier valor para continuar...");
-        this.terminal.readStr();
+        this.terminal.waitForEnter();
     }
 
     // Getters & Setters ==================================================================================================

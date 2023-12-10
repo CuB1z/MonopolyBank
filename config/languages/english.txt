@@ -50,3 +50,5 @@ Codigo invalido;Invalid code
 ID invalido;Invalid ID
 Introduce CONTINUAR;Enter CONTINUE
 Jugador %s (%s) Presupuesto: %d;Player %s (%s) Budget: %d
+El juego ha sido guardado en el fichero %s;The game has been saved in the file %s
+¿Desea salir y guardar el juego? (%s/n);Do you want to exit and save the game? (%s/n)

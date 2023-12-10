@@ -50,3 +50,5 @@ Codigo invalido;Codigo invalido
 ID invalido;ID invalido
 Introduce CONTINUAR;Introduce CONTINUAR
 Jugador %s (%s) Presupuesto: %d;Jugador %s (%s) Presupuesto: %d
+El juego ha sido guardado en el fichero %s;El juego ha sido guardado en el fichero %s
+¿Desea salir y guardar el juego? (%s/n);¿Desea salir y guardar el juego? (%s/n)
