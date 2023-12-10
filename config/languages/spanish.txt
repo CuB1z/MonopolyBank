@@ -48,7 +48,13 @@ La propiedad no es tuya;La propiedad no es tuya
 Error al guardar el archivo;Error al guardar el archivo
 Codigo invalido;Codigo invalido
 ID invalido;ID invalido
+Opcion invalida;Opcion invalida
 Introduce CONTINUAR;Introduce CONTINUAR
 Jugador %s (%s) Presupuesto: %d;Jugador %s (%s) Presupuesto: %d
 El juego ha sido guardado en el fichero %s;El juego ha sido guardado en el fichero %s
 ¿Desea salir y guardar el juego? (%s/n);¿Desea salir y guardar el juego? (%s/n)
+Introduzca una opcion:;Introduzca una opcion:
+Continuar jugando;Continuar jugando
+Mostrar resumen;Mostrar resumen
+Guardar y salir;Guardar y salir
+---Resumen---;---Resumen---

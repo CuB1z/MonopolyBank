@@ -68,32 +68,94 @@ public class Game implements Serializable{
         while (!this.isFinished() && !finishGame) {
             this.terminal.flushScreen();
 
-            // Ask for code ID and get mCode
-            int codeId = this.getCodeId();
-            MonopolyCode mCode = this.monopolyCodeArray[codeId];
+            int answer = this.showMainLoopMenu();
 
-            // Ask for player ID and get player
-            int playerId = this.getPlayerId();
-            Player player = this.players.get(playerId - 1);
+            if (answer == Constants.SHOW_SUMMARY_ID) {
+                this.terminal.flushScreen();
+                this.showSummary();
 
-            if (mCode != null) this.execDoOperation(mCode, player);
-            else {
-                this.terminal.show("Codigo invalido");
+            } else if (answer == Constants.EXIT_GAME_ID) {
+                finishGame = true;
+
+            } else if (answer == Constants.CONTINUE_PLAYING_ID) {
+                this.terminal.flushScreen();
+                this.playTurn();
+                
+            } else {
+                this.terminal.show("Opcion invalida");
                 this.terminal.show("");
-                player.showResume();
             }
-
-            this.terminal.show("");
-
-            // Update players array
-            if (player.isBankrupt()) this.players.remove(player);
 
             // Save the game
             FileManager.saveFile(this, this.fileName);
-
-            // Check if the user wants to finish the game
-            finishGame = this.wantsToFinished();
         }
+    }
+
+    // Method used to play a turn
+    private void playTurn() {
+        // Ask for code ID and get mCode
+        int codeId = this.getCodeId();
+        MonopolyCode mCode = this.monopolyCodeArray[codeId];
+
+        // Ask for player ID and get player
+        int playerId = this.getPlayerId();
+        Player player = this.players.get(playerId - 1);
+
+        if (mCode != null) this.execDoOperation(mCode, player);
+        else {
+            this.terminal.show("Codigo invalido");
+            this.terminal.show("");
+            player.showResume();
+        }
+
+        this.terminal.show("");
+        this.terminal.waitForEnter();
+
+        // Update players array
+        if (player.isBankrupt()) this.players.remove(player);
+    }
+
+    // Method used to show the main loop menu
+    private int showMainLoopMenu() {
+
+        // Show the menu options
+        this.terminal.show("Introduzca una opcion:");
+
+        System.out.print(Constants.CONTINUE_PLAYING_ID + ": ");
+        this.terminal.show("Continuar jugando");
+
+        System.out.print(Constants.SHOW_SUMMARY_ID + ": ");
+        this.terminal.show("Mostrar resumen");
+
+        System.out.print(Constants.EXIT_GAME_ID + ": ");
+        this.terminal.show("Guardar y salir");
+
+        this.terminal.show("");
+
+        // Ask for the answer and check if it is valid
+        while (true) {
+            int answer = this.terminal.readInt();
+            this.terminal.show("");
+
+            if (answer < Constants.MAIN_LOOP_MIN_OPTION || answer > Constants.MAIN_LOOP_MAX_OPTION) {
+                this.terminal.show("Opcion invalida");
+                this.terminal.show("");
+            } else
+                return answer;
+        }
+    }
+
+    //Method used to show the summary
+    private void showSummary() {
+        String output = "";
+
+        for (Player player : this.players) {
+            output += player.toString() + "\n";
+        }
+
+        this.terminal.show("---Resumen---");
+        this.terminal.show(output);
+        this.terminal.waitForEnter();
     }
 
     //Method used to get the code id
@@ -207,17 +269,17 @@ public class Game implements Serializable{
         return this.players.size() == 1;
     }
 
-    // Method used to check if the user wants to finish the game
-    private boolean wantsToFinished() {
-        Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String output = trs.translate("¿Desea salir y guardar el juego? (%s/n)");
+    // // Method used to check if the user wants to finish the game
+    // private boolean wantsToFinished() {
+    //     Translator trs = this.terminal.getTranslatorManager().getTranslator();
+    //     String output = trs.translate("¿Desea salir y guardar el juego? (%s/n)");
 
-        this.terminal.show(String.format(output, Constants.DEFAULT_APROVE_STRING));
-        String input = this.terminal.readStr();
-        this.terminal.show("");
+    //     this.terminal.show(String.format(output, Constants.DEFAULT_APROVE_STRING));
+    //     String input = this.terminal.readStr();
+    //     this.terminal.show("");
 
-        return input.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
-    }
+    //     return input.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
+    // }
 
     // Method used to load the monopoly codes
     private void loadMonopolyCodes() throws Exception {

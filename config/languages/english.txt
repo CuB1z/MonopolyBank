@@ -48,7 +48,13 @@ La propiedad no es tuya;This property doesn't belong to you
 Error al guardar el archivo;Error while trying to save the file
 Codigo invalido;Invalid code
 ID invalido;Invalid ID
+Opcion invalida;Invalid Option
 Introduce CONTINUAR;Enter CONTINUE
 Jugador %s (%s) Presupuesto: %d;Player %s (%s) Budget: %d
 El juego ha sido guardado en el fichero %s;The game has been saved in the file %s
 ¿Desea salir y guardar el juego? (%s/n);Do you want to exit and save the game? (%s/n)
+Introduzca una opcion:;Enter an option:
+Continuar jugando;Continue playing
+Mostrar resumen;Show summary
+Guardar y salir;Save and exit
+---Resumen---;---Summary---

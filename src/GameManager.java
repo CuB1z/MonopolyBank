@@ -21,7 +21,6 @@ public class GameManager implements Serializable {
 
         // Ask if the user wants to resume a game
         String fileName = this.askForResumeGame();
-        this.terminal.waitForEnter();
         this.terminal.flushScreen();
         
         // Create a new game or load a saved one
@@ -49,6 +48,7 @@ public class GameManager implements Serializable {
 
         if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)){
             String file = this.showFileNames();
+            this.terminal.waitForEnter();
             return file;
         }
         else return null;
