@@ -82,7 +82,7 @@ public class Player implements Serializable {
             }
 
         } else {
-            this.balance -= amount;
+            this.balance += amount;
             msg = trs.translate("Nuevo presupuesto: %d");
             this.terminal.show(String.format(msg, this.balance));
         }
@@ -90,7 +90,8 @@ public class Player implements Serializable {
 
     // Method to receive money
     public void receive(int amount) {
-        this.balance += amount;
+        System.out.println("Recibiendo " + amount);
+        this.balance = this.balance + amount;
 
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg = trs.translate("Nuevo presupuesto: %d");

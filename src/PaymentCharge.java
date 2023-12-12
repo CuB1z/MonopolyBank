@@ -33,6 +33,8 @@ public class PaymentCharge extends MonopolyCode {
     public void doOperation(Player player) {
         this.terminal.show(this.getDescription());
 
+        System.out.println("Amount: " + this.amount);
+
         if (this.amount > 0) player.receive(this.amount);
         else player.pay(this.amount, true);
     }
