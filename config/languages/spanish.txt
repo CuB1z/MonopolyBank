@@ -58,3 +58,4 @@ Continuar jugando;Continuar jugando
 Mostrar resumen;Mostrar resumen
 Guardar y salir;Guardar y salir
 ---Resumen---;---Resumen---
+Nuevo presupuesto: %d;Nuevo presupuesto: %d

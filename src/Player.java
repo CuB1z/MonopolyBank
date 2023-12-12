@@ -65,6 +65,7 @@ public class Player implements Serializable {
                     this.terminal.show("No se ha realizado el pago");
                 }
             }
+
         } else if (this.balance - amount < 0) {
             this.terminal.show("No tienes suficiente dinero para pagar");
             this.terminal.show("Vende propiedades");
@@ -79,7 +80,21 @@ public class Player implements Serializable {
                 msg = trs.translate("El jugador %s ha quebrado");
                 this.terminal.show(String.format(msg, this.name));
             }
+
+        } else {
+            this.balance -= amount;
+            msg = trs.translate("Nuevo presupuesto: %d");
+            this.terminal.show(String.format(msg, this.balance));
         }
+    }
+
+    // Method to receive money
+    public void receive(int amount) {
+        this.balance += amount;
+
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String msg = trs.translate("Nuevo presupuesto: %d");
+        this.terminal.show(String.format(msg, this.balance));
     }
 
     // Private methods ====================================================================================================

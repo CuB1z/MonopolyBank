@@ -58,3 +58,4 @@ Continuar jugando;Continue playing
 Mostrar resumen;Show summary
 Guardar y salir;Save and exit
 ---Resumen---;---Summary---
+Nuevo presupuesto: %d;New balance: %d

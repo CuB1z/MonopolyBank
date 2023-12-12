@@ -25,12 +25,10 @@ public class TranslatorManager implements Serializable {
     }
 
     public void setLanguage(String language) {
-        if (!language.equals(this.currentLanguage.getLanguage())) {
             
-            for (Translator translator : languages) {
-                if (translator.getLanguage().equals(language))
-                    this.currentLanguage = translator;
-            }
+        for (Translator translator : languages) {
+            if (translator.getLanguage().equals(language))
+                this.currentLanguage = translator;
         }
     }
 
