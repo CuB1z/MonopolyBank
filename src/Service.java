@@ -24,6 +24,10 @@ public class Service extends Property{
 
     // Public methods =====================================================================================================
 
+    public void doOperation(Player p) {
+
+    }
+
     // Getters & setters ==================================================================================================
     public int [] getCostStaying() {
         return this.costStaying;

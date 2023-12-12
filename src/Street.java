@@ -35,6 +35,11 @@ public class Street extends Property{
     }
 
     // Public methods =====================================================================================================
+
+    public void doOperation(Player p) {
+
+    }
+
     public void buildHouse() {
         if (this.builtHouses < Constants.MAX_NUMBER_OF_HOUSES) this.builtHouses++;
     }

@@ -59,3 +59,4 @@ Mostrar resumen;Show summary
 Guardar y salir;Save and exit
 ---Resumen---;---Summary---
 Nuevo presupuesto: %d;New balance: %d
+Quieres comprar la propiedad: %s por %d? (%s,N);Do you want to buy the property: %s for %d? (%s,N)
