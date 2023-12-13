@@ -112,16 +112,15 @@ public class Player implements Serializable {
                 }
             } else this.terminal.show("Operacion cancelada");
             
-            
         } else this.terminal.show("La propiedad no es tuya");
     }
     
-    // Method to do owner operations with a transport
-    public void doOwnerOperation(Transport transport) {
+    // Method to do owner operations with a default property
+    public void doOwnerOperation(Property property) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
-        if (this.searchProperty(transport.getDescription()) != null) {
-            int answer = this.showOwnerOperationMenu(transport);
+        if (this.searchProperty(property.getDescription()) != null) {
+            int answer = this.showOwnerOperationMenu(property);
             
             String msg;
             msg = trs.translate("Desea realizar la operacion? (%s/N)");
@@ -132,19 +131,13 @@ public class Player implements Serializable {
             
             if (aproval) {
                 switch (answer) {
-                    case 1: this.mortgage(transport); break;
-                    case 2: this.unmortgage(transport); break;
+                    case 1: this.mortgage(property); break;
+                    case 2: this.unmortgage(property); break;
                     default: break;
                 }
             } else this.terminal.show("Operacion cancelada");
             
-            
         } else this.terminal.show("La propiedad no es tuya");
-    }
-    
-    // Method to do owner operations with a service
-    public void doOwnerOperation(Service service) {
-
     }
     
     // Method to receive money
@@ -243,11 +236,12 @@ public class Player implements Serializable {
         }
     }
     
-    private int showOwnerOperationMenu(Transport transport) {
+    // Method to show the owner operation menu for a default property
+    private int showOwnerOperationMenu(Property property) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg = trs.translate("Que desea hacer con la propiedad: %s?");
     
-        this.terminal.show(String.format(msg, transport.getDescription()));
+        this.terminal.show(String.format(msg, property.getDescription()));
         this.terminal.show("1. Hipotecar");
         this.terminal.show("2. Deshipotecar");
         this.terminal.show("3. Cancelar");
