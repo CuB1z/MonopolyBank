@@ -88,6 +88,65 @@ public class Player implements Serializable {
         }
     }
 
+    // Method to do owner operations with a street
+    public void doOwnerOperation(Street street) {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        
+        if (this.searchProperty(street.getDescription()) != null) {
+            int answer = this.showOwnerOperationMenu(street);
+            
+            String msg;
+            msg = trs.translate("Desea realizar la operacion? (%s/N)");
+            this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
+            msg = this.terminal.readStr();
+            
+            boolean aproval = msg.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
+            
+            if (aproval) {
+                switch (answer) {
+                    case 1: this.buyHouse(street); break;
+                    case 2: this.sellHouse(street); break;
+                    case 3: this.mortgage(street); break;
+                    case 4: this.unmortgage(street); break;
+                    default: break;
+                }
+            } else this.terminal.show("Operacion cancelada");
+            
+            
+        } else this.terminal.show("La propiedad no es tuya");
+    }
+    
+    // Method to do owner operations with a transport
+    public void doOwnerOperation(Transport transport) {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+        if (this.searchProperty(transport.getDescription()) != null) {
+            int answer = this.showOwnerOperationMenu(transport);
+            
+            String msg;
+            msg = trs.translate("Desea realizar la operacion? (%s/N)");
+            this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
+            msg = this.terminal.readStr();
+            
+            boolean aproval = msg.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
+            
+            if (aproval) {
+                switch (answer) {
+                    case 1: this.mortgage(transport); break;
+                    case 2: this.unmortgage(transport); break;
+                    default: break;
+                }
+            } else this.terminal.show("Operacion cancelada");
+            
+            
+        } else this.terminal.show("La propiedad no es tuya");
+    }
+    
+    // Method to do owner operations with a service
+    public void doOwnerOperation(Service service) {
+
+    }
+    
     // Method to receive money
     public void receive(int amount) {
         System.out.println("Recibiendo " + amount);
@@ -96,6 +155,16 @@ public class Player implements Serializable {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg = trs.translate("Nuevo presupuesto: %d");
         this.terminal.show(String.format(msg, this.balance));
+    }
+
+    // Method to count Transport properties
+    public int countTransportProperties() {
+        int count = 0;
+
+        for (Property p : this.ownedProperties)
+            if (p instanceof Transport) count++;
+
+        return count;
     }
 
     // Private methods ====================================================================================================
@@ -154,6 +223,45 @@ public class Player implements Serializable {
         }
     }
 
+    // Method to show the owner operation menu for a street
+    private int showOwnerOperationMenu(Street street) {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String msg = trs.translate("Que desea hacer con la propiedad: %s?");
+
+        this.terminal.show(String.format(msg, street.getDescription()));
+        this.terminal.show("1. Comprar casa");
+        this.terminal.show("2. Vender casa");
+        this.terminal.show("3. Hipotecar");
+        this.terminal.show("4. Deshipotecar");
+        this.terminal.show("5. Cancelar");
+
+        while (true) {
+            int option = this.terminal.readInt();
+
+            if (option < 1 || option > 5) this.terminal.show("Opcion invalida");
+            else return option;
+        }
+    }
+    
+    private int showOwnerOperationMenu(Transport transport) {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String msg = trs.translate("Que desea hacer con la propiedad: %s?");
+    
+        this.terminal.show(String.format(msg, transport.getDescription()));
+        this.terminal.show("1. Hipotecar");
+        this.terminal.show("2. Deshipotecar");
+        this.terminal.show("3. Cancelar");
+    
+        while (true) {
+            int option = this.terminal.readInt();
+    
+            if (option < 1 || option > 3) this.terminal.show("Opcion invalida");
+            else return option;
+        }
+    }
+
+
+
     // Method to search a property
     private Property searchProperty(String property) {
         for (Property p : this.ownedProperties) {
@@ -165,11 +273,70 @@ public class Player implements Serializable {
         return null;
     }
 
+
     // Method to check if there are things to sell
     private boolean thereAreThingsToSell() {
         return this.ownedProperties.size() > 0;
     }
 
+    // Method to buy a house
+    private void buyHouse(Street street) {
+        if (street.isBuilt())
+            this.terminal.show("La propiedad ya tiene el maximo de casas");
+
+        else if (street.isMortgaged())
+            this.terminal.show("La propiedad esta hipotecada");
+
+        else if (this.balance < street.getHousePrice())
+            this.terminal.show("No tienes suficiente dinero");
+
+        else {
+            street.buildHouse();
+            this.balance -= street.getHousePrice();
+            this.terminal.show("Casa comprada");
+        }
+    }
+
+    // Method to sell a house
+    private void sellHouse(Street street) {
+        if (!street.isBuilt())
+            this.terminal.show("La propiedad no tiene casas");
+
+        else if (street.isMortgaged())
+            this.terminal.show("La propiedad esta hipotecada");
+
+        else {
+            this.balance += street.sellHouse();
+            this.terminal.show("Casa vendida");
+        }
+    }
+
+    // Method to mortgage a property
+    private void mortgage(Property property) {
+        if (property.isMortgaged())
+            this.terminal.show("La propiedad ya esta hipotecada");
+
+        else {
+            property.setMortgaged(true);
+            this.balance += property.getMortgageValue();
+            this.terminal.show("Propiedad hipotecada");
+        }
+    }
+
+    // Method to unmortgage a property
+    private void unmortgage(Property property) {
+        if (!property.isMortgaged())
+            this.terminal.show("La propiedad no esta hipotecada");
+
+        else if (this.balance < property.getMortgageValue())
+            this.terminal.show("No tienes suficiente dinero");
+
+        else {
+            property.setMortgaged(false);
+            this.balance -= property.getMortgageValue();
+            this.terminal.show("Propiedad deshipotecada");
+        }
+    }
 
     // Getters ============================================================================================================
     public Color getColor() {

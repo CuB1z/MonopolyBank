@@ -33,17 +33,26 @@ public class Transport extends Property {
             String output = trs.translate("Quieres comprar la propiedad: %s por %d? (%s,N)");
             this.terminal.show(String.format(output, this.getDescription(), this.getPrice(), Constants.DEFAULT_APROVE_STRING));
             String answer = this.terminal.readStr();
+
             if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) {
-                this.buy(p);
+                p.pay(this.getPrice(), false);
+                this.setOwner(p);
+                p.getOwnedProperties().add(this);
             }
-        }
+
+        } else if (this.getOwner() != p) {
+            int cost = this.costStaying[p.countTransportProperties() - 1];
+
+            String output = trs.translate("Has caido en la propiedad: %s, debes pagar %d");
+            this.terminal.show(String.format(output, this.getDescription(), cost));
+
+            p.pay(cost, true);
+            this.getOwner().receive(cost);
+
+        } else p.doOwnerOperation(this);
     }
 
     // Private methods ====================================================================================================
-
-    private void buy(Player p) {
-        p.pay(this.getPrice(), false);
-    }
 
     // Getters & Setters ==================================================================================================
     public int [] getCostStaying() {
