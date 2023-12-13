@@ -36,7 +36,7 @@ Introduzca codigo de jugador (1: rojo 2: azul 3: verde 4: negro):;Introduzca cod
 Fin del juego: %s es el ganador!!;Fin del juego: %s es el ganador!!
 Pago efectuado;Pago efectuado
 Vuelve a intentarlo cuando tengas mas dinero;Vuelve a intentarlo cuando tengas mas dinero
-Desea pagar %d? (S/N);Desea pagar %d? (S/N)
+Desea pagar %d? (%s/N);Desea pagar %d? (%s/N)
 Introduzca la propiedad que desea vender:;Introduzca la propiedad que desea vender:
 Propiedades de %s:;Propiedades de %s:
 Propiedad no encontrada;Propiedad no encontrada

@@ -51,13 +51,13 @@ public class Player implements Serializable {
                 this.terminal.show("No tienes suficiente dinero para pagar");
                 this.terminal.show("Vuelve a intentarlo cuando tengas mas dinero");
             } else {
-                msg = trs.translate("Desea pagar %d? (S/N)");
-                msg = String.format(msg, amount);
+                msg = trs.translate("Desea pagar %d? (%s/N)");
+                msg = String.format(msg, amount, Constants.DEFAULT_APROVE_STRING);
 
                 this.terminal.show(msg);
                 String answer = this.terminal.readStr();
 
-                if (answer.equals("S")) {
+                if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) {
                     this.balance -= amount;
                     msg = trs.translate("Nuevo presupuesto: %d");
                     this.terminal.show(String.format(msg, this.balance));
