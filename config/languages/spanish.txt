@@ -56,6 +56,7 @@ El juego ha sido guardado en el fichero %s;El juego ha sido guardado en el fiche
 Introduzca una opcion:;Introduzca una opcion:
 Continuar jugando;Continuar jugando
 Mostrar resumen;Mostrar resumen
+Cambiar idioma;Cambiar idioma
 Guardar y salir;Guardar y salir
 ---Resumen---;---Resumen---
 Nuevo presupuesto: %d;Nuevo presupuesto: %d

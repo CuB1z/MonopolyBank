@@ -28,7 +28,6 @@ public class RepairsCard extends MonopolyCode {
 
     // Public methods =====================================================================================================
 
-    
     @Override
     public void doOperation(Player p) {
         int houses = 0;

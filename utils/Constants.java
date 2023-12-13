@@ -51,11 +51,12 @@ public class Constants {
 
     // Game constants ===============================================================
     public static final int MAIN_LOOP_MIN_OPTION = 1;
-    public static final int MAIN_LOOP_MAX_OPTION = 3;
+    public static final int MAIN_LOOP_MAX_OPTION = 4;
 
     public static final int CONTINUE_PLAYING_ID = 1;
     public static final int SHOW_SUMMARY_ID = 2;
-    public static final int EXIT_GAME_ID = 3;
+    public static final int CHANGE_LANGUAGE_ID = 3;
+    public static final int EXIT_GAME_ID = 4;
     
     // Available languages ==========================================================
     public static final String[] AVAILABLE_LANGUAGES = {"spanish", "english"};

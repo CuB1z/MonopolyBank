@@ -82,6 +82,9 @@ public class Game implements Serializable{
                 this.terminal.flushScreen();
                 this.playTurn();
 
+            } else if (answer == Constants.CHANGE_LANGUAGE_ID) {
+                this.terminal.flushScreen();
+                this.askAndSetLanguage();
             } else {
                 this.terminal.show("Opcion invalida");
                 this.terminal.show("");
@@ -127,6 +130,9 @@ public class Game implements Serializable{
 
         System.out.print(Constants.SHOW_SUMMARY_ID + ": ");
         this.terminal.show("Mostrar resumen");
+
+        System.out.print(Constants.CHANGE_LANGUAGE_ID + ": ");
+        this.terminal.show("Cambiar idioma");
 
         System.out.print(Constants.EXIT_GAME_ID + ": ");
         this.terminal.show("Guardar y salir");

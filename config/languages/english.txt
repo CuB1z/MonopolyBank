@@ -56,6 +56,7 @@ El juego ha sido guardado en el fichero %s;The game has been saved in the file %
 Introduzca una opcion:;Enter an option:
 Continuar jugando;Continue playing
 Mostrar resumen;Show summary
+Cambiar idioma;Change language
 Guardar y salir;Save and exit
 ---Resumen---;---Summary---
 Nuevo presupuesto: %d;New balance: %d
