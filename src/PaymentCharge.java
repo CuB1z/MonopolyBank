@@ -36,7 +36,7 @@ public class PaymentCharge extends MonopolyCode {
         System.out.println("Amount: " + this.amount);
 
         if (this.amount > 0) player.receive(this.amount);
-        else player.pay(this.amount, true);
+        else player.pay(this.amount * (-1), true);
     }
 
     // Getters & Setters ==================================================================================================

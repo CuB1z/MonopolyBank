@@ -41,7 +41,10 @@ public class Transport extends Property {
             }
 
         } else if (this.getOwner() != p) {
-            int cost = this.costStaying[p.countTransportProperties() - 1];
+
+            int count = this.getOwner().countTransportProperties();
+            
+            int cost = this.costStaying[count - 1];
 
             String output = trs.translate("Has caido en la propiedad: %s, debes pagar %d");
             this.terminal.show(String.format(output, this.getDescription(), cost));

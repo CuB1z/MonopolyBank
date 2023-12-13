@@ -46,11 +46,12 @@ public class GameManager implements Serializable {
         String answer = this.terminal.readStr();
         this.terminal.show("");
 
-        if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)){
+        if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) {
             String file = this.showFileNames();
             this.terminal.waitForEnter();
             return file;
         }
+
         else return null;
     }
 
@@ -64,17 +65,17 @@ public class GameManager implements Serializable {
         File folder = new File(path);
         String[] list = folder.list();
 
-        this.terminal.show("Ficheros disponibles: ");
-
         // Show the file names if there are any
         if (list == null || list.length == 0) {
             this.terminal.show("-- No hay ficheros disponibles --");
             this.terminal.show("");
             return null;
         }
-        
-        for (String name : list) {
-            this.terminal.show(name);
+
+        this.terminal.show("Ficheros disponibles: ");
+
+        for (int i = 0; i < list.length; i++) {
+            this.terminal.show(i + 1 + ". " + list[i].replace(Constants.DEFAULT_GAMES_EXTENSION, ""));
         }
 
         this.terminal.show("");
@@ -86,37 +87,28 @@ public class GameManager implements Serializable {
 
     // Ask for the file name and check if it exists
     private String askForFileName(String[] fileNames) {
-        this.terminal.show(String.format("Introduce el nombre del fichero: / (%s para salir)", Constants.DEFAULT_APROVE_STRING));
-        String fileName = this.terminal.readStr();
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String output = trs.translate("¿Que juego quieres reanudar? (%d para cancelar)");
 
-        if (fileName.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return null;
+        this.terminal.show(String.format(output, Constants.DEFAULT_CANCEL_INT));
 
-        boolean fileExists = false;
+        int fileNumber = Constants.DEFAULT_CANCEL_INT - 1;
 
-        do {
-            for (String name : fileNames) {
-                if (name.replace(Constants.DEFAULT_GAMES_EXTENSION, "").equals(fileName))
-                    fileExists = true;
+        // Ask for the file number until it is valid
+        while ((fileNumber < 1 || fileNumber > fileNames.length) && fileNumber != Constants.DEFAULT_CANCEL_INT) {
+            fileNumber = this.terminal.readInt();
+
+            if ((fileNumber < 1 || fileNumber > fileNames.length) && fileNumber != Constants.DEFAULT_CANCEL_INT) {
+                output = trs.translate("El fichero %d no existe, prueba de nuevo: / (%d para salir)");
+                this.terminal.show(String.format(output, fileNumber, Constants.DEFAULT_CANCEL_INT));
             }
+        }
 
-            if (!fileExists) {
-                this.terminal.show(String.format("El fichero %s no existe, prueba de nuevo: / (%s para salir)",
-                    fileName, Constants.DEFAULT_APROVE_STRING));
-
-                fileName = this.terminal.readStr();
-            }
-        } while (!fileExists && !fileName.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING));
+        if (fileNumber == Constants.DEFAULT_CANCEL_INT) return null;
 
         this.terminal.show("");
 
-        if (!fileExists) {
-            this.terminal.show("La operacion ha sido cancelada...");
-            return null;
-
-        } else {
-            this.terminal.show("Fichero encontrado...");
-            return fileName;
-        }
+        return fileNames[fileNumber - 1].replace(Constants.DEFAULT_GAMES_EXTENSION, "");
     }
     
     // Getters & setters ==================================================================================================

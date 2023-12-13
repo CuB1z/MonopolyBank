@@ -15,6 +15,8 @@ public class Constants {
     // Default aproval string should always be lowercase so toLowerCase() can be used
     public static final String DEFAULT_APROVE_STRING = "s";
 
+    public static final int DEFAULT_CANCEL_INT = 0;
+
     // Paths ========================================================================
     public static final String MONOPOLY_CODE_FILE_PATH = "/config/monopolyCode.txt";
     public static final String LANGUAGES_FILE_PATH = "/config/languages/%s.txt";

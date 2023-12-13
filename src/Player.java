@@ -83,7 +83,7 @@ public class Player implements Serializable {
             }
 
         } else {
-            this.balance += amount;
+            this.balance -= amount;
             msg = trs.translate("Nuevo presupuesto: %d");
             this.terminal.show(String.format(msg, this.balance));
         }
@@ -249,15 +249,11 @@ public class Player implements Serializable {
             else return option;
         }
     }
-
-
-
+    
     // Method to search a property
     private Property searchProperty(String property) {
         for (Property p : this.ownedProperties) {
-            if (p.getDescription().equals(property)) {
-                return p;
-            }
+            if (p.getDescription().equals(property)) return p;
         }
 
         return null;

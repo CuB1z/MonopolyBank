@@ -78,3 +78,4 @@ Casa vendida;House sold
 Propiedad hipotecada;Property mortgaged
 Propiedad deshipotecada;Property unmortgaged
 Casa comprada;House bought
+El fichero %d no existe, prueba de nuevo: / (%d para salir);The file %d doesn't exist, try again: / (%d to exit)

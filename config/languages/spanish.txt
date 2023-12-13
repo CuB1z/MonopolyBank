@@ -78,3 +78,4 @@ Casa vendida;Casa vendida
 Propiedad hipotecada;Propiedad hipotecada
 Propiedad deshipotecada;Propiedad deshipotecada
 Casa comprada;Casa comprada
+El fichero %d no existe, prueba de nuevo: / (%d para salir);El fichero %d no existe, prueba de nuevo: / (%d para salir)
