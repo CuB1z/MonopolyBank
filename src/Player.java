@@ -32,13 +32,14 @@ public class Player implements Serializable {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String color = trs.translate(this.color.toString());
         
-        String msg = trs.translate("Jugador %s (%s) Presupuesto: %d");
+        String msg = trs.translate("Jugador %s (%s) >> Presupuesto: %d");
 
         return String.format(msg, this.name, color, this.balance);
     }
 
-    public void showResume() {
+    public void showSummary() {
         this.terminal.show(this.toString());
+        this.showProperties();
     }
 
     // Method to exec a payment (mandatory or not)
@@ -206,13 +207,8 @@ public class Player implements Serializable {
 
     // Method to show the properties
     private void showProperties() {
-        Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String msg = trs.translate("Propiedades de %s:");
-
-        this.terminal.show(String.format(msg, this.name));
-
         for (Property p : this.ownedProperties) {
-            this.terminal.show(p.toString());
+            this.terminal.show("+ " + p.toString());
         }
     }
 

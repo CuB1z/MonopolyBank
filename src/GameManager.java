@@ -107,6 +107,8 @@ public class GameManager implements Serializable {
             }
         } while (!fileExists && !fileName.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING));
 
+        this.terminal.show("");
+
         if (!fileExists) {
             this.terminal.show("La operacion ha sido cancelada...");
             return null;

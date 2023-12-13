@@ -106,7 +106,7 @@ public class Game implements Serializable{
         else {
             this.terminal.show("Codigo invalido");
             this.terminal.show("");
-            player.showResume();
+            player.showSummary();
         }
 
         this.terminal.show("");
@@ -148,14 +148,13 @@ public class Game implements Serializable{
 
     //Method used to show the summary
     private void showSummary() {
-        String output = "";
+        this.terminal.show("---Resumen---");
 
         for (Player player : this.players) {
-            output += player.toString() + "\n";
+            player.showSummary();
+            this.terminal.show("");
         }
 
-        this.terminal.show("---Resumen---");
-        this.terminal.show(output);
         this.terminal.waitForEnter();
     }
 
