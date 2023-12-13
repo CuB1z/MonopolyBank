@@ -79,3 +79,4 @@ Propiedad hipotecada;Property mortgaged
 Propiedad deshipotecada;Property unmortgaged
 Casa comprada;House bought
 El fichero %d no existe, prueba de nuevo: / (%d para salir);The file %d doesn't exist, try again: / (%d to exit)
+Has caido en la propiedad: %s, pero esta hipotecada, no pagas nada;You have landed on the property: %s, but it's mortgaged, you don't pay anything
