@@ -36,6 +36,11 @@ public class Street extends Property{
 
     // Public methods =====================================================================================================
 
+    @Override
+    public String toString() {
+        return super.toString() + "\n  - Houses:" + this.builtHouses + "\n";
+    }
+
     public void doOperation(Player p) {
 
     }

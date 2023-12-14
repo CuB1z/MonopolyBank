@@ -70,24 +70,15 @@ public class Game implements Serializable{
 
             int answer = this.showMainLoopMenu();
 
+            this.terminal.flushScreen();
+
             // Check the answer and execute the corresponding action
-            if (answer == Constants.SHOW_SUMMARY_ID) {
-                this.terminal.flushScreen();
-                this.showSummary();
-
-            } else if (answer == Constants.EXIT_GAME_ID) {
-                finishGame = true;
-
-            } else if (answer == Constants.CONTINUE_PLAYING_ID) {
-                this.terminal.flushScreen();
-                this.playTurn();
-
-            } else if (answer == Constants.CHANGE_LANGUAGE_ID) {
-                this.terminal.flushScreen();
-                this.askAndSetLanguage();
-            } else {
-                this.terminal.show("Opcion invalida");
-                this.terminal.show("");
+            switch (answer) {
+                case Constants.SHOW_SUMMARY_ID ->this.showSummary();
+                case Constants.EXIT_GAME_ID -> finishGame = true;
+                case Constants.CONTINUE_PLAYING_ID -> this.playTurn();
+                case Constants.CHANGE_LANGUAGE_ID -> this.askAndSetLanguage();
+                default -> this.terminal.show("Opcion invalida");
             }
 
             // Save the game
@@ -303,26 +294,33 @@ public class Game implements Serializable{
 
                 // Destructure the config line
                 String [] info = this.destructureConfigLine(configString);
-                String codeClass = this.getCodeClass(info);
-                int codeId = this.getCodeId(info);
 
-                // Create mCode based on the codeClass
-                MonopolyCode mCode;
-                switch (codeClass) {
-                    case Constants.PAYMENT_CHARGE_ID: mCode = new PaymentCharge(info, this.terminal); break;
-                    case Constants.REPAIRS_ID: mCode = new RepairsCard(info, this.terminal); break;
-                    case Constants.STATION_ID: mCode = new Transport(info, this.terminal); break;
-                    case Constants.COMPANY_ID: mCode = new Service(info, this.terminal); break;
-                    default: mCode = new Street(info, this.terminal); break;
-                }
-
-                // Set the monopoly code in the array
-                this.setMonopolyCode(codeId, mCode);
+                // Assign the mCode
+                this.assignMcode(info);
             }
 
         } while (configString != null);
 
         this.terminal.show("Datos cargados correctamente");
+    }
+
+    // Method used to assign the mCode
+    private void assignMcode(String [] info) {
+        String codeClass = this.getCodeClass(info);
+        int codeId = this.getCodeId(info);
+
+        // Create mCode based on the codeClass
+        MonopolyCode mCode;
+        switch (codeClass) {
+            case Constants.PAYMENT_CHARGE_ID -> mCode = new PaymentCharge(info, this.terminal);
+            case Constants.REPAIRS_ID -> mCode = new RepairsCard(info, this.terminal);
+            case Constants.STATION_ID -> mCode = new Transport(info, this.terminal);
+            case Constants.COMPANY_ID -> mCode = new Service(info, this.terminal);
+            default -> mCode = new Street(info, this.terminal);
+        }
+
+        // Set the monopoly code in the array
+        this.setMonopolyCode(codeId, mCode);
     }
 
     //Method used to set the monopoly code in the array

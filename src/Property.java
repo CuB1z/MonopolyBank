@@ -24,6 +24,11 @@ public class Property extends MonopolyCode {
 
     // Public methods =====================================================================================================
 
+    @Override
+    public String toString() {
+        return super.toString() + "\n  - Mortgaged: " + this.mortgaged + "\n";
+    }
+
     // Method to be implemented by the subclasses (Override it)
     public int getPaymentForRent() {
         return 0;

@@ -208,21 +208,43 @@ public class Player implements Serializable {
     // Method to show the properties
     private void showProperties() {
         for (Property p : this.ownedProperties) {
-            this.terminal.show("+ " + p.toString());
+            if (p instanceof Street) {
+                Street s = (Street) p;
+                this.terminal.show("+ " + s.toString());
+
+            } else if (p instanceof Transport) {
+                Transport t = (Transport) p;
+                this.terminal.show("+ " + t.toString());
+
+            } else {
+                Service s = (Service) p;
+                this.terminal.show("+ " + s.toString());
+            }
         }
     }
 
     // Method to show the owner operation menu for a street
     private int showOwnerOperationMenu(Street street) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String msg = trs.translate("Que desea hacer con la propiedad: %s?");
+        String msg = ""; 
 
+        msg = trs.translate("¿Que desea hacer con la propiedad: %s?");
         this.terminal.show(String.format(msg, street.getDescription()));
-        this.terminal.show("1. Comprar casa");
-        this.terminal.show("2. Vender casa");
-        this.terminal.show("3. Hipotecar");
-        this.terminal.show("4. Deshipotecar");
-        this.terminal.show("5. Cancelar");
+
+        msg = trs.translate("Comprar casa");
+        this.terminal.show(String.format("1. %s", msg));
+
+        msg = trs.translate("Vender casa");
+        this.terminal.show(String.format("2. %s", msg));
+
+        msg = trs.translate("Hipotecar");
+        this.terminal.show(String.format("3. %s", msg));
+
+        msg = trs.translate("Deshipotecar");
+        this.terminal.show(String.format("4. %s", msg));
+
+        msg = trs.translate("Cancelar");
+        this.terminal.show(String.format("5. %s", msg));
 
         while (true) {
             int option = this.terminal.readInt();
@@ -235,12 +257,19 @@ public class Player implements Serializable {
     // Method to show the owner operation menu for a default property
     private int showOwnerOperationMenu(Property property) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String msg = trs.translate("Que desea hacer con la propiedad: %s?");
-    
+        String msg = "";
+
+        msg = trs.translate("¿Que desea hacer con la propiedad: %s?");
         this.terminal.show(String.format(msg, property.getDescription()));
-        this.terminal.show("1. Hipotecar");
-        this.terminal.show("2. Deshipotecar");
-        this.terminal.show("3. Cancelar");
+        
+        msg = trs.translate("Hipotecar");
+        this.terminal.show(String.format("1. %s", msg));
+
+        msg = trs.translate("Deshipotecar");
+        this.terminal.show(String.format("2. %s", msg));
+
+        msg = trs.translate("Cancelar");
+        this.terminal.show(String.format("3. %s", msg));
     
         while (true) {
             int option = this.terminal.readInt();

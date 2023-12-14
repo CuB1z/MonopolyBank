@@ -63,12 +63,13 @@ Nuevo presupuesto: %d;New balance: %d
 Quieres comprar la propiedad: %s por %d? (%s,N);Do you want to buy the property: %s for %d? (%s,N)
 Has caido en la propiedad: %s, debes pagar %d;You have landed on the property: %s, you must pay %d
 La propiedad no es tuya;This property doesn't belong to you
-1. Comprar casa;1. Buy house
-2. Vender casa;2. Vender casa
-3. Hipotecar;3. Mortgage
-4. Deshipotecar;4. Unmortgage
-5. Cancelar;5. Cancel
+Comprar casa;Buy house
+Vender casa;Vender casa
+Hipotecar;Mortgage
+Deshipotecar;Unmortgage
+Cancelar;Cancel
 Desea realizar la operacion? (%s/N);Do you want to make the operation? (%s/N)
+¿Que desea hacer con la propiedad: %s?;What do you want to do with the property: %s?
 La propiedad ya tiene el maximo de casas;The property already has the maximum number of houses
 La propiedad esta hipotecada;The property is mortgaged
 No tienes suficiente dinero;You don't have enough money
