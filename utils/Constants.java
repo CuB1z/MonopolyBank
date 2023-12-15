@@ -44,11 +44,6 @@ public class Constants {
     public static final int MAX_NUMBER_OF_PLAYERS = 4;
     public static final int INITIAL_BALANCE = 1500;
 
-    public static final int RED_ID = 0;
-    public static final int BLUE_ID = 1;
-    public static final int GREEN_ID = 2;
-    public static final int BLACK_ID = 3;
-
     // Game constants ===============================================================
     public static final int MAIN_LOOP_MIN_OPTION = 1;
     public static final int MAIN_LOOP_MAX_OPTION = 4;

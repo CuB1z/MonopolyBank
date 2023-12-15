@@ -46,7 +46,7 @@ public class Player implements Serializable {
     public void pay(int amount, boolean mandatory) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg;
-
+ 
         if (!mandatory) {
             if (this.balance < amount) {
                 this.terminal.show("No tienes suficiente dinero para pagar");
@@ -438,21 +438,11 @@ public class Player implements Serializable {
     }
 
     public int getId() {
-        switch (this.color) {
-            case RED: return Constants.RED_ID;
-            case BLUE: return Constants.BLUE_ID;
-            case GREEN: return Constants.GREEN_ID;
-            default: return Constants.BLACK_ID;
-        }
+        return this.color.ordinal();
     }
 
     public void setId(int id) {
-        switch (id) {
-            case Constants.RED_ID: this.color = Color.RED; break;
-            case Constants.BLUE_ID: this.color = Color.BLUE; break;
-            case Constants.GREEN_ID: this.color = Color.GREEN; break;
-            default: this.color = Color.BLACK; break;
-        }
+        this.color = Color.values()[id];
     }
 
     public boolean isBankrupt() {

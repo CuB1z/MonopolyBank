@@ -232,7 +232,7 @@ public class Game implements Serializable{
 
         String output;
         output = trs.translate("El juego ha sido guardado en el fichero %s");
-        output = String.format(output, this.fileName + Constants.DEFAULT_GAMES_EXTENSION);
+        output = String.format(output, this.fileName);
 
         this.terminal.show(output);
     }
