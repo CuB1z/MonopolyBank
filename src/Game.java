@@ -407,9 +407,9 @@ public class Game implements Serializable{
 
     // Delete the file
     private void deleteFile(String fileName) {
+        fileName = String.format(Constants.MONOPOLY_OLD_GAME, fileName);
         fileName = PathUtils.getFilePath(fileName);
-        fileName += Constants.DEFAULT_GAMES_EXTENSION;
-        
+
         File file = new File(fileName);
         file.delete();
     }
