@@ -34,7 +34,10 @@ public class PaymentCharge extends MonopolyCode {
         this.terminal.show(this.getDescription());
 
         if (this.amount > 0) player.receive(this.amount);
-        else player.pay(this.amount * (-1), true);
+        else {
+            player.pay(this.amount * (-1), true);
+            if (player.isBankrupt()) player.transferProperties(null);
+        }
     }
 
     // Getters & Setters ==================================================================================================

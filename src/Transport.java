@@ -52,7 +52,9 @@ public class Transport extends Property {
             this.terminal.show(String.format(output, this.getDescription(), cost));
 
             p.pay(cost, true);
-            this.getOwner().receive(cost);
+
+            if (p.isBankrupt()) p.transferProperties(this.getOwner());
+            else this.getOwner().receive(cost);
 
         } else p.doOwnerOperation(this);
     }

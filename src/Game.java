@@ -53,7 +53,6 @@ public class Game implements Serializable{
 
         } catch (Exception e) {
             this.terminal.show("Error!!");
-            // Cancel the game
             System.exit(0);
         }
 
@@ -138,8 +137,8 @@ public class Game implements Serializable{
             if (answer < Constants.MAIN_LOOP_MIN_OPTION || answer > Constants.MAIN_LOOP_MAX_OPTION) {
                 this.terminal.show("Opcion invalida");
                 this.terminal.show("");
-            } else
-                return answer;
+
+            } else return answer;
         }
     }
 

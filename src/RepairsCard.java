@@ -53,6 +53,8 @@ public class RepairsCard extends MonopolyCode {
         // Pay the amount
         p.pay(amount, true);
 
+        if (p.isBankrupt()) p.transferProperties(null);
+
         this.terminal.waitForEnter();
     }
 

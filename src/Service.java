@@ -56,7 +56,9 @@ public class Service extends Property{
             this.terminal.show("");
 
             p.pay(cost, true);
-            this.getOwner().receive(cost);
+
+            if (p.isBankrupt()) p.transferProperties(this.getOwner());
+            else this.getOwner().receive(cost);
 
         } else
             p.doOwnerOperation(this);

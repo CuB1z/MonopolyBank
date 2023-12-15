@@ -89,6 +89,23 @@ public class Player implements Serializable {
         }
     }
 
+    // Method to transfer properties
+    public void transferProperties(Player newOwner) {
+
+        // Set the new owner for the properties
+        for (Property property : this.ownedProperties) {
+            property.setOwner(newOwner);
+        }
+
+        // Clear the owned properties
+        this.ownedProperties.clear();
+
+        // Add the properties to the new owner if it is not null
+        if (newOwner != null) {
+            newOwner.getOwnedProperties().addAll(this.ownedProperties);
+        }
+    }
+
     // Method to do owner operations with a street
     public void doOwnerOperation(Street street) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
