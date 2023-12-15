@@ -47,9 +47,7 @@ public class Service extends Property{
             int dice = this.terminal.readInt();
             this.terminal.show("");
 
-            int count = this.getOwner().countServiceProperties();
-
-            int cost = this.costStaying[count - 1] * dice;
+            int cost = this.getPaymentForRent() * dice;
 
             output = trs.translate("Debes pagar %d");
             this.terminal.show(String.format(output, cost));
@@ -62,6 +60,12 @@ public class Service extends Property{
 
         } else
             p.doOwnerOperation(this);
+    }
+
+    // Method that returns the payment for rent
+    public int getPaymentForRent() {
+        int count = this.getOwner().countServiceProperties();
+        return this.costStaying[count - 1];
     }
 
     // Getters & setters ==================================================================================================

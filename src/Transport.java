@@ -44,9 +44,7 @@ public class Transport extends Property {
                 return;
             }
 
-            int count = this.getOwner().countTransportProperties();
-
-            int cost = this.costStaying[count - 1];
+            int cost = this.getPaymentForRent();
 
             String output = trs.translate("Has caido en la propiedad: %s, debes pagar %d");
             this.terminal.show(String.format(output, this.getDescription(), cost));
@@ -57,6 +55,12 @@ public class Transport extends Property {
             else this.getOwner().receive(cost);
 
         } else p.doOwnerOperation(this);
+    }
+
+    // Method that returns the payment for rent
+    public int getPaymentForRent() {
+        int count = this.getOwner().countTransportProperties();
+        return this.costStaying[count - 1];
     }
 
     // Private methods ====================================================================================================

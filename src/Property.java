@@ -1,4 +1,4 @@
-public class Property extends MonopolyCode {
+public abstract class Property extends MonopolyCode {
     private int price;
     private int mortgageValue;
     private boolean mortgaged;
@@ -24,6 +24,9 @@ public class Property extends MonopolyCode {
 
     // Public methods =====================================================================================================
 
+    public abstract void doOperation(Player p);
+    public abstract int getPaymentForRent();
+
     @Override
     public String toString() {
         return super.toString() + "\n  - Mortgaged: " + this.mortgaged + "\n";
@@ -44,11 +47,6 @@ public class Property extends MonopolyCode {
             this.setOwner(p);
             p.getOwnedProperties().add(this);
         }
-    }
-
-    // Method to be implemented by the subclasses (Override it)
-    public int getPaymentForRent() {
-        return 0;
     }
 
     // Method that returns if the property is owned or not
