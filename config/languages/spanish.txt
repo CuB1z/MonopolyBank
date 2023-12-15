@@ -82,3 +82,6 @@ Propiedad deshipotecada;Propiedad deshipotecada
 Casa comprada;Casa comprada
 El fichero %d no existe, prueba de nuevo: / (%d para salir);El fichero %d no existe, prueba de nuevo: / (%d para salir)
 Has caido en la propiedad: %s, pero esta hipotecada, no pagas nada;Has caido en la propiedad: %s, pero esta hipotecada, no pagas nada
+Debes pagar %d;Debes pagar %d
+Introduce el numero de los dados: ;Introduce el numero de los dados: 
+Debes pagar %d;Debes pagar %d

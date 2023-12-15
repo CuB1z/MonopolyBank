@@ -46,8 +46,14 @@ public class RepairsCard extends MonopolyCode {
         // Calculate the amount to pay
         int amount = (houses * this.amountForHouse) + (hotels * this.amountForHotel);
 
+        // Show the message
+        this.terminal.show(this.getDescription());
+        this.terminal.show(String.format("Debes pagar %d", amount));
+
         // Pay the amount
         p.pay(amount, true);
+
+        this.terminal.waitForEnter();
     }
 
     // Getters ============================================================================================================

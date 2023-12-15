@@ -74,10 +74,10 @@ public class Game implements Serializable{
 
             // Check the answer and execute the corresponding action
             switch (answer) {
-                case Constants.SHOW_SUMMARY_ID ->this.showSummary();
-                case Constants.EXIT_GAME_ID -> finishGame = true;
                 case Constants.CONTINUE_PLAYING_ID -> this.playTurn();
+                case Constants.SHOW_SUMMARY_ID ->this.showSummary();
                 case Constants.CHANGE_LANGUAGE_ID -> this.askAndSetLanguage();
+                case Constants.EXIT_GAME_ID -> finishGame = true;
                 default -> this.terminal.show("Opcion invalida");
             }
 

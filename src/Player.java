@@ -161,6 +161,16 @@ public class Player implements Serializable {
         return count;
     }
 
+    // Method to count Service properties
+    public int countServiceProperties() {
+        int count = 0;
+
+        for (Property p : this.ownedProperties)
+            if (p instanceof Service) count++;
+
+        return count;
+    }
+
     // Private methods ====================================================================================================
 
     // Method to sell properties until the target is reached

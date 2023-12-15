@@ -25,7 +25,40 @@ public class Service extends Property{
     // Public methods =====================================================================================================
 
     public void doOperation(Player p) {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String output;
 
+        if (this.getOwner() == null)
+            super.doBuyOperation(p);
+
+        else if (this.getOwner() != p) {
+
+            if (this.isMortgaged()) {
+                output = trs.translate("Has caido en la propiedad: %s, pero esta hipotecada, no pagas nada");
+                this.terminal.show(String.format(output, this.getDescription()));
+                return;
+            }
+
+            output = trs.translate("Has caido en la propiedad: %s");
+            this.terminal.show(String.format(output, this.getDescription()));
+            this.terminal.show("");
+
+            this.terminal.show("Introduce el numero de los dados: ");
+            int dice = this.terminal.readInt();
+            this.terminal.show("");
+
+            int count = this.getOwner().countServiceProperties();
+
+            int cost = this.costStaying[count - 1] * dice;
+
+            output = trs.translate("Debes pagar %d");
+            this.terminal.show(String.format(output, cost));
+
+            p.pay(cost, true);
+            this.getOwner().receive(cost);
+
+        } else
+            p.doOwnerOperation(this);
     }
 
     // Getters & setters ==================================================================================================

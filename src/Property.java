@@ -29,6 +29,21 @@ public class Property extends MonopolyCode {
         return super.toString() + "\n  - Mortgaged: " + this.mortgaged + "\n";
     }
 
+    // General method to do the buy operation
+    public void doBuyOperation(Player p) {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+        String output = trs.translate("Quieres comprar la propiedad: %s por %d? (%s,N)");
+        this.terminal.show(String.format(output, this.getDescription(), this.getPrice(), Constants.DEFAULT_APROVE_STRING));
+        String answer = this.terminal.readStr();
+
+        if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) {
+            p.pay(this.getPrice(), false);
+            this.setOwner(p);
+            p.getOwnedProperties().add(this);
+        }
+    }
+
     // Method to be implemented by the subclasses (Override it)
     public int getPaymentForRent() {
         return 0;

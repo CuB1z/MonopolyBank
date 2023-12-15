@@ -34,18 +34,9 @@ public class Transport extends Property {
     public void doOperation(Player p) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
-        if (this.getOwner() == null) {
-            String output = trs.translate("Quieres comprar la propiedad: %s por %d? (%s,N)");
-            this.terminal.show(String.format(output, this.getDescription(), this.getPrice(), Constants.DEFAULT_APROVE_STRING));
-            String answer = this.terminal.readStr();
+        if (this.getOwner() == null) super.doBuyOperation(p);
 
-            if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) {
-                p.pay(this.getPrice(), false);
-                this.setOwner(p);
-                p.getOwnedProperties().add(this);
-            }
-
-        } else if (this.getOwner() != p) {
+        else if (this.getOwner() != p) {
 
             if (this.isMortgaged()) {
                 String output = trs.translate("Has caido en la propiedad: %s, pero esta hipotecada, no pagas nada");
