@@ -105,11 +105,11 @@ public class Player implements Serializable {
             
             if (aproval) {
                 switch (answer) {
-                    case 1: this.buyHouse(street); break;
-                    case 2: this.sellHouse(street); break;
-                    case 3: this.mortgage(street); break;
-                    case 4: this.unmortgage(street); break;
-                    default: break;
+                    case 1 -> this.buyHouse(street);
+                    case 2 -> this.sellHouse(street);
+                    case 3 -> this.mortgage(street);
+                    case 4 -> this.unmortgage(street);
+                    default -> {return;}
                 }
 
             } else this.terminal.show("La operacion ha sido cancelada...");
@@ -128,14 +128,15 @@ public class Player implements Serializable {
             msg = trs.translate("Desea realizar la operacion? (%s/N)");
             this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
             msg = this.terminal.readStr();
+            this.terminal.show("");
             
             boolean aproval = msg.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
             
             if (aproval) {
                 switch (answer) {
-                    case 1: this.mortgage(property); break;
-                    case 2: this.unmortgage(property); break;
-                    default: break;
+                    case 1 -> this.mortgage(property);
+                    case 2 -> this.unmortgage(property);
+                    default -> {return;}
                 }
             } else this.terminal.show("La operacion ha sido cancelada...");
             
@@ -144,7 +145,6 @@ public class Player implements Serializable {
     
     // Method to receive money
     public void receive(int amount) {
-        System.out.println("Recibiendo " + amount);
         this.balance = this.balance + amount;
 
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
@@ -257,6 +257,8 @@ public class Player implements Serializable {
         msg = trs.translate("Cancelar");
         this.terminal.show(String.format("5. %s", msg));
 
+        this.terminal.show("");
+
         while (true) {
             int option = this.terminal.readInt();
 
@@ -281,6 +283,8 @@ public class Player implements Serializable {
 
         msg = trs.translate("Cancelar");
         this.terminal.show(String.format("3. %s", msg));
+
+        this.terminal.show("");
     
         while (true) {
             int option = this.terminal.readInt();
@@ -383,7 +387,8 @@ public class Player implements Serializable {
         this.terminal.show("");
 
         output = trs.translate("Desea pagar %d? (%s/N)");
-        output = String.format(output, property.getMortgageValue(), Constants.DEFAULT_APROVE_STRING);
+        this.terminal.show(String.format(output, property.getMortgageValue(), Constants.DEFAULT_APROVE_STRING));
+
         String aproval = this.terminal.readStr();
         this.terminal.show("");
         

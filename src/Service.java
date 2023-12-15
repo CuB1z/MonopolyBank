@@ -53,6 +53,7 @@ public class Service extends Property{
 
             output = trs.translate("Debes pagar %d");
             this.terminal.show(String.format(output, cost));
+            this.terminal.show("");
 
             p.pay(cost, true);
             this.getOwner().receive(cost);
