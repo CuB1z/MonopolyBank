@@ -58,7 +58,7 @@ public class RepairsCard extends MonopolyCode {
         this.terminal.waitForEnter();
     }
 
-    // Getters ============================================================================================================
+    // Getters & setters ==================================================================================================
     public int getAmountForHouse() {
         return this.amountForHouse;
     }

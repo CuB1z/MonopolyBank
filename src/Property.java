@@ -54,7 +54,7 @@ public abstract class Property extends MonopolyCode {
         return this.owner != null;
     }
 
-    // Getters and setters ================================================================================================
+    // Getters & setters ==================================================================================================
     public int getPrice() {
         return this.price;
     }
@@ -86,5 +86,4 @@ public abstract class Property extends MonopolyCode {
     public void setMortgaged(boolean mortgaged) {
         this.mortgaged = mortgaged;
     }
-
 }
