@@ -76,8 +76,8 @@ No tienes suficiente dinero;You don't have enough money
 La propiedad no tiene casas;The property doesn't have any houses
 La propiedad ya esta hipotecada;The property is already mortgaged
 La propiedad no esta hipotecada;The property isn't mortgaged
-Casa vendida;House sold
-Propiedad hipotecada;Property mortgaged
+Casa vendida, recibes %d;House sold, you receive %d
+Propiedad hipotecada, recibes %d;Property mortgaged, you receive %d
 Propiedad deshipotecada;Property unmortgaged
 Casa comprada;House bought
 El fichero %d no existe, prueba de nuevo: / (%d para salir);The file %d doesn't exist, try again: / (%d to exit)

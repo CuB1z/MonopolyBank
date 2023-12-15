@@ -76,8 +76,8 @@ No tienes suficiente dinero;No tienes suficiente dinero
 La propiedad no tiene casas;La propiedad no tiene casas
 La propiedad ya esta hipotecada;La propiedad ya esta hipotecada
 La propiedad no esta hipotecada;La propiedad no esta hipotecada
-Casa vendida;Casa vendida
-Propiedad hipotecada;Propiedad hipotecada
+Casa vendida, recibes %d;Casa vendida, recibes %d
+Propiedad hipotecada, recibes %d;Propiedad hipotecada, recibes %d
 Propiedad deshipotecada;Propiedad deshipotecada
 Casa comprada;Casa comprada
 El fichero %d no existe, prueba de nuevo: / (%d para salir);El fichero %d no existe, prueba de nuevo: / (%d para salir)

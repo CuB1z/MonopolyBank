@@ -111,7 +111,8 @@ public class Player implements Serializable {
                     case 4: this.unmortgage(street); break;
                     default: break;
                 }
-            } else this.terminal.show("Operacion cancelada");
+
+            } else this.terminal.show("La operacion ha sido cancelada...");
             
         } else this.terminal.show("La propiedad no es tuya");
     }
@@ -136,7 +137,7 @@ public class Player implements Serializable {
                     case 2: this.unmortgage(property); break;
                     default: break;
                 }
-            } else this.terminal.show("Operacion cancelada");
+            } else this.terminal.show("La operacion ha sido cancelada...");
             
         } else this.terminal.show("La propiedad no es tuya");
     }
@@ -316,6 +317,20 @@ public class Player implements Serializable {
             this.terminal.show("No tienes suficiente dinero");
 
         else {
+            String output;
+            Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+            output = trs.translate("Debes pagar: %d");
+            this.terminal.show(String.format(output, street.getHousePrice()));
+            this.terminal.show("");
+
+            output = trs.translate("Desea pagar %d? (%s/N)");
+            output = String.format(output, street.getHousePrice(), Constants.DEFAULT_APROVE_STRING);
+            String aproval = this.terminal.readStr();
+            this.terminal.show("");
+
+            if (!aproval.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return;
+        
             street.buildHouse();
             this.balance -= street.getHousePrice();
             this.terminal.show("Casa comprada");
@@ -331,8 +346,13 @@ public class Player implements Serializable {
             this.terminal.show("La propiedad esta hipotecada");
 
         else {
-            this.balance += street.sellHouse();
-            this.terminal.show("Casa vendida");
+            Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+            int price = street.sellHouse();
+            this.balance += price;
+
+            String output = trs.translate("Casa vendida, recibes %d");
+            this.terminal.show(String.format(output, price));
         }
     }
 
@@ -344,16 +364,32 @@ public class Player implements Serializable {
         else {
             property.setMortgaged(true);
             this.balance += property.getMortgageValue();
-            this.terminal.show("Propiedad hipotecada");
+            this.terminal.show(String.format("Propiedad hipotecada, recibes %d", property.getMortgageValue()));
         }
     }
 
     // Method to unmortgage a property
     private void unmortgage(Property property) {
-        if (!property.isMortgaged())
+        if (!property.isMortgaged()) {
             this.terminal.show("La propiedad no esta hipotecada");
+            return;
+        }
 
-        else if (this.balance < property.getMortgageValue())
+        String output;
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+        output = trs.translate("Debes pagar: %d");
+        this.terminal.show(String.format(output, property.getMortgageValue()));
+        this.terminal.show("");
+
+        output = trs.translate("Desea pagar %d? (%s/N)");
+        output = String.format(output, property.getMortgageValue(), Constants.DEFAULT_APROVE_STRING);
+        String aproval = this.terminal.readStr();
+        this.terminal.show("");
+        
+        if (!aproval.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return;
+
+        if (this.balance < property.getMortgageValue())
             this.terminal.show("No tienes suficiente dinero");
 
         else {
