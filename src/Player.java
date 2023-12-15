@@ -70,6 +70,7 @@ public class Player implements Serializable {
         } else if (this.balance - amount < 0) {
             this.terminal.show("No tienes suficiente dinero para pagar");
             this.terminal.show("Vende propiedades");
+            this.terminal.show("");
 
             // Sell properties
             this.sellActives(amount);
@@ -112,6 +113,8 @@ public class Player implements Serializable {
         
         if (this.searchProperty(street.getDescription()) != null) {
             int answer = this.showOwnerOperationMenu(street);
+
+            if (answer == 5) return;
             
             String msg;
             msg = trs.translate("Desea realizar la operacion? (%s/N)");
@@ -125,8 +128,7 @@ public class Player implements Serializable {
                     case 1 -> this.buyHouse(street);
                     case 2 -> this.sellHouse(street);
                     case 3 -> this.mortgage(street);
-                    case 4 -> this.unmortgage(street);
-                    default -> {return;}
+                    default -> this.unmortgage(street);
                 }
 
             } else this.terminal.show("La operacion ha sido cancelada...");
@@ -140,6 +142,8 @@ public class Player implements Serializable {
 
         if (this.searchProperty(property.getDescription()) != null) {
             int answer = this.showOwnerOperationMenu(property);
+
+            if (answer == 3) return;
             
             String msg;
             msg = trs.translate("Desea realizar la operacion? (%s/N)");
@@ -152,8 +156,7 @@ public class Player implements Serializable {
             if (aproval) {
                 switch (answer) {
                     case 1 -> this.mortgage(property);
-                    case 2 -> this.unmortgage(property);
-                    default -> {return;}
+                    default -> this.unmortgage(property);
                 }
             } else this.terminal.show("La operacion ha sido cancelada...");
             
@@ -193,7 +196,7 @@ public class Player implements Serializable {
 
     // Method to sell properties until the target is reached
     private void sellActives(int target) {
-        do {
+        while (this.balance < target && this.thereAreThingsToSell()) {
             // Show the properties
             this.showProperties();
 
@@ -228,9 +231,10 @@ public class Player implements Serializable {
 
                 } else this.terminal.show("La propiedad no es tuya");
 
-            } else this.terminal.show("Propiedad no encontrada");
-            
-        } while (this.balance < target || this.thereAreThingsToSell());
+            } else this.terminal.show("Propiedad no encontrada");   
+        }
+
+        if (this.balance < target) this.terminal.show("No quedan propiedades que vender");
     }
 
     // Method to show the properties

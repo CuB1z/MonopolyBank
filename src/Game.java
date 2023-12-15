@@ -31,7 +31,10 @@ public class Game implements Serializable{
         this.mainLoop();
 
         // Show the winner if the game is finished || Show the end game message
-        if (this.isFinished()) this.showWinner();
+        if (this.isFinished()) {
+            this.deleteFile(this.fileName);
+            this.showWinner();
+        }
         else this.showEndGame();
     }
 
@@ -222,6 +225,7 @@ public class Game implements Serializable{
         output = trs.translate("Fin del juego: %s es el ganador!!");
         output = String.format(output, winner);
 
+        this.terminal.flushScreen();
         this.terminal.show(output);
     }
 
@@ -233,6 +237,7 @@ public class Game implements Serializable{
         output = trs.translate("El juego ha sido guardado en el fichero %s");
         output = String.format(output, this.fileName);
 
+        this.terminal.flushScreen();
         this.terminal.show(output);
     }
 
@@ -398,6 +403,15 @@ public class Game implements Serializable{
         this.terminal.show(output);
         this.terminal.show("");
         this.terminal.waitForEnter();
+    }
+
+    // Delete the file
+    private void deleteFile(String fileName) {
+        fileName = PathUtils.getFilePath(fileName);
+        fileName += Constants.DEFAULT_GAMES_EXTENSION;
+        
+        File file = new File(fileName);
+        file.delete();
     }
 
     // Getters & Setters ==================================================================================================
