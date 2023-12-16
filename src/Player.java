@@ -57,6 +57,7 @@ public class Player implements Serializable {
 
                 this.terminal.show(msg);
                 String answer = this.terminal.readStr();
+                this.terminal.show("");
 
                 if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) {
                     this.balance -= amount;
@@ -112,34 +113,7 @@ public class Player implements Serializable {
         } else this.terminal.show("Las propiedades han sido transferidas al banco");
     }
 
-    // Method to do owner operations with a street
-    public void doOwnerOperation(Street street) {
-        Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        
-        if (this.searchProperty(street.getDescription()) != null) {
-            int answer = this.showOwnerOperationMenu(street);
 
-            if (answer == 5) return;
-            
-            String msg;
-            msg = trs.translate("Desea realizar la operacion? (%s/N)");
-            this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
-            msg = this.terminal.readStr();
-            
-            boolean aproval = msg.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
-            
-            if (aproval) {
-                switch (answer) {
-                    case 1 -> this.buyHouse(street);
-                    case 2 -> this.sellHouse(street);
-                    case 3 -> this.mortgage(street);
-                    default -> this.unmortgage(street);
-                }
-
-            } else this.terminal.show("La operacion ha sido cancelada...");
-            
-        } else this.terminal.show("La propiedad no es tuya");
-    }
     
     // Method to receive money
     public void receive(int amount) {
@@ -147,7 +121,7 @@ public class Player implements Serializable {
 
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg = trs.translate("El jugador %s ha recibido %d");
-        this.terminal.show(String.format(msg, this.name, this.balance));
+        this.terminal.show(String.format(msg, this.name, amount));
     }
 
     // Method to count Transport properties
@@ -195,7 +169,7 @@ public class Player implements Serializable {
                     if (p instanceof Street) {
                         Street s = (Street) p;
 
-                        if (s.isBuilt()) this.balance += s.sellHouse();
+                        if (s.isBuilt()) s.sellHouse();
 
                         else if (!s.isMortgaged()){
                             this.balance += s.getMortgageValue();
@@ -233,38 +207,7 @@ public class Player implements Serializable {
         }
     }
 
-    // Method to show the owner operation menu for a street
-    private int showOwnerOperationMenu(Street street) {
-        Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String msg = ""; 
 
-        msg = trs.translate("¿Que desea hacer con la propiedad: %s?");
-        this.terminal.show(String.format(msg, street.getDescription()));
-
-        msg = trs.translate("Comprar casa");
-        this.terminal.show(String.format("1. %s", msg));
-
-        msg = trs.translate("Vender casa");
-        this.terminal.show(String.format("2. %s", msg));
-
-        msg = trs.translate("Hipotecar");
-        this.terminal.show(String.format("3. %s", msg));
-
-        msg = trs.translate("Deshipotecar");
-        this.terminal.show(String.format("4. %s", msg));
-
-        msg = trs.translate("Cancelar");
-        this.terminal.show(String.format("5. %s", msg));
-
-        this.terminal.show("");
-
-        while (true) {
-            int option = this.terminal.readInt();
-
-            if (option < 1 || option > 5) this.terminal.show("Opcion invalida");
-            else return option;
-        }
-    }
     
     // Method to search a property
     private Property searchProperty(String property) {
@@ -310,25 +253,6 @@ public class Player implements Serializable {
             street.buildHouse();
             this.balance -= street.getHousePrice();
             this.terminal.show("Casa comprada");
-        }
-    }
-
-    // Method to sell a house
-    private void sellHouse(Street street) {
-        if (!street.isBuilt())
-            this.terminal.show("La propiedad no tiene casas");
-
-        else if (street.isMortgaged())
-            this.terminal.show("La propiedad esta hipotecada");
-
-        else {
-            Translator trs = this.terminal.getTranslatorManager().getTranslator();
-
-            int price = street.sellHouse();
-            this.balance += price;
-
-            String output = trs.translate("Casa vendida, recibes %d");
-            this.terminal.show(String.format(output, price));
         }
     }
 

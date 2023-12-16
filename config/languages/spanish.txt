@@ -97,3 +97,4 @@ El jugador %s ha pagado %d;El jugador %s ha pagado %d
 El jugador %s ha recibido %d;El jugador %s ha recibido %d
 Las propiedades han sido transferidas al banco;Las propiedades han sido transferidas al banco
 Las propiedades han sido transferidas al jugador %s;Las propiedades han sido transferidas al jugador %s
+No tienes suficiente dinero para pagar;No tienes suficiente dinero para pagar

@@ -76,13 +76,11 @@ public abstract class Property extends MonopolyCode {
                 default -> this.unmortgage();
             }
 
-            this.showMortgageSummary();
-
         } else this.terminal.show("La operacion ha sido cancelada...");
     }
 
     // Method to show the owner operation menu for a default property (Override if needed)
-    private int showOwnerOperationMenu() {
+    public int showOwnerOperationMenu() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg = "";
 
@@ -111,7 +109,7 @@ public abstract class Property extends MonopolyCode {
     }
 
     // Method to mortgage a property
-    private void mortgage() {
+    public void mortgage() {
         if (this.isMortgaged()) {
             this.terminal.show("La propiedad ya esta hipotecada");
             return;
@@ -121,11 +119,13 @@ public abstract class Property extends MonopolyCode {
         Player owner = this.getOwner();
         owner.setBalance(owner.getBalance() + this.getMortgageValue());
         this.terminal.show(String.format("Propiedad hipotecada, recibes %d", this.getMortgageValue()));
-        
+
+        // Show the mortgage summary
+        this.showMortgageSummary();
     }
 
     // Method to unmortgage a property
-    private void unmortgage() {
+    public void unmortgage() {
         if (!this.isMortgaged()) {
             this.terminal.show("La propiedad no esta hipotecada");
             return;
@@ -156,6 +156,9 @@ public abstract class Property extends MonopolyCode {
             owner.setBalance(owner.getBalance() - this.getMortgageValue());
             this.terminal.show("Propiedad deshipotecada");
         }
+
+        // Show the mortgage summary
+        this.showMortgageSummary();
     }
 
     // Method that returns if the property is owned or not

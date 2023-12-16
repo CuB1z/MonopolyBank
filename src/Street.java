@@ -49,17 +49,149 @@ public class Street extends Property{
         // TODO: Implement this method
     }
 
+    // Method to do owner operations with a street
+    @Override
+    public void doOwnerOperation() {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+        int answer = this.showOwnerOperationMenu();
+
+        if (answer == 5) return;
+
+        String msg;
+        msg = trs.translate("Desea realizar la operacion? (%s/N)");
+        this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
+
+        msg = this.terminal.readStr();
+        this.terminal.show("");
+
+        boolean aproval = msg.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
+
+        if (aproval) {
+            switch (answer) {
+                case 1 -> this.buyHouse();
+                case 2 -> this.sellHouse();
+                case 3 -> this.mortgage();
+                default -> this.unmortgage();
+            }
+
+        } else
+            this.terminal.show("La operacion ha sido cancelada...");
+    }
+
+    // Method to show the owner operation menu for a street
+    @Override
+    public int showOwnerOperationMenu() {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String msg = "";
+
+        msg = trs.translate("¿Que desea hacer con la propiedad: %s?");
+        this.terminal.show(String.format(msg, this.getDescription()));
+
+        msg = trs.translate("Comprar casa");
+        this.terminal.show(String.format("1. %s", msg));
+
+        msg = trs.translate("Vender casa");
+        this.terminal.show(String.format("2. %s", msg));
+
+        msg = trs.translate("Hipotecar");
+        this.terminal.show(String.format("3. %s", msg));
+
+        msg = trs.translate("Deshipotecar");
+        this.terminal.show(String.format("4. %s", msg));
+
+        msg = trs.translate("Cancelar");
+        this.terminal.show(String.format("5. %s", msg));
+
+        this.terminal.show("");
+
+        while (true) {
+            int option = this.terminal.readInt();
+
+            if (option < 1 || option > 5)
+                this.terminal.show("Opcion invalida");
+            else
+                return option;
+        }
+    }
+
+    // Method to buy a house
+    public void buyHouse() {
+        Player owner = this.getOwner();
+
+        if (!this.isBuildable())
+            this.terminal.show("La propiedad ya tiene el maximo de casas");
+
+        else if (this.isMortgaged())
+            this.terminal.show("La propiedad esta hipotecada");
+
+        else if (owner.getBalance() < this.getHousePrice())
+            this.terminal.show("No tienes suficiente dinero");
+
+        else {
+            String output;
+            Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+            // Show price message
+            output = trs.translate("Debes pagar: %d");
+            this.terminal.show(String.format(output, this.getHousePrice()));
+            this.terminal.show("");
+
+            // Ask for aproval
+            output = trs.translate("Desea pagar %d? (%s/N)");
+            output = String.format(output, this.getHousePrice(), Constants.DEFAULT_APROVE_STRING);
+            String aproval = this.terminal.readStr();
+            this.terminal.show("");
+
+            if (!aproval.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return;
+
+            // Update the builtHouses if the player aproves
+            this.buildHouse();
+            owner.setBalance(owner.getBalance() - this.getHousePrice());
+            this.terminal.show("Casa comprada");
+
+            // Show the updated street
+            this.terminal.show(this.toString());
+        }
+    }
+
+    // Method to sell a house
+    public void sellHouse() {
+        if (!this.isBuilt())
+            this.terminal.show("La propiedad no tiene casas");
+
+        else if (this.isMortgaged())
+            this.terminal.show("La propiedad esta hipotecada");
+
+        else {
+            Translator trs = this.terminal.getTranslatorManager().getTranslator();
+            Player owner = this.getOwner();
+
+            // Update the owner balance
+            owner.setBalance(owner.getBalance() + this.housePrice / 2);
+
+            // Update the builtHouses
+            this.builtHouses--;
+
+            // Show the message
+            String output = trs.translate("Casa vendida, recibes %d");
+            this.terminal.show(String.format(output, this.housePrice / 2));
+
+            // Show the updated street
+            this.terminal.show(this.toString());
+        }
+    }
+
     public void buildHouse() {
         if (this.builtHouses < Constants.MAX_NUMBER_OF_HOUSES) this.builtHouses++;
     }
 
-    public int sellHouse() {
-        if (this.builtHouses > 0) this.builtHouses--;
-        return this.housePrice / 2;
-    }
-
     public boolean isBuilt() {
         return this.builtHouses > 0;
+    }
+
+    public boolean isBuildable() {
+        return this.builtHouses < Constants.MAX_NUMBER_OF_HOUSES;
     }
 
     public int getHouses() {
