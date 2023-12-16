@@ -32,6 +32,7 @@ public class PaymentCharge extends MonopolyCode {
     @Override
     public void doOperation(Player player) {
         this.terminal.show(this.getDescription());
+        if (this.amount == 0) return;
 
         if (this.amount > 0) player.receive(this.amount);
 
@@ -40,8 +41,6 @@ public class PaymentCharge extends MonopolyCode {
 
             if (player.isBankrupt()) player.transferProperties(null);
         }
-
-        this.terminal.waitForEnter();
     }
 
     // Getters & Setters ==================================================================================================

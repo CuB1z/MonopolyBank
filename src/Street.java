@@ -46,7 +46,36 @@ public class Street extends Property{
     }
 
     public void doOperation(Player p) {
-        // TODO: Implement this method
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String output;
+
+        if (this.getOwner() == null)
+            super.doBuyOperation(p);
+
+        else if (this.getOwner() != p) {
+
+            if (this.isMortgaged()) {
+                output = trs.translate("Has caido en la propiedad: %s, pero esta hipotecada, no pagas nada");
+                this.terminal.show(String.format(output, this.getDescription()));
+                return;
+            }
+
+            output = trs.translate("Has caido en la propiedad: %s");
+            this.terminal.show(String.format(output, this.getDescription()));
+            this.terminal.show("");
+
+            int cost = this.getPaymentForRent();
+
+            output = trs.translate("Debes pagar %d");
+            this.terminal.show(String.format(output, cost));
+            this.terminal.show("");
+
+            p.pay(cost, true);
+
+            if (p.isBankrupt()) p.doBankruptcyTransference(this.getOwner());
+            else this.getOwner().receive(cost);
+
+        } else this.doOwnerOperation();
     }
 
     // Method to do owner operations with a street
@@ -208,7 +237,7 @@ public class Street extends Property{
     
     @Override
     public int getPaymentForRent() {
-        return this.costStaying[this.builtHouses];
+        return this.costStaying[this.builtHouses + 1];
     }
 
     // Getters & Setters ==================================================================================================

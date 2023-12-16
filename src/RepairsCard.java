@@ -56,8 +56,6 @@ public class RepairsCard extends MonopolyCode {
 
         if (p.isBankrupt()) p.transferProperties(null);
         else p.toString();
-
-        this.terminal.waitForEnter();
     }
 
     // Getters & setters ==================================================================================================

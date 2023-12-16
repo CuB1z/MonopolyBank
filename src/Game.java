@@ -27,6 +27,9 @@ public class Game implements Serializable{
         this.terminal.show("Jugando...");
         this.terminal.show("");
 
+        // Save the game for the first time
+        FileManager.saveFile(this, this.fileName);
+
         // Main Loop
         this.mainLoop();
 

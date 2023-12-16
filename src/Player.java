@@ -63,7 +63,7 @@ public class Player implements Serializable {
                 if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) {
                     this.balance -= amount;
                     msg = trs.translate("El jugador %s ha pagado %d");
-                    this.terminal.show(String.format(msg, this.name, this.balance));
+                    this.terminal.show(String.format(msg, this.name, amount));
                 } else {
                     this.terminal.show("No se ha realizado el pago");
                 }
@@ -89,8 +89,8 @@ public class Player implements Serializable {
 
         } else {
             this.balance -= amount;
-            msg = trs.translate("Nuevo presupuesto: %d");
-            this.terminal.show(String.format(msg, this.balance));
+            msg = trs.translate("El jugador %s ha pagado %d");
+            this.terminal.show(String.format(msg, this.name, amount));
         }
     }
 
@@ -114,6 +114,13 @@ public class Player implements Serializable {
             this.terminal.show(String.format(output, newOwner.getName()));
 
         } else this.terminal.show("Las propiedades han sido transferidas al banco");
+    }
+
+    // Method to do the bankruptcy operation
+    public void doBankruptcyTransference(Player toPlayer) {
+        this.transferProperties(toPlayer);
+        toPlayer.setBalance(toPlayer.getBalance() + this.getBalance());
+        this.setBalance(0);
     }
     
     // Method to receive money
@@ -150,6 +157,7 @@ public class Player implements Serializable {
     // Method to sell properties until the target is reached
     private void sellActives(int target) {
         while (this.balance < target && this.thereAreThingsToSell()) {
+
             // Show the properties
             this.showProperties();
 
