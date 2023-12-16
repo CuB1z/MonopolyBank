@@ -35,7 +35,7 @@ public abstract class Property extends MonopolyCode {
     public String toString() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String output = trs.translate("  - Hipotecada: %s");
-        output = this.mortgaged ? String.format(output, trs.translate("Si")) : String.format(output, trs.translate("No"));
+        output = this.mortgaged ? String.format(output, trs.translate("Sí")) : String.format(output, trs.translate("No"));
 
         return super.toString() + "\n" + output;
     }
@@ -66,7 +66,7 @@ public abstract class Property extends MonopolyCode {
         if (answer == 3) return;
         
         String msg;
-        msg = trs.translate("Desea realizar la operación? (%s/N)");
+        msg = trs.translate("¿Desea realizar la operación? (%s/N)");
         this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
 
         msg = this.terminal.readStr();
@@ -88,7 +88,7 @@ public abstract class Property extends MonopolyCode {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg = "";
 
-        msg = trs.translate("¿Que desea hacer con la propiedad: %s?");
+        msg = trs.translate("¿Qué desea hacer con la propiedad: %s?");
         this.terminal.show(String.format(msg, this.getDescription()));
 
         msg = trs.translate("Hipotecar");
@@ -107,7 +107,7 @@ public abstract class Property extends MonopolyCode {
             this.terminal.show("");
 
             if (option < 1 || option > 3)
-                this.terminal.show("Opcion invalida");
+                this.terminal.show("Opción inválida");
 
             else return option;
         }

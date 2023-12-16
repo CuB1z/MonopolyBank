@@ -56,5 +56,5 @@ public class Constants {
     
     // Available languages ==========================================================
     public static final String[] AVAILABLE_LANGUAGES = {"default", "english"};
-    
+    public static final String DEFAULT_LANGUAGE_STRING_ID = "0: español";
 }

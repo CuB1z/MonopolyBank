@@ -86,7 +86,7 @@ public class Game implements Serializable{
                 case Constants.SHOW_SUMMARY_ID ->this.showSummary();
                 case Constants.CHANGE_LANGUAGE_ID -> this.askAndSetLanguage();
                 case Constants.EXIT_GAME_ID -> finishGame = true;
-                default -> this.terminal.show("Opcion invalida");
+                default -> this.terminal.show("Opción inválida");
             }
 
             // Save the game
@@ -121,7 +121,7 @@ public class Game implements Serializable{
     private int showMainLoopMenu() {
 
         // Show the menu options
-        this.terminal.show("Introduzca una opcion:");
+        this.terminal.show("Introduzca una opción:");
 
         System.out.print(Constants.CONTINUE_PLAYING_ID + ": ");
         this.terminal.show("Continuar jugando");
@@ -143,7 +143,7 @@ public class Game implements Serializable{
             this.terminal.show("");
 
             if (answer < Constants.MAIN_LOOP_MIN_OPTION || answer > Constants.MAIN_LOOP_MAX_OPTION) {
-                this.terminal.show("Opcion invalida");
+                this.terminal.show("Opción inválida");
                 this.terminal.show("");
 
             } else return answer;
@@ -197,27 +197,27 @@ public class Game implements Serializable{
     // Method used to exec doOperation depending of class
     private void execDoOperation(MonopolyCode mCode, Player player) {
         
-    if (mCode instanceof PaymentCharge){
-        PaymentCharge payCh = (PaymentCharge) mCode;
-        payCh.doOperation(player);
+        if (mCode instanceof PaymentCharge){
+            PaymentCharge payCh = (PaymentCharge) mCode;
+            payCh.doOperation(player);
+
+        } else if (mCode instanceof RepairsCard) {
+            RepairsCard repCard = (RepairsCard) mCode;
+            repCard.doOperation(player);
+
+        } else if (mCode instanceof Street) {
+            Street street = (Street) mCode;
+            street.doOperation(player);
+
+        } else if (mCode instanceof Service) {
+            Service service = (Service) mCode;
+            service.doOperation(player);
         
-    } else if (mCode instanceof RepairsCard) {
-        RepairsCard repCard = (RepairsCard) mCode;
-        repCard.doOperation(player);
-
-    } else if (mCode instanceof Street) {
-        Street street = (Street) mCode;
-        street.doOperation(player);
-
-    } else if (mCode instanceof Service) {
-        Service service = (Service) mCode;
-        service.doOperation(player);
-    
-    } else {
-        Transport transport = (Transport) mCode;
-        transport.doOperation(player);
+        } else {
+            Transport transport = (Transport) mCode;
+            transport.doOperation(player);
+        }
     }
-}
 
     //Method used to show the winner
     private void showWinner() {
@@ -227,7 +227,7 @@ public class Game implements Serializable{
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
         String output;
-        output = trs.translate("Fin del juego: %s es el ganador!!");
+        output = trs.translate("Fin del juego >> %s es el ganador!!");
         output = String.format(output, winner);
 
         this.terminal.flushScreen();
@@ -255,7 +255,7 @@ public class Game implements Serializable{
         this.terminal.show("");
 
         if (answer < 2 || answer > Constants.MAX_NUMBER_OF_PLAYERS) {
-            this.terminal.show("número de jugadores incorrecto");
+            this.terminal.show("Número de jugadores incorrecto");
             this.createPlayers();
         } else {
             // Translate the message
@@ -369,20 +369,14 @@ public class Game implements Serializable{
 
         // Ask for the language and check if it is valid
         while (!validAnswer) {
-            try {
-                answer = this.terminal.readInt();
+            answer = this.terminal.readInt();
+            this.terminal.show("");
+
+            if (answer < 0 || answer > Constants.AVAILABLE_LANGUAGES.length - 1) {
+                this.terminal.show("Valor inválido, introduzca otro");
                 this.terminal.show("");
 
-                if (answer < 0 || answer > Constants.AVAILABLE_LANGUAGES.length - 1) {
-                    this.terminal.show("Valor inválido, introduzca otro!!");
-                    this.terminal.show("");
-
-                } else
-                    validAnswer = true;
-            } catch (Exception e) {
-                this.terminal.show("Introduzca un valor valido!!");
-                this.terminal.show("");
-            }
+            } else validAnswer = true;
         }
 
         this.terminal.getTranslatorManager().setLanguage(Constants.AVAILABLE_LANGUAGES[answer]);
@@ -390,7 +384,8 @@ public class Game implements Serializable{
 
     // Print available languages
     private void showAvailableLanguages() {
-        this.terminal.show("0: español");
+        this.terminal.show(Constants.DEFAULT_LANGUAGE_STRING_ID);
+
         for (int i = 1; i < Constants.AVAILABLE_LANGUAGES.length; i++) {
             Translator trs = this.terminal.getTranslatorManager().getTranslator();
 

@@ -93,7 +93,7 @@ public class GameManager implements Serializable {
     // Ask for the file name and check if it exists
     private String askForFileName(String[] fileNames) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String output = trs.translate("¿Que juego quieres reanudar? (%d para cancelar)");
+        String output = trs.translate("¿Qué juego quieres reanudar? (%d para cancelar)");
 
         this.terminal.show(String.format(output, Constants.DEFAULT_CANCEL_INT));
 

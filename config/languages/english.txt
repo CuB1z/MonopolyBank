@@ -1,8 +1,9 @@
 BIENVENIDO AL MONOPOLY;WELCOME TO MONOPOLY
 Lenguajes disponibles:;Available languages:
-Introduzca el lenguaje que desea utilizar:;Introduce the language you want to use:
+Introduzca el lenguaje que desea utilizar:;Enter the language you want to use:
 Valor inválido, introduzca otro:;Invalid value, enter another
 ¿Quieres reanudar una partida? (%s/n);Do you want to resume a game? (%s/n)
+¿Qué juego quieres reanudar? (%d para cancelar);Which game do you want to resume? (%d to cancel)
 Introduce el nombre del fichero: / (%s para salir);Enter the file name: / (%s to exit)
 Error, el fichero es corrupto o inválido, creando nueva partida...;Error, the file is corrupt or invalid, creating new game...
 RED;RED
@@ -21,6 +22,7 @@ Fichero encontrado...;File found...
 Creando nueva partida...;Creating new game...
 Cargando partida guardada...;Loading saved game...
 Jugando...;Playing...
+Error!!;Error!!
 Introduce el número de jugadores (2-4): ;Enter the number of players (2-4): 
 Número de jugadores incorrecto;Incorrect number of players
 Introduce el nombre del jugador ;Enter the name of the player 
@@ -67,8 +69,8 @@ Vender casa;Vender casa
 Hipotecar;Mortgage
 Deshipotecar;Unmortgage
 Cancelar;Cancel
-Desea realizar la operación? (%s/N);Do you want to make the operation? (%s/N)
-¿Que desea hacer con la propiedad: %s?;What do you want to do with the property: %s?
+¿Desea realizar la operación? (%s/N);Do you want to make the operation? (%s/N)
+¿Qué desea hacer con la propiedad: %s?;What do you want to do with the property: %s?
 La propiedad ya tiene el máximo de casas;The property already has the maximum number of houses
 La propiedad está hipotecada;The property is mortgaged
 No tienes suficiente dinero;You don't have enough money

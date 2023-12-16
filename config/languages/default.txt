@@ -3,6 +3,7 @@
 *+;Introduzca el lenguaje que desea utilizar:
 **;Valor inválido, introduzca otro:
 **;¿Quieres reanudar una partida? (%s/n)
+**;¿Qué juego quieres reanudar? (%d para cancelar)
 **;Introduce el nombre del fichero: / (%s para salir)
 **;Error, el fichero es corrupto o inválido, creando nueva partida...
 **;RED
@@ -21,6 +22,7 @@
 **;Creando nueva partida...
 **;Cargando partida guardada...
 **;Jugando...
+**;Error!!
 **;Introduce el número de jugadores (2-4): 
 **;Número de jugadores incorrecto
 **;Introduce el nombre del jugador 
@@ -67,8 +69,8 @@
 **;Hipotecar
 **;Deshipotecar
 **;Cancelar
-**;Desea realizar la operación? (%s/N)
-**;¿Que desea hacer con la propiedad: %s?
+**;¿Desea realizar la operación? (%s/N)
+**;¿Qué desea hacer con la propiedad: %s?
 **;La propiedad ya tiene el máximo de casas
 **;La propiedad está hipotecada
 **;No tienes suficiente dinero
@@ -85,8 +87,8 @@
 **;Introduce el número de los dados: 
 **;Debes pagar %d
 **;No quedan propiedades que operar
-**;- Casas: %d
-**;- Hipotecada: %s
+**;  - Casas: %d
+**;  - Hipotecada: %s
 **;Hipotecada
 **;Deshipotecada
 **;Estado de la propiedad: %s >> %s
