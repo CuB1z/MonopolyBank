@@ -2,7 +2,7 @@ package utils;
 /* This class contains the constants used in the game
     Asuming that { monopolyCode.txt format = (id;type;description) }
     Asuming that { monopolyCode.txt money format = ( charges (-amount) && payments (+amount) ) }
-    Asuming that { languages/{language}.txt format = (default_language;translation) }
+    Asuming that { languages/{language}.txt format = (default_language[SEPARATOR]translation) }
 
     If needed, the constants can be changed here
 */
