@@ -86,3 +86,7 @@ Debes pagar %d;Debes pagar %d
 Introduce el numero de los dados: ;Introduce el numero de los dados: 
 Debes pagar %d;Debes pagar %d
 No quedan propiedades que vender;No quedan propiedades que vender
+  - Casas: %d;  - Casas: %d
+  - Hipotecada: %s;  - Hipotecada: %s
+Si;Si
+No;No

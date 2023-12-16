@@ -86,3 +86,7 @@ Debes pagar %d;You must pay %d
 Introduce el numero de los dados: ;Enter the number of the dice: 
 Debes pagar %d;You must pay %d
 No quedan propiedades que vender;There are no properties left to sell
+  - Casas: %d;  - Houses: %d
+  - Hipotecada: %s;  - Mortgaged: %s
+Si;Yes
+No;No

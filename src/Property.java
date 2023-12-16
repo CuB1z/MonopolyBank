@@ -29,7 +29,11 @@ public abstract class Property extends MonopolyCode {
 
     @Override
     public String toString() {
-        return super.toString() + "\n  - Mortgaged: " + this.mortgaged + "\n";
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String output = trs.translate("  - Hipotecada: %s");
+        output = this.mortgaged ? String.format(output, trs.translate("Si")) : String.format(output, trs.translate("No"));
+
+        return super.toString() + "\n" + output + "\n";
     }
 
     // General method to do the buy operation
