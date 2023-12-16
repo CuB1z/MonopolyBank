@@ -37,7 +37,7 @@ Fin del juego: %s es el ganador!!;Fin del juego: %s es el ganador!!
 Pago efectuado;Pago efectuado
 Vuelve a intentarlo cuando tengas mas dinero;Vuelve a intentarlo cuando tengas mas dinero
 Desea pagar %d? (%s/N);Desea pagar %d? (%s/N)
-Introduzca la propiedad que desea vender:;Introduzca la propiedad que desea vender:
+Introduzca la propiedad que desea operar:;Introduzca la propiedad que desea operar:
 Propiedades de %s:;Propiedades de %s:
 Propiedad no encontrada;Propiedad no encontrada
 Vende propiedades;Vende propiedades
@@ -85,7 +85,7 @@ Has caido en la propiedad: %s, pero esta hipotecada, no pagas nada;Has caido en 
 Debes pagar %d;Debes pagar %d
 Introduce el numero de los dados: ;Introduce el numero de los dados: 
 Debes pagar %d;Debes pagar %d
-No quedan propiedades que vender;No quedan propiedades que vender
+No quedan propiedades que operar;No quedan propiedades que operar
   - Casas: %d;  - Casas: %d
   - Hipotecada: %s;  - Hipotecada: %s
 Hipotecada;Hipotecada
