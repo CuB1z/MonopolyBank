@@ -54,7 +54,7 @@ public class Transport extends Property {
             if (p.isBankrupt()) p.transferProperties(this.getOwner());
             else this.getOwner().receive(cost);
 
-        } else p.doOwnerOperation(this);
+        } else this.doOwnerOperation();
     }
 
     // Method that returns the payment for rent

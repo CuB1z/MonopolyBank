@@ -141,35 +141,6 @@ public class Player implements Serializable {
         } else this.terminal.show("La propiedad no es tuya");
     }
     
-    // Method to do owner operations with a default property
-    public void doOwnerOperation(Property property) {
-        Translator trs = this.terminal.getTranslatorManager().getTranslator();
-
-        if (this.searchProperty(property.getDescription()) != null) {
-            int answer = this.showOwnerOperationMenu(property);
-
-            if (answer == 3) return;
-            
-            String msg;
-            msg = trs.translate("Desea realizar la operacion? (%s/N)");
-            this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
-            msg = this.terminal.readStr();
-            this.terminal.show("");
-            
-            boolean aproval = msg.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
-            
-            if (aproval) {
-                switch (answer) {
-                    case 1 -> this.mortgage(property);
-                    default -> this.unmortgage(property);
-                }
-                
-                property.showMortgageSummary();
-            } else this.terminal.show("La operacion ha sido cancelada...");
-            
-        } else this.terminal.show("La propiedad no es tuya");
-    }
-    
     // Method to receive money
     public void receive(int amount) {
         this.balance = this.balance + amount;
@@ -295,33 +266,6 @@ public class Player implements Serializable {
         }
     }
     
-    // Method to show the owner operation menu for a default property
-    private int showOwnerOperationMenu(Property property) {
-        Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String msg = "";
-
-        msg = trs.translate("¿Que desea hacer con la propiedad: %s?");
-        this.terminal.show(String.format(msg, property.getDescription()));
-        
-        msg = trs.translate("Hipotecar");
-        this.terminal.show(String.format("1. %s", msg));
-
-        msg = trs.translate("Deshipotecar");
-        this.terminal.show(String.format("2. %s", msg));
-
-        msg = trs.translate("Cancelar");
-        this.terminal.show(String.format("3. %s", msg));
-
-        this.terminal.show("");
-    
-        while (true) {
-            int option = this.terminal.readInt();
-    
-            if (option < 1 || option > 3) this.terminal.show("Opcion invalida");
-            else return option;
-        }
-    }
-    
     // Method to search a property
     private Property searchProperty(String property) {
         for (Property p : this.ownedProperties) {
@@ -385,50 +329,6 @@ public class Player implements Serializable {
 
             String output = trs.translate("Casa vendida, recibes %d");
             this.terminal.show(String.format(output, price));
-        }
-    }
-
-    // Method to mortgage a property
-    private void mortgage(Property property) {
-        if (property.isMortgaged())
-            this.terminal.show("La propiedad ya esta hipotecada");
-
-        else {
-            property.setMortgaged(true);
-            this.balance += property.getMortgageValue();
-            this.terminal.show(String.format("Propiedad hipotecada, recibes %d", property.getMortgageValue()));
-        }
-    }
-
-    // Method to unmortgage a property
-    private void unmortgage(Property property) {
-        if (!property.isMortgaged()) {
-            this.terminal.show("La propiedad no esta hipotecada");
-            return;
-        }
-
-        String output;
-        Translator trs = this.terminal.getTranslatorManager().getTranslator();
-
-        output = trs.translate("Debes pagar: %d");
-        this.terminal.show(String.format(output, property.getMortgageValue()));
-        this.terminal.show("");
-
-        output = trs.translate("Desea pagar %d? (%s/N)");
-        this.terminal.show(String.format(output, property.getMortgageValue(), Constants.DEFAULT_APROVE_STRING));
-
-        String aproval = this.terminal.readStr();
-        this.terminal.show("");
-        
-        if (!aproval.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return;
-
-        if (this.balance < property.getMortgageValue())
-            this.terminal.show("No tienes suficiente dinero");
-
-        else {
-            property.setMortgaged(false);
-            this.balance -= property.getMortgageValue();
-            this.terminal.show("Propiedad deshipotecada");
         }
     }
 

@@ -53,6 +53,111 @@ public abstract class Property extends MonopolyCode {
         }
     }
 
+    // Method to do owner operations with a default property (Override if needed)
+    public void doOwnerOperation() {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+        int answer = this.showOwnerOperationMenu();
+
+        if (answer == 3) return;
+        
+        String msg;
+        msg = trs.translate("Desea realizar la operacion? (%s/N)");
+        this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
+
+        msg = this.terminal.readStr();
+        this.terminal.show("");
+
+        boolean aproval = msg.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
+
+        if (aproval) {
+            switch (answer) {
+                case 1 -> this.mortgage();
+                default -> this.unmortgage();
+            }
+
+            this.showMortgageSummary();
+
+        } else this.terminal.show("La operacion ha sido cancelada...");
+    }
+
+    // Method to show the owner operation menu for a default property (Override if needed)
+    private int showOwnerOperationMenu() {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String msg = "";
+
+        msg = trs.translate("¿Que desea hacer con la propiedad: %s?");
+        this.terminal.show(String.format(msg, this.getDescription()));
+
+        msg = trs.translate("Hipotecar");
+        this.terminal.show(String.format("1. %s", msg));
+
+        msg = trs.translate("Deshipotecar");
+        this.terminal.show(String.format("2. %s", msg));
+
+        msg = trs.translate("Cancelar");
+        this.terminal.show(String.format("3. %s", msg));
+
+        this.terminal.show("");
+
+        while (true) {
+            int option = this.terminal.readInt();
+
+            if (option < 1 || option > 3)
+                this.terminal.show("Opcion invalida");
+
+            else return option;
+        }
+    }
+
+    // Method to mortgage a property
+    private void mortgage() {
+        if (this.isMortgaged()) {
+            this.terminal.show("La propiedad ya esta hipotecada");
+            return;
+        }
+        
+        this.setMortgaged(true);
+        Player owner = this.getOwner();
+        owner.setBalance(owner.getBalance() + this.getMortgageValue());
+        this.terminal.show(String.format("Propiedad hipotecada, recibes %d", this.getMortgageValue()));
+        
+    }
+
+    // Method to unmortgage a property
+    private void unmortgage() {
+        if (!this.isMortgaged()) {
+            this.terminal.show("La propiedad no esta hipotecada");
+            return;
+        }
+
+        String output;
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+
+        output = trs.translate("Debes pagar: %d");
+        this.terminal.show(String.format(output, this.getMortgageValue()));
+        this.terminal.show("");
+
+        output = trs.translate("Desea pagar %d? (%s/N)");
+        this.terminal.show(String.format(output, this.getMortgageValue(), Constants.DEFAULT_APROVE_STRING));
+
+        String aproval = this.terminal.readStr();
+        this.terminal.show("");
+
+        if (!aproval.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return;
+
+        Player owner = this.getOwner();
+
+        if (owner.getBalance() < this.getMortgageValue())
+            this.terminal.show("No tienes suficiente dinero");
+
+        else {
+            this.setMortgaged(false);
+            owner.setBalance(owner.getBalance() - this.getMortgageValue());
+            this.terminal.show("Propiedad deshipotecada");
+        }
+    }
+
     // Method that returns if the property is owned or not
     public boolean isOwned() {
         return this.owner != null;
