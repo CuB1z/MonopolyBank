@@ -51,6 +51,7 @@ public class Player implements Serializable {
             if (this.balance < amount) {
                 this.terminal.show("No tienes suficiente dinero para pagar");
                 this.terminal.show("Vuelve a intentarlo cuando tengas mas dinero");
+                this.terminal.show("");
             } else {
                 msg = trs.translate("Desea pagar %d? (%s/N)");
                 msg = String.format(msg, amount, Constants.DEFAULT_APROVE_STRING);
@@ -66,6 +67,8 @@ public class Player implements Serializable {
                 } else {
                     this.terminal.show("No se ha realizado el pago");
                 }
+
+                this.terminal.show("");
             }
 
         } else if (this.balance - amount < 0) {
@@ -112,8 +115,6 @@ public class Player implements Serializable {
 
         } else this.terminal.show("Las propiedades han sido transferidas al banco");
     }
-
-
     
     // Method to receive money
     public void receive(int amount) {
@@ -222,38 +223,6 @@ public class Player implements Serializable {
     // Method to check if there are things to sell
     private boolean thereAreThingsToSell() {
         return this.ownedProperties.size() > 0;
-    }
-
-    // Method to buy a house
-    private void buyHouse(Street street) {
-        if (street.isBuilt())
-            this.terminal.show("La propiedad ya tiene el maximo de casas");
-
-        else if (street.isMortgaged())
-            this.terminal.show("La propiedad esta hipotecada");
-
-        else if (this.balance < street.getHousePrice())
-            this.terminal.show("No tienes suficiente dinero");
-
-        else {
-            String output;
-            Translator trs = this.terminal.getTranslatorManager().getTranslator();
-
-            output = trs.translate("Debes pagar: %d");
-            this.terminal.show(String.format(output, street.getHousePrice()));
-            this.terminal.show("");
-
-            output = trs.translate("Desea pagar %d? (%s/N)");
-            output = String.format(output, street.getHousePrice(), Constants.DEFAULT_APROVE_STRING);
-            String aproval = this.terminal.readStr();
-            this.terminal.show("");
-
-            if (!aproval.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return;
-        
-            street.buildHouse();
-            this.balance -= street.getHousePrice();
-            this.terminal.show("Casa comprada");
-        }
     }
 
     // Getters & setters ==================================================================================================
