@@ -160,46 +160,37 @@ public class Player implements Serializable {
 
     // Method to sell properties until the target is reached
     private void sellActives(int target) {
-        while (this.balance < target && this.thereAreThingsToSell()) {
+        while (this.balance < target && this.thereAreThingsToOperate()) {
 
             // Show the properties
             this.showProperties();
+            this.terminal.show("");
 
             // Ask for the property
-            this.terminal.show("Introduzca la propiedad que desea vender:");
-            String property = this.terminal.readStr();
+            this.terminal.show("Selecciona la propiedad sobre la que quieres actuar:");
+
+            // Read the property
+            int propertyId = this.terminal.readInt();
+
+            while (this.searchProperty(propertyId) == null) {
+                this.terminal.show("Propiedad no encontrada");
+                propertyId = this.terminal.readInt();
+            }
 
             // Search the property
-            Property p = this.searchProperty(property);
+            Property p = this.searchProperty(propertyId);
 
-            // If the property exists, continue with the process
-            if (p != null) {
+            // Check if the property is a street or not
+            if (p instanceof Street) {
+                Street s = (Street) p;
 
-                // Check if the property is yours
-                if (p.getOwner() == this) {
-
-                    // Check if the property is a street or not
-                    if (p instanceof Street) {
-                        Street s = (Street) p;
-
-                        if (s.isBuilt()) s.sellHouse();
-
-                        else if (!s.isMortgaged()){
-                            this.balance += s.getMortgageValue();
-                            s.setMortgaged(bankrupt);
-                        }
-
-                    } else if (!p.isMortgaged()) {
-                        this.balance += p.getMortgageValue();
-                        p.setMortgaged(true);
-                    }
-
-                } else this.terminal.show("La propiedad no es tuya");
-
-            } else this.terminal.show("Propiedad no encontrada");   
+                if (s.isBuilt()) s.sellHouse();
+                else if (!s.isMortgaged()) s.mortgage();
+                
+            } else if (!p.isMortgaged()) p.mortgage();
         }
 
-        if (this.balance < target) this.terminal.show("No quedan propiedades que vender");
+        if (this.balance < target) this.terminal.show("No quedan propiedades que operar");
     }
 
     // Method to show the properties
@@ -219,13 +210,11 @@ public class Player implements Serializable {
             }
         }
     }
-
-
     
     // Method to search a property
-    private Property searchProperty(String property) {
+    private Property searchProperty(int id) {
         for (Property p : this.ownedProperties) {
-            if (p.getDescription().equals(property)) return p;
+            if (p.getId() == id) return p;
         }
 
         return null;
@@ -233,8 +222,17 @@ public class Player implements Serializable {
 
 
     // Method to check if there are things to sell
-    private boolean thereAreThingsToSell() {
-        return this.ownedProperties.size() > 0;
+    private boolean thereAreThingsToOperate() {
+        for (Property property : this.ownedProperties) {
+
+            if (property instanceof Street) {
+                Street s = (Street) property;
+                if (s.isBuilt() || !s.isMortgaged()) return true;
+
+            } else if (!property.isMortgaged()) return true;
+        }
+
+        return false;
     }
 
     // Getters & setters ==================================================================================================

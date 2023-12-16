@@ -98,3 +98,4 @@ El jugador %s ha recibido %d;Player %s has received %d
 Las propiedades han sido transferidas al banco;The properties have been transferred to the bank
 Las propiedades han sido transferidas al jugador %s;The properties have been transferred to player %s
 No tienes suficiente dinero para pagar;You don't have enough money to pay
+Selecciona la propiedad sobre la que quieres actuar:;Select the property you want to act on:

@@ -100,6 +100,7 @@ public abstract class Property extends MonopolyCode {
 
         while (true) {
             int option = this.terminal.readInt();
+            this.terminal.show("");
 
             if (option < 1 || option > 3)
                 this.terminal.show("Opcion invalida");

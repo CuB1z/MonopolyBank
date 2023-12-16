@@ -36,6 +36,7 @@ public class Transport extends Property {
             if (this.isMortgaged()) {
                 String output = trs.translate("Has caido en la propiedad: %s, pero esta hipotecada, no pagas nada");
                 this.terminal.show(String.format(output, this.getDescription()));
+                this.terminal.show("");
                 return;
             }
 
