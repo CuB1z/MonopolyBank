@@ -99,3 +99,27 @@
 #### To run this application, you'll need:
 
 - ☕ **Java 8** or higher installed on your machine.
+
+
+<br/>
+
+
+## 🙌 Credits
+
+#### This project was developed by:
+
+| Name | GitHub | Email |
+| --- | --- | --- |
+| Diego Sánchez | [CuB1z](https://github.com/CuB1z) | cubizdev@gmail.com |
+
+
+<br/>
+
+
+---
+
+
+<br/>
+
+
+© 2023 CuB1. All rights reserved.
