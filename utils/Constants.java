@@ -9,7 +9,7 @@
 public class Constants {
     
     // Default values ===============================================================
-    public static final String DEFAULT_LANGUAGE = "spanish";
+    public static final String DEFAULT_LANGUAGE = "default";
     public static final String DEFAULT_GAMES_EXTENSION = ".xml";
 
     // Default aproval string should always be lowercase so toLowerCase() can be used
@@ -54,6 +54,6 @@ public class Constants {
     public static final int EXIT_GAME_ID = 4;
     
     // Available languages ==========================================================
-    public static final String[] AVAILABLE_LANGUAGES = {"spanish", "english"};
+    public static final String[] AVAILABLE_LANGUAGES = {"default", "english"};
     
 }

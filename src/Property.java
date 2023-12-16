@@ -62,7 +62,7 @@ public abstract class Property extends MonopolyCode {
         if (answer == 3) return;
         
         String msg;
-        msg = trs.translate("Desea realizar la operacion? (%s/N)");
+        msg = trs.translate("Desea realizar la operación? (%s/N)");
         this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
 
         msg = this.terminal.readStr();
@@ -76,7 +76,7 @@ public abstract class Property extends MonopolyCode {
                 default -> this.unmortgage();
             }
 
-        } else this.terminal.show("La operacion ha sido cancelada...");
+        } else this.terminal.show("La operación ha sido cancelada...");
     }
 
     // Method to show the owner operation menu for a default property (Override if needed)
@@ -112,7 +112,7 @@ public abstract class Property extends MonopolyCode {
     // Method to mortgage a property
     public void mortgage() {
         if (this.isMortgaged()) {
-            this.terminal.show("La propiedad ya esta hipotecada");
+            this.terminal.show("La propiedad ya está hipotecada");
             return;
         }
         
@@ -129,7 +129,7 @@ public abstract class Property extends MonopolyCode {
     // Method to unmortgage a property
     public void unmortgage() {
         if (!this.isMortgaged()) {
-            this.terminal.show("La propiedad no esta hipotecada");
+            this.terminal.show("La propiedad no está hipotecada");
             return;
         }
 

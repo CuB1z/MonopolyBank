@@ -26,7 +26,7 @@ public class TextTerminal extends Terminal {
 
             // If the input is not an integer, show an error message
             } catch (Exception e) {
-                this.show("Introduce un numero valido");
+                this.show("Introduce un número valido");
             }  
         }
     }

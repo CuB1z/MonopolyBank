@@ -55,7 +55,7 @@ public class Street extends Property{
         else if (this.getOwner() != p) {
 
             if (this.isMortgaged()) {
-                output = trs.translate("Has caido en la propiedad: %s, pero esta hipotecada, no pagas nada");
+                output = trs.translate("Has caido en la propiedad: %s, pero está hipotecada, no pagas nada");
                 this.terminal.show(String.format(output, this.getDescription()));
                 return;
             }
@@ -88,7 +88,7 @@ public class Street extends Property{
         if (answer == 5) return;
 
         String msg;
-        msg = trs.translate("Desea realizar la operacion? (%s/N)");
+        msg = trs.translate("Desea realizar la operación? (%s/N)");
         this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
 
         msg = this.terminal.readStr();
@@ -105,7 +105,7 @@ public class Street extends Property{
             }
 
         } else
-            this.terminal.show("La operacion ha sido cancelada...");
+            this.terminal.show("La operación ha sido cancelada...");
     }
 
     // Method to show the owner operation menu for a street
@@ -149,10 +149,10 @@ public class Street extends Property{
         Player owner = this.getOwner();
 
         if (!this.isBuildable())
-            this.terminal.show("La propiedad ya tiene el maximo de casas");
+            this.terminal.show("La propiedad ya tiene el máximo de casas");
 
         else if (this.isMortgaged())
-            this.terminal.show("La propiedad esta hipotecada");
+            this.terminal.show("La propiedad está hipotecada");
 
         else if (owner.getBalance() < this.getHousePrice())
             this.terminal.show("No tienes suficiente dinero");
@@ -193,7 +193,7 @@ public class Street extends Property{
             this.terminal.show("La propiedad no tiene casas");
 
         else if (this.isMortgaged())
-            this.terminal.show("La propiedad esta hipotecada");
+            this.terminal.show("La propiedad está hipotecada");
 
         else {
             Translator trs = this.terminal.getTranslatorManager().getTranslator();

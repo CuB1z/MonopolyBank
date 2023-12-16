@@ -103,7 +103,7 @@ public class Game implements Serializable{
 
         if (mCode != null) this.execDoOperation(mCode, player);
         else {
-            this.terminal.show("Codigo invalido");
+            this.terminal.show("Código inválido");
             this.terminal.show("");
             player.showSummary();
         }
@@ -169,7 +169,7 @@ public class Game implements Serializable{
             this.terminal.show("");
 
             if (codeId > Constants.MONOPOLY_CODE_ARRAY_SIZE - 1 || codeId < 0)
-                this.terminal.show("Codigo invalido");
+                this.terminal.show("Código inválido");
         }
 
         return codeId;
@@ -185,7 +185,7 @@ public class Game implements Serializable{
             this.terminal.show("");
 
             if (playerId > this.players.size() || playerId < 1)
-                this.terminal.show("ID invalido");
+                this.terminal.show("ID inválido");
         }
 
         return playerId;
@@ -247,12 +247,12 @@ public class Game implements Serializable{
     private void createPlayers(){
         
         // Ask for the number of players
-        this.terminal.show("Introduce el numero de jugadores (2-4): ");
+        this.terminal.show("Introduce el número de jugadores (2-4): ");
         int answer = this.terminal.readInt();
         this.terminal.show("");
 
         if (answer < 2 || answer > Constants.MAX_NUMBER_OF_PLAYERS) {
-            this.terminal.show("Numero de jugadores incorrecto");
+            this.terminal.show("número de jugadores incorrecto");
             this.createPlayers();
         } else {
             // Translate the message
@@ -371,7 +371,7 @@ public class Game implements Serializable{
                 this.terminal.show("");
 
                 if (answer < 0 || answer > Constants.AVAILABLE_LANGUAGES.length - 1) {
-                    this.terminal.show("Valor invalido, introduzca otro!!");
+                    this.terminal.show("Valor inválido, introduzca otro!!");
                     this.terminal.show("");
 
                 } else

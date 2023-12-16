@@ -69,7 +69,7 @@ Deshipotecar;Unmortgage
 Cancelar;Cancel
 Desea realizar la operación? (%s/N);Do you want to make the operation? (%s/N)
 ¿Que desea hacer con la propiedad: %s?;What do you want to do with the property: %s?
-La propiedad ya tiene el maximo de casas;The property already has the maximum number of houses
+La propiedad ya tiene el máximo de casas;The property already has the maximum number of houses
 La propiedad está hipotecada;The property is mortgaged
 No tienes suficiente dinero;You don't have enough money
 La propiedad no tiene casas;The property doesn't have any houses
