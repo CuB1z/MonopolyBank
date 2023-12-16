@@ -1,9 +1,13 @@
 # MonopolyBank
 
 ## Installation
-1. Download the latest release from the [GitHub Repository](https://github.com/CuB1z/MonopolyBank)
-2. Unzip the downloaded file
-3. Run the following command: `java -jar MonopolyBank.jar`
+> **📘** Title
+>   1. Download the latest release from the [GitHub Repository](https://github.com/CuB1z/MonopolyBank)
+>   2. Unzip the downloaded file
+>   3. Run the following command:
+```bash
+javac MonopolyBank.java
+```
 
 ## Author
 Diego Sánchez Rincón
