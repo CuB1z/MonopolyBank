@@ -60,8 +60,8 @@ public class Player implements Serializable {
 
                 if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) {
                     this.balance -= amount;
-                    msg = trs.translate("Nuevo presupuesto: %d");
-                    this.terminal.show(String.format(msg, this.balance));
+                    msg = trs.translate("El jugador %s ha pagado %d");
+                    this.terminal.show(String.format(msg, this.name, this.balance));
                 } else {
                     this.terminal.show("No se ha realizado el pago");
                 }
@@ -158,6 +158,8 @@ public class Player implements Serializable {
                     case 1 -> this.mortgage(property);
                     default -> this.unmortgage(property);
                 }
+                
+                property.showMortgageSummary();
             } else this.terminal.show("La operacion ha sido cancelada...");
             
         } else this.terminal.show("La propiedad no es tuya");
@@ -168,8 +170,8 @@ public class Player implements Serializable {
         this.balance = this.balance + amount;
 
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String msg = trs.translate("Nuevo presupuesto: %d");
-        this.terminal.show(String.format(msg, this.balance));
+        String msg = trs.translate("El jugador %s ha recibido %d");
+        this.terminal.show(String.format(msg, this.name, this.balance));
     }
 
     // Method to count Transport properties

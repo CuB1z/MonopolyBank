@@ -58,6 +58,18 @@ public abstract class Property extends MonopolyCode {
         return this.owner != null;
     }
 
+    // Method used to show the mortgage operation summary
+    public void showMortgageSummary() {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String output = trs.translate("Estado de la propiedad: %s >> %s");
+        output = this.isMortgaged() ?
+            String.format(output, this.getDescription(), trs.translate("Hipotecada")) :
+            String.format(output, this.getDescription(), trs.translate("Deshipotecada"));
+
+        this.terminal.show(output);
+        this.terminal.show("");
+    }
+
     // Getters & setters ==================================================================================================
     public int getPrice() {
         return this.price;

@@ -49,11 +49,16 @@ public class RepairsCard extends MonopolyCode {
         // Show the message
         this.terminal.show(this.getDescription());
         this.terminal.show(String.format("Debes pagar %d", amount));
+        this.terminal.show("");
 
         // Pay the amount
         p.pay(amount, true);
 
-        if (p.isBankrupt()) p.transferProperties(null);
+        if (p.isBankrupt()) {
+            p.transferProperties(null);
+            this.terminal.show("Las propiedades han sido transferidas al banco");
+
+        } else p.toString();
 
         this.terminal.waitForEnter();
     }

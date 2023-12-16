@@ -88,5 +88,11 @@ Debes pagar %d;You must pay %d
 No quedan propiedades que vender;There are no properties left to sell
   - Casas: %d;  - Houses: %d
   - Hipotecada: %s;  - Mortgaged: %s
+Hipotecada;Mortgaged
+Deshipotecada;Unmortgaged
+Estado de la propiedad: %s >> %s;Property status: %s >> %s
 Si;Yes
 No;No
+El jugador %s ha pagado %d;Player %s has paid %d
+El jugador %s ha recibido %d;Player %s has received %d
+Las propiedades han sido transferidas al banco;The properties have been transferred to the bank

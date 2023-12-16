@@ -46,7 +46,7 @@ public class Street extends Property{
     }
 
     public void doOperation(Player p) {
-
+        // TODO: Implement this method
     }
 
     public void buildHouse() {

@@ -88,5 +88,11 @@ Debes pagar %d;Debes pagar %d
 No quedan propiedades que vender;No quedan propiedades que vender
   - Casas: %d;  - Casas: %d
   - Hipotecada: %s;  - Hipotecada: %s
+Hipotecada;Hipotecada
+Deshipotecada;Deshipotecada
+Estado de la propiedad: %s >> %s;Estado de la propiedad: %s >> %s
 Si;Si
 No;No
+El jugador %s ha pagado %d;El jugador %s ha pagado %d
+El jugador %s ha recibido %d;El jugador %s ha recibido %d
+Las propiedades han sido transferidas al banco;Las propiedades han sido transferidas al banco

@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class MonopolyCode implements Serializable {
+public abstract class MonopolyCode implements Serializable {
     private String description;
     protected Terminal terminal;
     private int id;
@@ -19,10 +19,7 @@ public class MonopolyCode implements Serializable {
 
     // Public methods =====================================================================================================
 
-    // Method to be implemented by the subclasses (Override it)
-    public void doOperation(Player p) {
-        // To be implemented by subclasses
-    }
+    public abstract void doOperation(Player p);
 
     public String toString() {
         return String.format("[%s] %s", this.id, this.description);
