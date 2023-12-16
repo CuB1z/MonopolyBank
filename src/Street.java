@@ -168,7 +168,8 @@ public class Street extends Property{
 
             // Ask for aproval
             output = trs.translate("Desea pagar %d? (%s/N)");
-            output = String.format(output, this.getHousePrice(), Constants.DEFAULT_APROVE_STRING);
+            this.terminal.show(String.format(output, this.getHousePrice(), Constants.DEFAULT_APROVE_STRING));
+
             String aproval = this.terminal.readStr();
             this.terminal.show("");
 
@@ -178,9 +179,11 @@ public class Street extends Property{
             this.buildHouse();
             owner.setBalance(owner.getBalance() - this.getHousePrice());
             this.terminal.show("Casa comprada");
+            this.terminal.show("");
 
             // Show the updated street
             this.terminal.show(this.toString());
+            this.terminal.show("");
         }
     }
 
@@ -205,9 +208,11 @@ public class Street extends Property{
             // Show the message
             String output = trs.translate("Casa vendida, recibes %d");
             this.terminal.show(String.format(output, this.housePrice / 2));
+            this.terminal.show("");
 
             // Show the updated street
             this.terminal.show(this.toString());
+            this.terminal.show("");
         }
     }
 
@@ -237,7 +242,7 @@ public class Street extends Property{
     
     @Override
     public int getPaymentForRent() {
-        return this.costStaying[this.builtHouses + 1];
+        return this.costStaying[this.builtHouses];
     }
 
     // Getters & Setters ==================================================================================================

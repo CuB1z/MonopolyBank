@@ -93,6 +93,8 @@ public class Player implements Serializable {
             msg = trs.translate("El jugador %s ha pagado %d");
             this.terminal.show(String.format(msg, this.name, amount));
         }
+
+        this.terminal.show("");
     }
 
     // Method to transfer properties
@@ -131,6 +133,7 @@ public class Player implements Serializable {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg = trs.translate("El jugador %s ha recibido %d");
         this.terminal.show(String.format(msg, this.name, amount));
+        this.terminal.show("");
     }
 
     // Method to count Transport properties

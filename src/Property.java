@@ -33,7 +33,7 @@ public abstract class Property extends MonopolyCode {
         String output = trs.translate("  - Hipotecada: %s");
         output = this.mortgaged ? String.format(output, trs.translate("Si")) : String.format(output, trs.translate("No"));
 
-        return super.toString() + "\n" + output + "\n";
+        return super.toString() + "\n" + output;
     }
 
     // General method to do the buy operation
@@ -119,6 +119,7 @@ public abstract class Property extends MonopolyCode {
         Player owner = this.getOwner();
         owner.setBalance(owner.getBalance() + this.getMortgageValue());
         this.terminal.show(String.format("Propiedad hipotecada, recibes %d", this.getMortgageValue()));
+        this.terminal.show("");
 
         // Show the mortgage summary
         this.showMortgageSummary();
@@ -156,6 +157,8 @@ public abstract class Property extends MonopolyCode {
             owner.setBalance(owner.getBalance() - this.getMortgageValue());
             this.terminal.show("Propiedad deshipotecada");
         }
+
+        this.terminal.show("");
 
         // Show the mortgage summary
         this.showMortgageSummary();
