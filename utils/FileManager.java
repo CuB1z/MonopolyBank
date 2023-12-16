@@ -1,3 +1,6 @@
+package utils;
+
+import src.Game;
 import java.time.LocalDateTime;
 import java.beans.*;
 import java.io.*;

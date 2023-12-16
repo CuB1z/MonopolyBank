@@ -1,19 +1,25 @@
 # MonopolyBank
 
+## Installation
+1. Download the latest release from the [GitHub Repository](https://github.com/CuB1z/MonopolyBank)
+2. Unzip the downloaded file
+3. Run the following command: `java -jar MonopolyBank.jar`
+
 ## Author
 Diego Sánchez Rincón
 
 ## Description
-Final project for POO - Software Engineering course at URJC (Universidad Rey Juan Carlos).
+Final project for POO - Software Engineering course at URJC (Universidad Rey Juan Carlos)
 
 ## For Developers
-#### default.txt file
-    The content of this file is not needed for the development process.
-        - This file could be empty, but never deleted.
 
-    Its purpose is to provide a reference for future translations.
-        - The file contains the default values for the game's texts.
-        - Every text in the game should be in this file.
+### default.txt file
+The content of this file is not needed for the development process.
+- **This file can never be deleted.**
+
+Its purpose is to provide a reference for future translations.
+- The file contains the default values for the game's texts.
+- Every text in the game should be in this file.
 
 ## Requirements
 - Java 8

@@ -1,5 +1,8 @@
+package src;
 import java.io.*;
 import java.util.*;
+
+import utils.*;
 
 public class Game implements Serializable{
     private String fileName;
@@ -359,10 +362,10 @@ public class Game implements Serializable{
         boolean validAnswer = false;
 
         // Show available languages
-        this.terminal.show("Lenguajes disponibles: ");
+        this.terminal.show("Lenguajes disponibles:");
         this.showAvailableLanguages();
 
-        this.terminal.show("Introduzca el lenguaje que desea utilizar: ");
+        this.terminal.show("Introduzca el lenguaje que desea utilizar:");
 
         // Ask for the language and check if it is valid
         while (!validAnswer) {
@@ -387,7 +390,8 @@ public class Game implements Serializable{
 
     // Print available languages
     private void showAvailableLanguages() {
-        for (int i = 0; i < Constants.AVAILABLE_LANGUAGES.length; i++) {
+        this.terminal.show("0: español");
+        for (int i = 1; i < Constants.AVAILABLE_LANGUAGES.length; i++) {
             Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
             String lang = trs.translate(Constants.AVAILABLE_LANGUAGES[i]);

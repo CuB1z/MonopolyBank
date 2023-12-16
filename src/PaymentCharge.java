@@ -1,3 +1,7 @@
+package src;
+
+import utils.*;
+
 public class PaymentCharge extends MonopolyCode {
     private int amount;
 

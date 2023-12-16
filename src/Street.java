@@ -1,3 +1,7 @@
+package src;
+
+import utils.*;
+
 public class Street extends Property{
     private int builtHouses;
     private int housePrice;

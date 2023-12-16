@@ -1,4 +1,9 @@
+package src;
+
 import java.io.Serializable;
+
+import utils.*;
+
 import java.io.File;
 
 public class GameManager implements Serializable {

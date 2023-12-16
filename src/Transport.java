@@ -1,3 +1,5 @@
+package src;
+
 public class Transport extends Property {
     private int [] costStaying = new int[4];
 

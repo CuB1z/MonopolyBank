@@ -1,3 +1,7 @@
+package src;
+
+import utils.*;
+
 public abstract class Property extends MonopolyCode {
     private int price;
     private int mortgageValue;

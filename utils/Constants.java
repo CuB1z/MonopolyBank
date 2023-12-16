@@ -1,3 +1,4 @@
+package utils;
 /* This class contains the constants used in the game
     Asuming that { monopolyCode.txt format = (id;type;description) }
     Asuming that { monopolyCode.txt money format = ( charges (-amount) && payments (+amount) ) }
