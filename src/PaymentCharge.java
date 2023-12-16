@@ -38,10 +38,7 @@ public class PaymentCharge extends MonopolyCode {
         else {
             player.pay(this.amount * (-1), true);
 
-            if (player.isBankrupt()) {
-                player.transferProperties(null);
-                this.terminal.show("Las propiedades han sido transferidas al banco");
-            }
+            if (player.isBankrupt()) player.transferProperties(null);
         }
 
         this.terminal.waitForEnter();

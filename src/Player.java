@@ -104,7 +104,12 @@ public class Player implements Serializable {
         // Add the properties to the new owner if it is not null
         if (newOwner != null) {
             newOwner.getOwnedProperties().addAll(this.ownedProperties);
-        }
+
+            Translator trs = this.terminal.getTranslatorManager().getTranslator();
+            String output = trs.translate("Las propiedades han sido transferidas al jugador %s");
+            this.terminal.show(String.format(output, newOwner.getName()));
+
+        } else this.terminal.show("Las propiedades han sido transferidas al banco");
     }
 
     // Method to do owner operations with a street

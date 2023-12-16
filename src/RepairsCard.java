@@ -54,11 +54,8 @@ public class RepairsCard extends MonopolyCode {
         // Pay the amount
         p.pay(amount, true);
 
-        if (p.isBankrupt()) {
-            p.transferProperties(null);
-            this.terminal.show("Las propiedades han sido transferidas al banco");
-
-        } else p.toString();
+        if (p.isBankrupt()) p.transferProperties(null);
+        else p.toString();
 
         this.terminal.waitForEnter();
     }
