@@ -42,7 +42,7 @@ public class Street extends Property{
         String output = trs.translate("  - Casas: %d");
         output = String.format(output, this.builtHouses);
 
-        return super.toString() + "\n" + output + "\n";
+        return super.toString() + "\n" + output;
     }
 
     public void doOperation(Player p) {

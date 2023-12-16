@@ -108,7 +108,6 @@ public class Game implements Serializable{
             player.showSummary();
         }
 
-        this.terminal.show("");
         this.terminal.waitForEnter();
 
         // Update players array

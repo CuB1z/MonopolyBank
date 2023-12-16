@@ -26,11 +26,6 @@ public class Transport extends Property {
 
     // Public methods =====================================================================================================
 
-    @Override
-    public String toString() {
-        return super.toString() + "\n";
-    }
-
     public void doOperation(Player p) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 

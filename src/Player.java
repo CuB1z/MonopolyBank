@@ -78,6 +78,7 @@ public class Player implements Serializable {
 
             // Sell properties
             this.sellActives(amount);
+            this.terminal.show("");
 
             // Check if the player is bankrupt
             if (this.balance < amount) this.bankrupt = true;
