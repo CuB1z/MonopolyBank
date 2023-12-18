@@ -6,10 +6,6 @@ Valor inválido, introduzca otro:;Invalid value, enter another
 ¿Qué juego quieres reanudar? (%d para cancelar);Which game do you want to resume? (%d to cancel)
 Introduce el nombre del fichero: / (%s para salir);Enter the file name: / (%s to exit)
 Error, el fichero es corrupto o inválido, creando nueva partida...;Error, the file is corrupt or invalid, creating new game...
-RED;RED
-BLUE;BLUE
-GREEN;GREEN
-BLACK;BLACK
 spanish;spanish
 english;english
 catalan;catalan
@@ -100,3 +96,7 @@ Las propiedades han sido transferidas al banco;The properties have been transfer
 Las propiedades han sido transferidas al jugador %s;The properties have been transferred to player %s
 No tienes suficiente dinero para pagar;You don't have enough money to pay
 Selecciona la propiedad sobre la que quieres actuar:;Select the property you want to act on:
+RED;Red
+BLUE;Blue
+GREEN;Green
+BLACK;Black
