@@ -45,11 +45,7 @@ public class Translator implements Serializable {
 
     // Public methods =====================================================================================================
     public String translate(String word) {
-        if (!this.dictionary.containsKey(word)) {
-            return word;
-        }
-
-        return this.dictionary.get(word);
+        return this.dictionary.getOrDefault(word, word);
     }
 
     // Getters & setters ==================================================================================================
