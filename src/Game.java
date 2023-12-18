@@ -6,7 +6,7 @@ import utils.*;
 
 public class Game implements Serializable{
     private String fileName;
-    private transient MonopolyCode [] monopolyCodeArray = new MonopolyCode[Constants.MONOPOLY_CODE_ARRAY_SIZE];
+    private MonopolyCode [] monopolyCodeArray = new MonopolyCode[Constants.MONOPOLY_CODE_ARRAY_SIZE];
     private Terminal terminal;
     private List<Player> players = new ArrayList<Player>();
  
