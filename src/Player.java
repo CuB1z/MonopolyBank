@@ -36,7 +36,7 @@ public class Player implements Serializable {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String color = trs.translate(this.color.toString());
 
-        String msg = trs.translate("Jugador %s (%s) >> Presupuesto: %d");
+        String msg = trs.translate("Player %s (%s) >> Budget: %d");
 
         return String.format(msg, this.name, color, this.balance);
     }
@@ -53,11 +53,11 @@ public class Player implements Serializable {
  
         if (!mandatory) {
             if (this.balance < amount) {
-                this.terminal.show("No tienes suficiente dinero para pagar");
-                this.terminal.show("Vuelve a intentarlo cuando tengas mas dinero");
+                this.terminal.show("You don't have enough money to pay");
+                this.terminal.show("Try again when you have more money");
                 this.terminal.show("");
             } else {
-                msg = trs.translate("Desea pagar %d? (%s/N)");
+                msg = trs.translate("Do you want to pay %d? (%s/N)");
                 msg = String.format(msg, amount, Constants.DEFAULT_APROVE_STRING);
 
                 this.terminal.show(msg);
@@ -94,7 +94,7 @@ public class Player implements Serializable {
 
         } else {
             this.balance -= amount;
-            msg = trs.translate("El jugador %s ha pagado %d");
+            msg = trs.translate("Player %s has paid %d");
             this.terminal.show(String.format(msg, this.name, amount));
         }
 
@@ -117,10 +117,10 @@ public class Player implements Serializable {
             newOwner.getOwnedProperties().addAll(this.ownedProperties);
 
             Translator trs = this.terminal.getTranslatorManager().getTranslator();
-            String output = trs.translate("Las propiedades han sido transferidas al jugador %s");
+            String output = trs.translate("The properties have been transferred to player %s");
             this.terminal.show(String.format(output, newOwner.getName()));
 
-        } else this.terminal.show("Las propiedades han sido transferidas al banco");
+        } else this.terminal.show("The properties have been transferred to the bank");
     }
 
     // Method to do the bankruptcy operation
@@ -135,7 +135,7 @@ public class Player implements Serializable {
         this.balance = this.balance + amount;
 
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String msg = trs.translate("El jugador %s ha recibido %d");
+        String msg = trs.translate("Player %s has received %d");
         this.terminal.show(String.format(msg, this.name, amount));
         this.terminal.show("");
     }
@@ -171,13 +171,13 @@ public class Player implements Serializable {
             this.terminal.show("");
 
             // Ask for the property
-            this.terminal.show("Selecciona la propiedad sobre la que quieres actuar:");
+            this.terminal.show("Select the property you want to act on:");
 
             // Read the property
             int propertyId = this.terminal.readInt();
 
             while (this.searchProperty(propertyId) == null) {
-                this.terminal.show("Propiedad no encontrada");
+                this.terminal.show("Property not found");
                 propertyId = this.terminal.readInt();
             }
 
@@ -194,7 +194,7 @@ public class Player implements Serializable {
             } else if (!p.isMortgaged()) p.mortgage();
         }
 
-        if (this.balance < target) this.terminal.show("No quedan propiedades que operar");
+        if (this.balance < target) this.terminal.show("There are no properties left to operate");
     }
 
     // Method to show the properties

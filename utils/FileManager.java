@@ -31,7 +31,7 @@ public class FileManager {
             encoder.close();
 
         } catch (IOException e) {
-            System.out.println("Error al guardar el archivo");
+            System.out.println("Error trying to save the file");
         }
     }
 

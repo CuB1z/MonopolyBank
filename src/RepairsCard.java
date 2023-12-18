@@ -52,7 +52,7 @@ public class RepairsCard extends MonopolyCode {
 
         // Show the message
         this.terminal.show(this.getDescription());
-        this.terminal.show(String.format("Debes pagar %d", amount));
+        this.terminal.show(String.format("You must pay %d", amount));
         this.terminal.show("");
 
         // Pay the amount

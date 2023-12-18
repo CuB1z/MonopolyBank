@@ -36,7 +36,7 @@ public class Transport extends Property {
         else if (this.getOwner() != p) {
 
             if (this.isMortgaged()) {
-                String output = trs.translate("Has caído en la propiedad: %s, pero está hipotecada, no pagas nada");
+                String output = trs.translate("You have landed on the property: %s, but it's mortgaged, you don't pay anything");
                 this.terminal.show(String.format(output, this.getDescription()));
                 this.terminal.show("");
                 return;
@@ -44,7 +44,7 @@ public class Transport extends Property {
 
             int cost = this.getPaymentForRent();
 
-            String output = trs.translate("Has caído en la propiedad: %s, debes pagar %d");
+            String output = trs.translate("You have landed on the property: %s, you must pay %d");
             this.terminal.show(String.format(output, this.getDescription(), cost));
 
             p.pay(cost, true);

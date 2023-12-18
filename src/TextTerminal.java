@@ -28,7 +28,7 @@ public class TextTerminal extends Terminal {
 
             // If the input is not an integer, show an error message
             } catch (Exception e) {
-                this.show("Introduce un número valido");
+                this.show("Enter a valid number");
             }  
         }
     }
@@ -56,7 +56,7 @@ public class TextTerminal extends Terminal {
 
     // Method to wait for the user to press enter
     public void waitForEnter() {
-        this.show("Introduce CONTINUAR");
+        this.show("Enter CONTINUE");
         System.out.print(">> ");
         this.scanner.next();
     }

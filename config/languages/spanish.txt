@@ -1,4 +1,4 @@
-WELCOME TO MONOPOLY;BIENVENIDO AL MONOPOLY
+WELCOME TO MONOPOLY BANK;BIENVENIDO AL MONOPOLY BANK
 Available languages:;Lenguajes disponibles:
 Enter the language you want to use:;Introduzca el lenguaje que desea utilizar:
 Invalid value, enter another:;Valor inválido, introduzca otro:
@@ -11,10 +11,11 @@ english;english
 catalan;catalan
 euskera;basque
 gallego;galician
--- No files available --;-- No hay ficheros disponibles --
+---No files available---;---No hay ficheros disponibles---
 The file doesn't exist, enter another name: / (%s to exit);El fichero no existe, introduce otro nombre: / (%s para salir)
 The operation has been canceled...;La operación ha sido cancelada...
 File found...;Fichero encontrado...
+Available files:;Ficheros disponibles:
 Creating new game...;Creando nueva partida...
 Loading saved game...;Cargando partida guardada...
 Playing...;Jugando...
@@ -29,7 +30,7 @@ Loading game data...;Cargando datos del juego...
 Data loaded correctly;Datos cargados correctamente
 Enter a valid number;Introduce un número valido
 Enter card code:;Introduzca código de tarjeta:
-Enter player code (1: red 2: blue 3: green 4: black):;Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):
+Enter player id (;Introduzca código de jugador ( 
 Do you want to exit and save the game? (%s/n);¿Desea salir y guardar el juego? (%s/n)
 Game Over >> %s is the winner!!;Fin del juego >> %s es el ganador!!
 Payment made;Pago efectuado
@@ -79,9 +80,9 @@ Property unmortgaged;Propiedad deshipotecada
 House bought;Casa comprada
 The file %d doesn't exist, try again: / (%d to exit);El fichero %d no existe, prueba de nuevo: / (%d para salir)
 You have landed on the property: %s, but it's mortgaged, you don't pay anything;Has caído en la propiedad: %s, pero está hipotecada, no pagas nada
+You have landed on the property: %s;Has caído en la propiedad: %s
 You must pay %d;Debes pagar %d
-Enter the number of the dice: ;Introduce el número de los dados: 
-You must pay %d;Debes pagar %d
+Enter the number of the dice:;Introduce el número de los dados: 
 There are no properties left to operate;No quedan propiedades que operar
   - Houses: %d;  - Casas: %d
   - Mortgaged: %s;  - Hipotecada: %s

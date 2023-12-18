@@ -11,7 +11,8 @@
 **;catalan
 **;euskera
 **;galician
-**;-- No available files --
+**;---No files available---
+**;Available files:
 **;The file does not exist, enter another name: / (%s to exit)
 **;The operation has been canceled...
 **;File found...
@@ -29,7 +30,7 @@
 **;Data loaded successfully
 **;Enter a valid number
 **;Enter card code:
-**;Enter player code (1: red 2: blue 3: green 4: black):
+**;Enter player id (
 **;Do you want to exit and save the game? (%s/n)
 **;End of the game >> %s is the winner!!
 **;Payment made
@@ -59,6 +60,7 @@
 **;New budget: %d
 **;Do you want to buy the property: %s for %d? (%s,N)
 **;You have landed on the property: %s, you must pay %d
+**;You have landed on the property: %s
 **;The property is not yours
 **;Buy house
 **;Sell house

@@ -34,8 +34,8 @@ public abstract class Property extends MonopolyCode {
     @Override
     public String toString() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String output = trs.translate("  - Hipotecada: %s");
-        output = this.mortgaged ? String.format(output, trs.translate("Sí")) : String.format(output, trs.translate("No"));
+        String output = trs.translate("  - Mortgaged: %s");
+        output = this.mortgaged ? String.format(output, trs.translate("Yes")) : String.format(output, trs.translate("No"));
 
         return super.toString() + "\n" + output;
     }
@@ -44,7 +44,7 @@ public abstract class Property extends MonopolyCode {
     public void doBuyOperation(Player p) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
-        String output = trs.translate("Quieres comprar la propiedad: %s por %d? (%s,N)");
+        String output = trs.translate("Do you want to buy the property: %s for %d? (%s,N)");
         this.terminal.show(String.format(output, this.getDescription(), this.getPrice(), Constants.DEFAULT_APROVE_STRING));
 
         String answer = this.terminal.readStr();
@@ -66,7 +66,7 @@ public abstract class Property extends MonopolyCode {
         if (answer == 3) return;
         
         String msg;
-        msg = trs.translate("¿Desea realizar la operación? (%s/N)");
+        msg = trs.translate("Do you want to make the operation? (%s/N)");
         this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
 
         msg = this.terminal.readStr();
@@ -80,7 +80,7 @@ public abstract class Property extends MonopolyCode {
                 default -> this.unmortgage();
             }
 
-        } else this.terminal.show("La operación ha sido cancelada...");
+        } else this.terminal.show("The operation has been canceled...");
     }
 
     // Method to show the owner operation menu for a default property (Override if needed)
@@ -88,16 +88,16 @@ public abstract class Property extends MonopolyCode {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg = "";
 
-        msg = trs.translate("¿Qué desea hacer con la propiedad: %s?");
+        msg = trs.translate("What do you want to do with the property: %s?");
         this.terminal.show(String.format(msg, this.getDescription()));
 
-        msg = trs.translate("Hipotecar");
+        msg = trs.translate("Mortgage");
         this.terminal.show(String.format("1. %s", msg));
 
-        msg = trs.translate("Deshipotecar");
+        msg = trs.translate("Unmortgage");
         this.terminal.show(String.format("2. %s", msg));
 
-        msg = trs.translate("Cancelar");
+        msg = trs.translate("Cancel");
         this.terminal.show(String.format("3. %s", msg));
 
         this.terminal.show("");
@@ -107,7 +107,7 @@ public abstract class Property extends MonopolyCode {
             this.terminal.show("");
 
             if (option < 1 || option > 3)
-                this.terminal.show("Opción inválida");
+                this.terminal.show("Invalid option");
 
             else return option;
         }
@@ -116,14 +116,14 @@ public abstract class Property extends MonopolyCode {
     // Method to mortgage a property
     public void mortgage() {
         if (this.isMortgaged()) {
-            this.terminal.show("La propiedad ya está hipotecada");
+            this.terminal.show("The property is already mortgaged");
             return;
         }
         
         this.setMortgaged(true);
         Player owner = this.getOwner();
         owner.setBalance(owner.getBalance() + this.getMortgageValue());
-        this.terminal.show(String.format("Propiedad hipotecada, recibes %d", this.getMortgageValue()));
+        this.terminal.show(String.format("Property mortgaged, you receive %d", this.getMortgageValue()));
         this.terminal.show("");
 
         // Show the mortgage summary
@@ -133,18 +133,18 @@ public abstract class Property extends MonopolyCode {
     // Method to unmortgage a property
     public void unmortgage() {
         if (!this.isMortgaged()) {
-            this.terminal.show("La propiedad no está hipotecada");
+            this.terminal.show("The property isn't mortgaged");
             return;
         }
 
         String output;
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
-        output = trs.translate("Debes pagar: %d");
+        output = trs.translate("You must pay %d");
         this.terminal.show(String.format(output, this.getMortgageValue()));
         this.terminal.show("");
 
-        output = trs.translate("Desea pagar %d? (%s/N)");
+        output = trs.translate("Do you want to pay %d? (%s/N)");
         this.terminal.show(String.format(output, this.getMortgageValue(), Constants.DEFAULT_APROVE_STRING));
 
         String aproval = this.terminal.readStr();
@@ -155,12 +155,12 @@ public abstract class Property extends MonopolyCode {
         Player owner = this.getOwner();
 
         if (owner.getBalance() < this.getMortgageValue())
-            this.terminal.show("No tienes suficiente dinero");
+            this.terminal.show("You don't have enough money");
 
         else {
             this.setMortgaged(false);
             owner.setBalance(owner.getBalance() - this.getMortgageValue());
-            this.terminal.show("Propiedad deshipotecada");
+            this.terminal.show("Property unmortgaged");
         }
 
         this.terminal.show("");
@@ -177,10 +177,10 @@ public abstract class Property extends MonopolyCode {
     // Method used to show the mortgage operation summary
     public void showMortgageSummary() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String output = trs.translate("Estado de la propiedad: %s >> %s");
+        String output = trs.translate("Property status: %s >> %s");
         output = this.isMortgaged() ?
-            String.format(output, this.getDescription(), trs.translate("Hipotecada")) :
-            String.format(output, this.getDescription(), trs.translate("Deshipotecada"));
+            String.format(output, this.getDescription(), trs.translate("Mortgaged")) :
+            String.format(output, this.getDescription(), trs.translate("Unmortgaged"));
 
         this.terminal.show(output);
         this.terminal.show("");

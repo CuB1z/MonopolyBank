@@ -27,7 +27,7 @@ public class Game implements Serializable{
         if (this.fileName == null) this.initGame();
         
         // Show message
-        this.terminal.show("Jugando...");
+        this.terminal.show("Playing...");
         this.terminal.show("");
 
         // Save the game for the first time
@@ -86,7 +86,7 @@ public class Game implements Serializable{
                 case Constants.SHOW_SUMMARY_ID ->this.showSummary();
                 case Constants.CHANGE_LANGUAGE_ID -> this.askAndSetLanguage();
                 case Constants.EXIT_GAME_ID -> finishGame = true;
-                default -> this.terminal.show("Opción inválida");
+                default -> this.terminal.show("Invalid option");
             }
 
             // Save the game
@@ -106,7 +106,7 @@ public class Game implements Serializable{
 
         if (mCode != null) this.execDoOperation(mCode, player);
         else {
-            this.terminal.show("Código inválido");
+            this.terminal.show("Invalid code");
             this.terminal.show("");
             player.showSummary();
         }
@@ -121,19 +121,19 @@ public class Game implements Serializable{
     private int showMainLoopMenu() {
 
         // Show the menu options
-        this.terminal.show("Introduzca una opción:");
+        this.terminal.show("Enter an option:");
 
         System.out.print(Constants.CONTINUE_PLAYING_ID + ": ");
-        this.terminal.show("Continuar jugando");
+        this.terminal.show("Continue playing");
 
         System.out.print(Constants.SHOW_SUMMARY_ID + ": ");
-        this.terminal.show("Mostrar resumen");
+        this.terminal.show("Show summary");
 
         System.out.print(Constants.CHANGE_LANGUAGE_ID + ": ");
-        this.terminal.show("Cambiar idioma");
+        this.terminal.show("Change language");
 
         System.out.print(Constants.EXIT_GAME_ID + ": ");
-        this.terminal.show("Guardar y salir");
+        this.terminal.show("Save and exit");
 
         this.terminal.show("");
 
@@ -143,7 +143,7 @@ public class Game implements Serializable{
             this.terminal.show("");
 
             if (answer < Constants.MAIN_LOOP_MIN_OPTION || answer > Constants.MAIN_LOOP_MAX_OPTION) {
-                this.terminal.show("Opción inválida");
+                this.terminal.show("Invalid option");
                 this.terminal.show("");
 
             } else return answer;
@@ -152,7 +152,7 @@ public class Game implements Serializable{
 
     //Method used to show the summary
     private void showSummary() {
-        this.terminal.show("---Resumen---");
+        this.terminal.show("---Summary---");
 
         for (Player player : this.players) {
             player.showSummary();
@@ -167,12 +167,12 @@ public class Game implements Serializable{
         int codeId = Constants.MONOPOLY_CODE_ARRAY_SIZE;
             
         while (codeId > Constants.MONOPOLY_CODE_ARRAY_SIZE - 1 || codeId < 0) {
-            this.terminal.show("Introduzca código de tarjeta:");
+            this.terminal.show("Enter card code:");
             codeId = this.terminal.readInt();
             this.terminal.show("");
 
             if (codeId > Constants.MONOPOLY_CODE_ARRAY_SIZE - 1 || codeId < 0)
-                this.terminal.show("Código inválido");
+                this.terminal.show("Invalid code");
         }
 
         return codeId;
@@ -185,7 +185,7 @@ public class Game implements Serializable{
 
         while (playerId > this.players.size() || playerId < 1) {
 
-            String output = trs.translate("Introduzca código de jugador ( ");
+            String output = trs.translate("Enter player ID (");
             for (Color color : Color.values()) {
                 output += color.ordinal() + 1 + ": " + color.name() + " ";
             }
@@ -195,7 +195,7 @@ public class Game implements Serializable{
             this.terminal.show("");
 
             if (playerId > this.players.size() || playerId < 1)
-                this.terminal.show("ID inválido");
+                this.terminal.show("Invalid ID");
         }
 
         return playerId;
@@ -234,7 +234,7 @@ public class Game implements Serializable{
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
         String output;
-        output = trs.translate("Fin del juego >> %s es el ganador!!");
+        output = trs.translate("Game Over >> %s is the winner!!");
         output = String.format(output, winner);
 
         this.terminal.flushScreen();
@@ -246,7 +246,7 @@ public class Game implements Serializable{
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
         String output;
-        output = trs.translate("El juego ha sido guardado en el fichero %s");
+        output = trs.translate("The game has been saved in the file %s");
         output = String.format(output, this.fileName);
 
         this.terminal.flushScreen();
@@ -258,19 +258,19 @@ public class Game implements Serializable{
         
         // Ask for the number of players
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String msg = trs.translate("Introduce el número de jugadores (2-%d):");
+        String msg = trs.translate("Enter the number of players (2-%d):");
         this.terminal.show(String.format(msg, Constants.MAX_NUMBER_OF_PLAYERS));
 
         int answer = this.terminal.readInt();
         this.terminal.show("");
 
         if (answer < 2 || answer > Constants.MAX_NUMBER_OF_PLAYERS) {
-            this.terminal.show("Número de jugadores incorrecto");
+            this.terminal.show("Incorrect number of players");
             this.createPlayers();
 
         } else {
             // Translate the message
-            msg = trs.translate("Introduce el nombre del jugador ");
+            msg = trs.translate("Enter the name of the player ");
 
             // Create the players
             String output = "";
@@ -302,7 +302,7 @@ public class Game implements Serializable{
         Reader in = new FileReader(file);
         this.buffer = new BufferedReader(in);
 
-        this.terminal.show("Cargando datos del juego...");
+        this.terminal.show("Loading game data...");
 
         // Read the file line by line and initialize the monopolyCodeArray
         String configString;
@@ -320,7 +320,7 @@ public class Game implements Serializable{
 
         } while (configString != null);
 
-        this.terminal.show("Datos cargados correctamente");
+        this.terminal.show("Data loaded correctly");
     }
 
     // Method used to assign the mCode
@@ -372,10 +372,10 @@ public class Game implements Serializable{
         boolean validAnswer = false;
 
         // Show available languages
-        this.terminal.show("Lenguajes disponibles:");
+        this.terminal.show("Available languages:");
         this.showAvailableLanguages();
 
-        this.terminal.show("Introduzca el lenguaje que desea utilizar:");
+        this.terminal.show("Enter the language you want to use:");
 
         // Ask for the language and check if it is valid
         while (!validAnswer) {
@@ -383,7 +383,7 @@ public class Game implements Serializable{
             this.terminal.show("");
 
             if (answer < 0 || answer > Constants.AVAILABLE_LANGUAGES.length - 1) {
-                this.terminal.show("Valor inválido, introduzca otro");
+                this.terminal.show("Invalid value, enter another:");
                 this.terminal.show("");
 
             } else validAnswer = true;
@@ -410,7 +410,7 @@ public class Game implements Serializable{
 
     // Show the players
     private void showPlayers(String output) {
-        this.terminal.show("---Jugadores---");
+        this.terminal.show("---Players---");
         this.terminal.show(output);
         this.terminal.show("");
         this.terminal.waitForEnter();

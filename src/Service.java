@@ -36,7 +36,7 @@ public class Service extends Property{
         else if (this.getOwner() != p) {
 
             if (this.isMortgaged()) {
-                output = trs.translate("Has caído en la propiedad: %s, pero está hipotecada, no pagas nada");
+                output = trs.translate("You have landed on the property: %s, but it's mortgaged, you don't pay anything");
                 this.terminal.show(String.format(output, this.getDescription()));
                 return;
             }
@@ -45,13 +45,13 @@ public class Service extends Property{
             this.terminal.show(String.format(output, this.getDescription()));
             this.terminal.show("");
 
-            this.terminal.show("Introduce el número de los dados:");
+            this.terminal.show("Enter the number of the dice:");
             int dice = this.terminal.readInt();
             this.terminal.show("");
 
             int cost = this.getPaymentForRent() * dice;
 
-            output = trs.translate("Debes pagar %d");
+            output = trs.translate("You must pay %d");
             this.terminal.show(String.format(output, cost));
             this.terminal.show("");
 

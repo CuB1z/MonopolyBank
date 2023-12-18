@@ -43,7 +43,7 @@ public class Street extends Property{
     @Override
     public String toString() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String output = trs.translate("  - Casas: %d");
+        String output = trs.translate("  - Houses: %d");
         output = String.format(output, this.builtHouses);
 
         return super.toString() + "\n" + output;
@@ -59,18 +59,18 @@ public class Street extends Property{
         else if (this.getOwner() != p) {
 
             if (this.isMortgaged()) {
-                output = trs.translate("Has caído en la propiedad: %s, pero está hipotecada, no pagas nada");
+                output = trs.translate("You have landed on the property: %s, but it's mortgaged, you don't pay anything");
                 this.terminal.show(String.format(output, this.getDescription()));
                 return;
             }
 
-            output = trs.translate("Has caído en la propiedad: %s");
+            output = trs.translate("You have landed on the property: %s");
             this.terminal.show(String.format(output, this.getDescription()));
             this.terminal.show("");
 
             int cost = this.getPaymentForRent();
 
-            output = trs.translate("Debes pagar %d");
+            output = trs.translate("You must pay %d");
             this.terminal.show(String.format(output, cost));
             this.terminal.show("");
 
@@ -92,7 +92,7 @@ public class Street extends Property{
         if (answer == 5) return;
 
         String msg;
-        msg = trs.translate("¿Desea realizar la operación? (%s/N)");
+        msg = trs.translate("Do you want to make the operation? (%s/N)");
         this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
 
         msg = this.terminal.readStr();
@@ -109,7 +109,7 @@ public class Street extends Property{
             }
 
         } else
-            this.terminal.show("La operación ha sido cancelada...");
+            this.terminal.show("The operation has been canceled...");
     }
 
     // Method to show the owner operation menu for a street
@@ -118,22 +118,22 @@ public class Street extends Property{
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg = "";
 
-        msg = trs.translate("¿Qué desea hacer con la propiedad: %s?");
+        msg = trs.translate("What do you want to do with the property: %s?");
         this.terminal.show(String.format(msg, this.getDescription()));
 
-        msg = trs.translate("Comprar casa");
+        msg = trs.translate("Buy house");
         this.terminal.show(String.format("1. %s", msg));
 
-        msg = trs.translate("Vender casa");
+        msg = trs.translate("Sell house");
         this.terminal.show(String.format("2. %s", msg));
 
-        msg = trs.translate("Hipotecar");
+        msg = trs.translate("Mortgage");
         this.terminal.show(String.format("3. %s", msg));
 
-        msg = trs.translate("Deshipotecar");
+        msg = trs.translate("Unmortgage");
         this.terminal.show(String.format("4. %s", msg));
 
-        msg = trs.translate("Cancelar");
+        msg = trs.translate("Cancel");
         this.terminal.show(String.format("5. %s", msg));
 
         this.terminal.show("");
@@ -142,7 +142,7 @@ public class Street extends Property{
             int option = this.terminal.readInt();
 
             if (option < 1 || option > 5)
-                this.terminal.show("Opción inválida");
+                this.terminal.show("Invalid option");
             else
                 return option;
         }
@@ -153,7 +153,7 @@ public class Street extends Property{
         Player owner = this.getOwner();
 
         if (!this.isBuildable())
-            this.terminal.show("La propiedad ya tiene el máximo de casas");
+            this.terminal.show("The property already has the maximum number of houses");
 
         else if (this.isMortgaged())
             this.terminal.show("La propiedad está hipotecada");
@@ -197,7 +197,7 @@ public class Street extends Property{
             this.terminal.show("La propiedad no tiene casas");
 
         else if (this.isMortgaged())
-            this.terminal.show("La propiedad está hipotecada");
+            this.terminal.show("The property is mortgaged");
 
         else {
             Translator trs = this.terminal.getTranslatorManager().getTranslator();
@@ -210,7 +210,7 @@ public class Street extends Property{
             this.builtHouses--;
 
             // Show the message
-            String output = trs.translate("Casa vendida, recibes %d");
+            String output = trs.translate("House sold, you receive %d");
             this.terminal.show(String.format(output, this.housePrice / 2));
             this.terminal.show("");
 

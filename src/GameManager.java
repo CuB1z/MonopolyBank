@@ -21,7 +21,7 @@ public class GameManager implements Serializable {
     public void start() throws Exception {
 
         // Show the welcome message
-        this.terminal.show("BIENVENIDO AL MONOPOLY BANK");
+        this.terminal.show("WELCOME TO MONOPOLY BANK");
         this.terminal.show("");
 
         // Ask if the user wants to resume a game
@@ -31,11 +31,11 @@ public class GameManager implements Serializable {
         // Create a new game or load a saved one
         Game game = null;
         if (fileName == null) {
-            this.terminal.show("Creando nueva partida...");
+            this.terminal.show("Creating new game...");
             game = new Game();
 
         } else {
-            this.terminal.show("Cargando partida...");
+            this.terminal.show("Loading saved game....");
             game = FileManager.readFile(fileName);
         }
 
@@ -47,7 +47,7 @@ public class GameManager implements Serializable {
 
     // Ask if the user wants to resume a game
     private String askForResumeGame() {
-        this.terminal.show(String.format("¿Quieres reanudar una partida? (%s/n)", Constants.DEFAULT_APROVE_STRING));
+        this.terminal.show(String.format("Do you want to resume a game? (%s/n)", Constants.DEFAULT_APROVE_STRING));
         String answer = this.terminal.readStr();
         this.terminal.show("");
 
@@ -72,12 +72,12 @@ public class GameManager implements Serializable {
 
         // Show the file names if there are any
         if (list == null || list.length == 0) {
-            this.terminal.show("-- No hay ficheros disponibles --");
+            this.terminal.show("---No files available---");
             this.terminal.show("");
             return null;
         }
 
-        this.terminal.show("Ficheros disponibles: ");
+        this.terminal.show("Available files:");
 
         for (int i = 0; i < list.length; i++) {
             this.terminal.show(i + 1 + ". " + list[i].replace(Constants.DEFAULT_GAMES_EXTENSION, ""));
@@ -93,7 +93,7 @@ public class GameManager implements Serializable {
     // Ask for the file name and check if it exists
     private String askForFileName(String[] fileNames) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String output = trs.translate("¿Qué juego quieres reanudar? (%d para cancelar)");
+        String output = trs.translate("Which game do you want to resume? (%d to cancel)");
 
         this.terminal.show(String.format(output, Constants.DEFAULT_CANCEL_INT));
 
@@ -104,7 +104,7 @@ public class GameManager implements Serializable {
             fileNumber = this.terminal.readInt();
 
             if ((fileNumber < 1 || fileNumber > fileNames.length) && fileNumber != Constants.DEFAULT_CANCEL_INT) {
-                output = trs.translate("El fichero %d no existe, prueba de nuevo: / (%d para salir)");
+                output = trs.translate("The file %d doesn't exist, try again: / (%d to exit)");
                 this.terminal.show(String.format(output, fileNumber, Constants.DEFAULT_CANCEL_INT));
             }
         }
