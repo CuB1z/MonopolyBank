@@ -180,10 +180,17 @@ public class Game implements Serializable{
 
     // Method used to get the player id
     private int getPlayerId() {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
         int playerId = Constants.MAX_NUMBER_OF_PLAYERS + 1;
 
         while (playerId > this.players.size() || playerId < 1) {
-            this.terminal.show("Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):");
+
+            String output = trs.translate("Introduzca código de jugador ( ");
+            for (Color color : Color.values()) {
+                output += color.ordinal() + 1 + ": " + color.name() + " ";
+            }
+            output += ")";
+            this.terminal.show(output);
             playerId = this.terminal.readInt();
             this.terminal.show("");
 
@@ -250,17 +257,20 @@ public class Game implements Serializable{
     private void createPlayers(){
         
         // Ask for the number of players
-        this.terminal.show("Introduce el número de jugadores (2-4): ");
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String msg = trs.translate("Introduce el número de jugadores (2-%d):");
+        this.terminal.show(String.format(msg, Constants.MAX_NUMBER_OF_PLAYERS));
+
         int answer = this.terminal.readInt();
         this.terminal.show("");
 
         if (answer < 2 || answer > Constants.MAX_NUMBER_OF_PLAYERS) {
             this.terminal.show("Número de jugadores incorrecto");
             this.createPlayers();
+
         } else {
             // Translate the message
-            Translator trs = this.terminal.getTranslatorManager().getTranslator();
-            String msg = trs.translate("Introduce el nombre del jugador ");
+            msg = trs.translate("Introduce el nombre del jugador ");
 
             // Create the players
             String output = "";

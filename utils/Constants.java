@@ -7,6 +7,8 @@ package utils;
     If needed, the constants can be changed here
 */
 
+import src.Color;
+
 public class Constants {
     
     // Default values ===============================================================
@@ -42,7 +44,7 @@ public class Constants {
     public static final int MAX_NUMBER_OF_HOUSES = 5;
  
     // Players constants ============================================================
-    public static final int MAX_NUMBER_OF_PLAYERS = 4;
+    public static final int MAX_NUMBER_OF_PLAYERS = Color.values().length;
     public static final int INITIAL_BALANCE = 1500;
 
     // Game constants ===============================================================

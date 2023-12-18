@@ -23,7 +23,7 @@
 **;Cargando partida guardada...
 **;Jugando...
 **;Error!!
-**;Introduce el número de jugadores (2-4): 
+**;Introduce el número de jugadores (2-%d):
 **;Número de jugadores incorrecto
 **;Introduce el nombre del jugador 
 **;Jugador %s (%s) >> Presupuesto: %d

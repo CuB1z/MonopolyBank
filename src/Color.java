@@ -1,5 +1,5 @@
 package src;
 
 public enum Color {
-    BLACK, RED, GREEN, BLUE
+    BLACK, RED, GREEN, BLUE;
 }
