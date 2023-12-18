@@ -402,7 +402,7 @@ public class Game implements Serializable{
 
     // Print available languages
     private void showAvailableLanguages() {
-        this.terminal.show(Constants.DEFAULT_LANGUAGE_STRING_ID);
+        this.terminal.show("0: " + Constants.DEFAULT_LANGUAGE_STRING_ID);
 
         for (int i = 1; i < Constants.AVAILABLE_LANGUAGES.length; i++) {
             Translator trs = this.terminal.getTranslatorManager().getTranslator();
