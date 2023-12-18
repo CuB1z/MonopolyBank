@@ -1,102 +1,102 @@
-BIENVENIDO AL MONOPOLY;WELCOME TO MONOPOLY
-Lenguajes disponibles:;Available languages:
-Introduzca el lenguaje que desea utilizar:;Enter the language you want to use:
-Valor inválido, introduzca otro:;Invalid value, enter another
-¿Quieres reanudar una partida? (%s/n);Do you want to resume a game? (%s/n)
-¿Qué juego quieres reanudar? (%d para cancelar);Which game do you want to resume? (%d to cancel)
-Introduce el nombre del fichero: / (%s para salir);Enter the file name: / (%s to exit)
-Error, el fichero es corrupto o inválido, creando nueva partida...;Error, the file is corrupt or invalid, creating new game...
+WELCOME TO MONOPOLY;BIENVENIDO AL MONOPOLY
+Available languages:;Lenguajes disponibles:
+Enter the language you want to use:;Introduzca el lenguaje que desea utilizar:
+Invalid value, enter another:;Valor inválido, introduzca otro:
+Do you want to resume a game? (%s/n);¿Quieres reanudar una partida? (%s/n)
+Which game do you want to resume? (%d to cancel);¿Qué juego quieres reanudar? (%d para cancelar)
+Enter the file name: / (%s to exit);Introduce el nombre del fichero: / (%s para salir)
+Error, the file is corrupt or invalid, creating new game...;Error, el fichero es corrupto o inválido, creando nueva partida...
 spanish;spanish
 english;english
 catalan;catalan
 euskera;basque
 gallego;galician
--- No hay ficheros disponibles --;-- No files available --
-El fichero no existe, introduce otro nombre: / (%s para salir);The file doesn't exist, enter another name: / (%s to exit)
-La operación ha sido cancelada...;The operation has been canceled...
-Fichero encontrado...;File found...
-Creando nueva partida...;Creating new game...
-Cargando partida guardada...;Loading saved game...
-Jugando...;Playing...
+-- No files available --;-- No hay ficheros disponibles --
+The file doesn't exist, enter another name: / (%s to exit);El fichero no existe, introduce otro nombre: / (%s para salir)
+The operation has been canceled...;La operación ha sido cancelada...
+File found...;Fichero encontrado...
+Creating new game...;Creando nueva partida...
+Loading saved game...;Cargando partida guardada...
+Playing...;Jugando...
 Error!!;Error!!
-Introduce el número de jugadores (2-%d):;Enter the number of players (2-%d): 
-Número de jugadores incorrecto;Incorrect number of players
-Introduce el nombre del jugador ;Enter the name of the player 
-Jugador %s (%s) >> Presupuesto: %d;Player %s (%s) >> Budget: %d
----Jugadores---;---Players---
-Comenzando operación...;Starting operation...
-Cargando datos del juego...;Loading game data...
-Datos cargados correctamente;Data loaded correctly
-Introduce un número valido;Enter a valid number
-Introduzca código de tarjeta:;Enter card code:
-Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):;Enter player code (1: red 2: blue 3: green 4: black):
-¿Desea salir y guardar el juego? (%s/n);Do you want to exit and save the game? (%s/n)
-Fin del juego >> %s es el ganador!!;Game Over >> %s is the winner!!
-Pago efectuado;Payment made
-Vuelve a intentarlo cuando tengas más dinero;Try again when you have more money
-Desea pagar %d? (%s/N);Do you want to pay %d? (%s/N)
-Introduzca la propiedad que desea operar:;Enter desired property to operate:
-Propiedades de %s:;%s's properties:
-Propiedad no encontrada;Property not found
-Vende propiedades;Sell properties
-Nuevo presupuesto: %d;New balance: %d
-No se ha realizado el pago;Payment hasn't been made
-El jugador %s ha quebrado;The player %s has gone bankrupt
-La propiedad no es tuya;This property doesn't belong to you
-Error al guardar el archivo;Error while trying to save the file
-Código inválido;Invalid code
-ID inválido;Invalid ID
-Opción inválida;Invalid Option
-Introduce CONTINUAR;Enter CONTINUE
-Jugador %s (%s) Presupuesto: %d;Player %s (%s) Budget: %d
-El juego ha sido guardado en el fichero %s;The game has been saved in the file %s
-Introduzca una opción:;Enter an option:
-Continuar jugando;Continue playing
-Mostrar resumen;Show summary
-Cambiar idioma;Change language
-Guardar y salir;Save and exit
----Resumen---;---Summary---
-Nuevo presupuesto: %d;New balance: %d
-Quieres comprar la propiedad: %s por %d? (%s,N);Do you want to buy the property: %s for %d? (%s,N)
-Has caído en la propiedad: %s, debes pagar %d;You have landed on the property: %s, you must pay %d
-La propiedad no es tuya;This property doesn't belong to you
-Comprar casa;Buy house
-Vender casa;Vender casa
-Hipotecar;Mortgage
-Deshipotecar;Unmortgage
-Cancelar;Cancel
-¿Desea realizar la operación? (%s/N);Do you want to make the operation? (%s/N)
-¿Qué desea hacer con la propiedad: %s?;What do you want to do with the property: %s?
-La propiedad ya tiene el máximo de casas;The property already has the maximum number of houses
-La propiedad está hipotecada;The property is mortgaged
-No tienes suficiente dinero;You don't have enough money
-La propiedad no tiene casas;The property doesn't have any houses
-La propiedad ya está hipotecada;The property is already mortgaged
-La propiedad no está hipotecada;The property isn't mortgaged
-Casa vendida, recibes %d;House sold, you receive %d
-Propiedad hipotecada, recibes %d;Property mortgaged, you receive %d
-Propiedad deshipotecada;Property unmortgaged
-Casa comprada;House bought
-El fichero %d no existe, prueba de nuevo: / (%d para salir);The file %d doesn't exist, try again: / (%d to exit)
-Has caído en la propiedad: %s, pero está hipotecada, no pagas nada;You have landed on the property: %s, but it's mortgaged, you don't pay anything
-Debes pagar %d;You must pay %d
-Introduce el número de los dados: ;Enter the number of the dice: 
-Debes pagar %d;You must pay %d
-No quedan propiedades que operar;There are no properties left to operate
-  - Casas: %d;  - Houses: %d
-  - Hipotecada: %s;  - Mortgaged: %s
-Hipotecada;Mortgaged
-Deshipotecada;Unmortgaged
-Estado de la propiedad: %s >> %s;Property status: %s >> %s
-Sí;Yes
+Enter the number of players (2-%d):;Introduce el número de jugadores (2-%d):
+Incorrect number of players;Número de jugadores incorrecto
+Enter the name of the player ;Introduce el nombre del jugador 
+Player %s (%s) >> Budget: %d;Jugador %s (%s) >> Presupuesto: %d
+---Players---;---Jugadores---
+Starting operation...;Comenzando operación...
+Loading game data...;Cargando datos del juego...
+Data loaded correctly;Datos cargados correctamente
+Enter a valid number;Introduce un número valido
+Enter card code:;Introduzca código de tarjeta:
+Enter player code (1: red 2: blue 3: green 4: black):;Introduzca código de jugador (1: rojo 2: azul 3: verde 4: negro):
+Do you want to exit and save the game? (%s/n);¿Desea salir y guardar el juego? (%s/n)
+Game Over >> %s is the winner!!;Fin del juego >> %s es el ganador!!
+Payment made;Pago efectuado
+Try again when you have more money;Vuelve a intentarlo cuando tengas más dinero
+Do you want to pay %d? (%s/N);Desea pagar %d? (%s/N)
+Enter desired property to operate:;Introduzca la propiedad que desea operar:
+%s's properties:;Propiedades de %s:
+Property not found;Propiedad no encontrada
+Sell properties;Vende propiedades
+New balance: %d;Nuevo presupuesto: %d
+Payment hasn't been made;No se ha realizado el pago
+The player %s has gone bankrupt;El jugador %s ha quebrado
+This property doesn't belong to you;La propiedad no es tuya
+Error while trying to save the file;Error al guardar el archivo
+Invalid code;Código inválido
+Invalid ID;ID inválido
+Invalid Option;Opción inválida
+Enter CONTINUE;Introduce CONTINUAR
+Player %s (%s) Budget: %d;Jugador %s (%s) Presupuesto: %d
+The game has been saved in the file %s;El juego ha sido guardado en el fichero %s
+Enter an option:;Introduzca una opción:
+Continue playing;Continuar jugando
+Show summary;Mostrar resumen
+Change language;Cambiar idioma
+Save and exit;Guardar y salir
+---Summary---;---Resumen---
+New balance: %d;Nuevo presupuesto: %d
+Do you want to buy the property: %s for %d? (%s,N);Quieres comprar la propiedad: %s por %d? (%s,N)
+You have landed on the property: %s, you must pay %d;Has caído en la propiedad: %s, debes pagar %d
+This property doesn't belong to you;La propiedad no es tuya
+Buy house;Comprar casa
+Sell house;Vender casa
+Mortgage;Hipotecar
+Unmortgage;Deshipotecar
+Cancel;Cancelar
+Do you want to make the operation? (%s/N);¿Desea realizar la operación? (%s/N)
+What do you want to do with the property: %s?;¿Qué desea hacer con la propiedad: %s?
+The property already has the maximum number of houses;La propiedad ya tiene el máximo de casas
+The property is mortgaged;La propiedad está hipotecada
+You don't have enough money;No tienes suficiente dinero
+The property doesn't have any houses;La propiedad no tiene casas
+The property is already mortgaged;La propiedad ya está hipotecada
+The property isn't mortgaged;La propiedad no está hipotecada
+House sold, you receive %d;Casa vendida, recibes %d
+Property mortgaged, you receive %d;Propiedad hipotecada, recibes %d
+Property unmortgaged;Propiedad deshipotecada
+House bought;Casa comprada
+The file %d doesn't exist, try again: / (%d to exit);El fichero %d no existe, prueba de nuevo: / (%d para salir)
+You have landed on the property: %s, but it's mortgaged, you don't pay anything;Has caído en la propiedad: %s, pero está hipotecada, no pagas nada
+You must pay %d;Debes pagar %d
+Enter the number of the dice: ;Introduce el número de los dados: 
+You must pay %d;Debes pagar %d
+There are no properties left to operate;No quedan propiedades que operar
+  - Houses: %d;  - Casas: %d
+  - Mortgaged: %s;  - Hipotecada: %s
+Mortgaged;Hipotecada
+Unmortgaged;Deshipotecada
+Property status: %s >> %s;Estado de la propiedad: %s >> %s
+Yes;Sí
 No;No
-El jugador %s ha pagado %d;Player %s has paid %d
-El jugador %s ha recibido %d;Player %s has received %d
-Las propiedades han sido transferidas al banco;The properties have been transferred to the bank
-Las propiedades han sido transferidas al jugador %s;The properties have been transferred to player %s
-No tienes suficiente dinero para pagar;You don't have enough money to pay
-Selecciona la propiedad sobre la que quieres actuar:;Select the property you want to act on:
-RED;Red
-BLUE;Blue
-GREEN;Green
-BLACK;Black
+Player %s has paid %d;El jugador %s ha pagado %d
+Player %s has received %d;El jugador %s ha recibido %d
+The properties have been transferred to the bank;Las propiedades han sido transferidas al banco
+The properties have been transferred to player %s;Las propiedades han sido transferidas al jugador %s
+You don't have enough money to pay;No tienes suficiente dinero para pagar
+Select the property you want to act on:;Selecciona la propiedad sobre la que quieres actuar:
+Red;RED
+Blue;BLUE
+Green;GREEN
+Black;BLACK
