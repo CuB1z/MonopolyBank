@@ -1,12 +1,12 @@
 package src;
+
 import java.io.*;
 import java.util.*;
-
 import utils.*;
 
 public class Game implements Serializable{
     private String fileName;
-    private MonopolyCode [] monopolyCodeArray = new MonopolyCode[Constants.MONOPOLY_CODE_ARRAY_SIZE];
+    private transient MonopolyCode [] monopolyCodeArray = new MonopolyCode[Constants.MONOPOLY_CODE_ARRAY_SIZE];
     private Terminal terminal;
     private List<Player> players = new ArrayList<Player>();
  
@@ -25,6 +25,9 @@ public class Game implements Serializable{
 
         // Initialize the game if the fileName is null
         if (this.fileName == null) this.initGame();
+
+        // Load monopoly codes
+        this.loadMonopolyCodes();
         
         // Show message
         this.terminal.show("Playing...");
@@ -56,15 +59,6 @@ public class Game implements Serializable{
         this.createPlayers();
         this.terminal.flushScreen();
         
-        // Load monopoly codes
-        try {
-            this.loadMonopolyCodes();
-
-        } catch (Exception e) {
-            this.terminal.show("Error!!");
-            System.exit(0);
-        }
-
         // Set the fileName with the actual date
         this.setFileName(FileManager.getActualDate());
     }
@@ -297,19 +291,31 @@ public class Game implements Serializable{
     }
 
     // Method used to load the monopoly codes
-    private void loadMonopolyCodes() throws Exception {
+    private void loadMonopolyCodes() {
         String file = PathUtils.getFilePath(Constants.MONOPOLY_CODE_FILE_PATH);
 
         // Configure the reader
-        Reader in = new FileReader(file);
-        this.buffer = new BufferedReader(in);
+        try {
+            Reader in = new FileReader(file);
+            this.buffer = new BufferedReader(in);
+
+        } catch (FileNotFoundException e) {
+            this.terminal.show("Error!!");
+            System.exit(0);
+        }
 
         this.terminal.show("Loading game data...");
 
         // Read the file line by line and initialize the monopolyCodeArray
-        String configString;
+        String configString = "";
         do {
-            configString = buffer.readLine();
+            try {
+                configString = buffer.readLine();
+
+            } catch (IOException e) {
+                this.terminal.show("Error!!");
+                System.exit(0);
+            }
             
             if (configString != null) {
 

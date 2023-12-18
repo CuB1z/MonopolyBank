@@ -1,11 +1,9 @@
 package src;
 
 import java.util.Map;
-
-import utils.*;
-
 import java.util.HashMap;
 import java.io.*;
+import utils.*;
 
 public class Translator implements Serializable {
     private String language;

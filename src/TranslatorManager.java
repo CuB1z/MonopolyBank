@@ -2,7 +2,6 @@ package src;
 
 import java.io.Serializable;
 import java.util.*;
-
 import utils.*;
 
 public class TranslatorManager implements Serializable {
