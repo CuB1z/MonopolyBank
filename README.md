@@ -91,6 +91,9 @@
 
 - 🌐 **Adding Languages** - If wanted to add new languages, remember adding them to `AVAILABLE_LANGUAGES` list.
 
+- 👤 **Adding New Players** - If wanted to increment the number of players, create a new Color in `Color.java` enum.
+
+
 <br/>
 
 
