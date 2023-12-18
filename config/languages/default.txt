@@ -30,7 +30,7 @@
 **;Data loaded successfully
 **;Enter a valid number
 **;Enter card code:
-**;Enter player id (
+**;Enter player ID (
 **;Do you want to exit and save the game? (%s/n)
 **;End of the game >> %s is the winner!!
 **;Payment made

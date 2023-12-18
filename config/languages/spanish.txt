@@ -30,7 +30,7 @@ Loading game data...;Cargando datos del juego...
 Data loaded correctly;Datos cargados correctamente
 Enter a valid number;Introduce un número valido
 Enter card code:;Introduzca código de tarjeta:
-Enter player id (;Introduzca código de jugador ( 
+Enter player ID ( ;Introduzca código de jugador ( 
 Do you want to exit and save the game? (%s/n);¿Desea salir y guardar el juego? (%s/n)
 Game Over >> %s is the winner!!;Fin del juego >> %s es el ganador!!
 Payment made;Pago efectuado
@@ -97,7 +97,7 @@ The properties have been transferred to the bank;Las propiedades han sido transf
 The properties have been transferred to player %s;Las propiedades han sido transferidas al jugador %s
 You don't have enough money to pay;No tienes suficiente dinero para pagar
 Select the property you want to act on:;Selecciona la propiedad sobre la que quieres actuar:
-Red;RED
-Blue;BLUE
-Green;GREEN
-Black;BLACK
+RED;Rojo
+BLUE;Azul
+GREEN;Verde
+BLACK;Negro

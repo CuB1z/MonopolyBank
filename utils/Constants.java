@@ -16,7 +16,7 @@ public class Constants {
     public static final String DEFAULT_GAMES_EXTENSION = ".xml";
 
     // Default aproval string should always be lowercase so toLowerCase() can be used
-    public static final String DEFAULT_APROVE_STRING = "s";
+    public static final String DEFAULT_APROVE_STRING = "y";
 
     public static final int DEFAULT_CANCEL_INT = 0;
 
