@@ -153,6 +153,7 @@ public abstract class Property extends MonopolyCode {
     public void mortgage() {
         if (this.isMortgaged()) {
             this.terminal.show("The property is already mortgaged");
+            this.terminal.show("");
             return;
         }
 
