@@ -70,6 +70,7 @@ Do you want to make the operation? (%s/N);¿Desea realizar la operación? (%s/N)
 What do you want to do with the property: %s?;¿Qué desea hacer con la propiedad: %s?
 The property already has the maximum number of houses;La propiedad ya tiene el máximo de casas
 The property is mortgaged;La propiedad está hipotecada
+The property has houses, you must sell them first;La propiedad tiene casas, debes venderlas primero
 You don't have enough money;No tienes suficiente dinero
 The property doesn't have any houses;La propiedad no tiene casas
 The property is already mortgaged;La propiedad ya está hipotecada

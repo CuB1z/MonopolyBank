@@ -28,40 +28,44 @@ public class Transport extends Property {
 
     // Public methods =====================================================================================================
 
-    public void doOperation(Player p) {
-        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+    // public void doOperation(Player p) {
+    //     Translator trs = this.terminal.getTranslatorManager().getTranslator();
+    //     String output;
 
-        if (this.getOwner() == null) super.doBuyOperation(p);
+    //     if (this.getOwner() == null) super.doBuyOperation(p);
 
-        else if (this.getOwner() != p) {
+    //     else if (this.getOwner() != p) {
 
-            if (this.isMortgaged()) {
-                String output = trs.translate("You have landed on the property: %s, but it's mortgaged, you don't pay anything");
-                this.terminal.show(String.format(output, this.getDescription()));
-                this.terminal.show("");
-                return;
-            }
+    //         if (this.isMortgaged()) {
+    //             output = trs.translate("You have landed on the property: %s, but it's mortgaged, you don't pay anything");
+    //             this.terminal.show(String.format(output, this.getDescription()));
+    //             this.terminal.show("");
+    //             return;
+    //         }
 
-            int cost = this.getPaymentForRent();
+    //         // Calculate the cost
+    //         int cost = this.getPaymentForRent();
 
-            String output = trs.translate("You have landed on the property: %s, you must pay %d");
-            this.terminal.show(String.format(output, this.getDescription(), cost));
+    //         // Show property info and cost
+    //         output = trs.translate("You have landed on the property: %s, you must pay %d");
+    //         this.terminal.show(String.format(output, this.getDescription(), cost));
+    //         this.terminal.show("");
 
-            p.pay(cost, true);
+    //         // Pay mandatory cost
+    //         p.pay(cost, true);
 
-            if (p.isBankrupt()) p.doBankruptcyTransference(this.getOwner());
-            else this.getOwner().receive(cost);
+    //         // Make operations depending on the player's status
+    //         if (p.isBankrupt()) p.doBankruptcyTransference(this.getOwner());
+    //         else this.getOwner().receive(cost);
 
-        } else this.doOwnerOperation();
-    }
+    //     } else this.doOwnerOperation();
+    // }
 
     // Method that returns the payment for rent
     public int getPaymentForRent() {
         int count = this.getOwner().countTransportProperties();
         return this.costStaying[count - 1];
     }
-
-    // Private methods ====================================================================================================
 
     // Getters & Setters ==================================================================================================
     public int [] getCostStaying() {

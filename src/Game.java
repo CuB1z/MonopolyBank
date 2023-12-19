@@ -179,7 +179,7 @@ public class Game implements Serializable{
 
         while (playerId > this.players.size() || playerId < 1) {
 
-            String output = trs.translate("Enter player ID (");
+            String output = trs.translate("Enter player ID ( ");
             for (Color color : Color.values()) {
                 String colorName = trs.translate(color.name());
                 output += color.ordinal() + 1 + ": " + colorName + " ";

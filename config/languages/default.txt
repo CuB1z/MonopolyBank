@@ -71,6 +71,7 @@
 **;What do you want to do with the property: %s?
 **;The property already has the maximum number of houses
 **;The property is mortgaged
+**;The property has houses, you must sell them first
 **;You don't have enough money
 **;The property has no houses
 **;The property is already mortgaged

@@ -30,8 +30,7 @@ public class Service extends Property{
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String output;
 
-        if (this.getOwner() == null)
-            super.doBuyOperation(p);
+        if (this.getOwner() == null) super.doBuyOperation(p);
 
         else if (this.getOwner() != p) {
 
@@ -41,22 +40,28 @@ public class Service extends Property{
                 return;
             }
 
+            // Show property info
             output = trs.translate("Has caído en la propiedad: %s");
             this.terminal.show(String.format(output, this.getDescription()));
             this.terminal.show("");
 
+            // Get the dice number
             this.terminal.show("Enter the number of the dice:");
             int dice = this.terminal.readInt();
             this.terminal.show("");
 
+            // Calculate the cost
             int cost = this.getPaymentForRent() * dice;
 
+            // Show cost
             output = trs.translate("You must pay %d");
             this.terminal.show(String.format(output, cost));
             this.terminal.show("");
 
+            // Pay mandatory cost
             p.pay(cost, true);
 
+            // Make operations depending on the player's status
             if (p.isBankrupt()) p.doBankruptcyTransference(this.getOwner());
             else this.getOwner().receive(cost);
 

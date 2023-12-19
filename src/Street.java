@@ -49,38 +49,43 @@ public class Street extends Property{
         return super.toString() + "\n" + output;
     }
 
-    public void doOperation(Player p) {
-        Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String output;
+    // public void doOperation(Player p) {
+    //     Translator trs = this.terminal.getTranslatorManager().getTranslator();
+    //     String output;
 
-        if (this.getOwner() == null)
-            super.doBuyOperation(p);
+    //     if (this.getOwner() == null) super.doBuyOperation(p);
 
-        else if (this.getOwner() != p) {
+    //     else if (this.getOwner() != p) {
 
-            if (this.isMortgaged()) {
-                output = trs.translate("You have landed on the property: %s, but it's mortgaged, you don't pay anything");
-                this.terminal.show(String.format(output, this.getDescription()));
-                return;
-            }
+    //         if (this.isMortgaged()) {
+    //             output = trs.translate("You have landed on the property: %s, but it's mortgaged, you don't pay anything");
+    //             this.terminal.show(String.format(output, this.getDescription()));
+    //             this.terminal.show("");
+    //             return;
+    //         }
 
-            output = trs.translate("You have landed on the property: %s");
-            this.terminal.show(String.format(output, this.getDescription()));
-            this.terminal.show("");
+    //         // Calculate the cost
+    //         int cost = this.getPaymentForRent();
 
-            int cost = this.getPaymentForRent();
+    //         // Show property info and cost
+    //         output = trs.translate("You have landed on the property: %s, you must pay %d");
+    //         this.terminal.show(String.format(output, this.getDescription(), cost));
+    //         this.terminal.show("");
 
-            output = trs.translate("You must pay %d");
-            this.terminal.show(String.format(output, cost));
-            this.terminal.show("");
+    //         // Show cost
+    //         output = trs.translate("You must pay %d");
+    //         this.terminal.show(String.format(output, cost));
+    //         this.terminal.show("");
 
-            p.pay(cost, true);
+    //         // Pay mandatory cost
+    //         p.pay(cost, true);
 
-            if (p.isBankrupt()) p.doBankruptcyTransference(this.getOwner());
-            else this.getOwner().receive(cost);
+    //         // Make operations depending on the player's status
+    //         if (p.isBankrupt()) p.doBankruptcyTransference(this.getOwner());
+    //         else this.getOwner().receive(cost);
 
-        } else this.doOwnerOperation();
-    }
+    //     } else this.doOwnerOperation();
+    // }
 
     // Method to do owner operations with a street
     @Override
@@ -140,6 +145,7 @@ public class Street extends Property{
 
         while (true) {
             int option = this.terminal.readInt();
+            this.terminal.show("");
 
             if (option < 1 || option > 5)
                 this.terminal.show("Invalid option");
@@ -148,20 +154,48 @@ public class Street extends Property{
         }
     }
 
+    @Override
+    public void mortgage() {
+        if (this.isMortgaged()) {
+            this.terminal.show("The property is already mortgaged");
+            return;
+            
+        } else if (this.isBuilt()) {
+            this.terminal.show("The property has houses, you must sell them first");
+            return;
+        }
+
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String output = trs.translate("Property mortgaged, you receive %d");
+
+        this.setMortgaged(true);
+        Player owner = this.getOwner();
+        owner.setBalance(owner.getBalance() + this.getMortgageValue());
+
+        this.terminal.show(String.format(output, this.getMortgageValue()));
+        this.terminal.show("");
+
+        // Show the mortgage summary
+        this.showMortgageSummary();
+    }
+
     // Method to buy a house
     public void buyHouse() {
         Player owner = this.getOwner();
 
-        if (!this.isBuildable())
+        if (!this.isBuildable()) {
             this.terminal.show("The property already has the maximum number of houses");
+            this.terminal.show("");
 
-        else if (this.isMortgaged())
+        } else if (this.isMortgaged()) {
             this.terminal.show("La propiedad está hipotecada");
+            this.terminal.show("");
 
-        else if (owner.getBalance() < this.getHousePrice())
+        } else if (owner.getBalance() < this.getHousePrice()) {
             this.terminal.show("No tienes suficiente dinero");
+            this.terminal.show("");
 
-        else {
+        } else {
             String output;
             Translator trs = this.terminal.getTranslatorManager().getTranslator();
 

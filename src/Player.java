@@ -67,11 +67,11 @@ public class Player implements Serializable {
                     this.balance -= amount;
                     msg = trs.translate("El jugador %s ha pagado %d");
                     this.terminal.show(String.format(msg, this.name, amount));
+                    this.terminal.show(this.toString());
+                    this.terminal.show("");
                 } else {
                     this.terminal.show("No se ha realizado el pago");
                 }
-
-                this.terminal.show("");
             }
 
         } else if (this.balance - amount < 0) {
@@ -118,8 +118,12 @@ public class Player implements Serializable {
             Translator trs = this.terminal.getTranslatorManager().getTranslator();
             String output = trs.translate("The properties have been transferred to player %s");
             this.terminal.show(String.format(output, newOwner.getName()));
+            this.terminal.show("");
 
-        } else this.terminal.show("The properties have been transferred to the bank");
+        } else {
+            this.terminal.show("The properties have been transferred to the bank");
+            this.terminal.show("");
+        }
     }
 
     // Method to do the bankruptcy operation

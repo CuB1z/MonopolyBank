@@ -28,7 +28,6 @@ public abstract class Property extends MonopolyCode {
 
     // Public methods =====================================================================================================
 
-    public abstract void doOperation(Player p);
     public abstract int getPaymentForRent();
 
     @Override
@@ -55,6 +54,43 @@ public abstract class Property extends MonopolyCode {
             this.setOwner(p);
             p.getOwnedProperties().add(this);
         }
+    }
+
+    public void doOperation(Player p) {
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String output;
+
+        if (this.getOwner() == null) this.doBuyOperation(p);
+
+        else if (this.getOwner() != p) {
+
+            if (this.isMortgaged()) {
+                output = trs
+                        .translate("You have landed on the property: %s, but it's mortgaged, you don't pay anything");
+                this.terminal.show(String.format(output, this.getDescription()));
+                this.terminal.show("");
+                return;
+            }
+
+            // Calculate the cost
+            int cost = this.getPaymentForRent();
+
+            // Show property info and cost
+            output = trs.translate("You have landed on the property: %s, you must pay %d");
+            this.terminal.show(String.format(output, this.getDescription(), cost));
+            this.terminal.show("");
+
+            // Pay mandatory cost
+            p.pay(cost, true);
+
+            // Make operations depending on the player's status
+            if (p.isBankrupt())
+                p.doBankruptcyTransference(this.getOwner());
+            else
+                this.getOwner().receive(cost);
+
+        } else
+            this.doOwnerOperation();
     }
 
     // Method to do owner operations with a default property (Override if needed)
@@ -119,11 +155,15 @@ public abstract class Property extends MonopolyCode {
             this.terminal.show("The property is already mortgaged");
             return;
         }
+
+        Translator trs = this.terminal.getTranslatorManager().getTranslator();
+        String output = trs.translate("Property mortgaged, you receive %d");
         
         this.setMortgaged(true);
         Player owner = this.getOwner();
         owner.setBalance(owner.getBalance() + this.getMortgageValue());
-        this.terminal.show(String.format("Property mortgaged, you receive %d", this.getMortgageValue()));
+        
+        this.terminal.show(String.format(output, this.getMortgageValue()));
         this.terminal.show("");
 
         // Show the mortgage summary
