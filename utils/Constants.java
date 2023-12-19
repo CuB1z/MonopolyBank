@@ -1,5 +1,8 @@
 package utils;
-/* This class contains the constants used in the game
+
+/* 
+    This class contains the constants used in the game
+    
     Asuming that { monopolyCode.txt format = (id;type;description) }
     Asuming that { monopolyCode.txt money format = ( charges (-amount) && payments (+amount) ) }
     Asuming that { languages/{language}.txt format = (default_language[SEPARATOR]translation) }
@@ -15,7 +18,7 @@ public class Constants {
     public static final String DEFAULT_LANGUAGE = "default";
     public static final String DEFAULT_GAMES_EXTENSION = ".xml";
 
-    // Default aproval string should always be lowercase so toLowerCase() can be used
+    // Default aproval string should always be lowercase in order to toLowerCase() method can be used
     public static final String DEFAULT_APROVE_STRING = "y";
 
     public static final int DEFAULT_CANCEL_INT = 0;
