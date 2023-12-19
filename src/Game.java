@@ -26,9 +26,6 @@ public class Game implements Serializable{
         // Initialize the game if the fileName is null
         if (this.fileName == null) this.initGame();
 
-        // Load monopoly codes
-        this.loadMonopolyCodes();
-        
         // Show message
         this.terminal.show("Playing...");
         this.terminal.show("");
@@ -58,6 +55,9 @@ public class Game implements Serializable{
         // Create players
         this.createPlayers();
         this.terminal.flushScreen();
+
+        // Load monopoly codes
+        this.loadMonopolyCodes();
         
         // Set the fileName with the actual date
         this.setFileName(FileManager.getActualDate());
