@@ -233,7 +233,7 @@ public class Street extends Property{
     }
 
     public int getHouses() {
-        return this.builtHouses - 1;
+        return this.builtHouses == Constants.MAX_NUMBER_OF_HOUSES ? Constants.MAX_NUMBER_OF_HOUSES - 1 : this.builtHouses;
     }
 
     public int getHotels() {
