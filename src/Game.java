@@ -77,7 +77,7 @@ public class Game implements Serializable{
             // Check the answer and execute the corresponding action
             switch (answer) {
                 case Constants.CONTINUE_PLAYING_ID -> this.playTurn();
-                case Constants.SHOW_SUMMARY_ID ->this.showSummary();
+                case Constants.SHOW_SUMMARY_ID -> this.showSummary();
                 case Constants.CHANGE_LANGUAGE_ID -> this.askAndSetLanguage();
                 case Constants.EXIT_GAME_ID -> finishGame = true;
                 default -> this.terminal.show("Invalid option");
@@ -357,14 +357,12 @@ public class Game implements Serializable{
 
     //Method used to get the code class
     private String getCodeClass(String [] info) {
-        String codeClass = info[1];
-        return codeClass;
+        return info[1];
     }
 
     //Method used to get the code id
     private int getCodeId(String [] info) {
-        int codeId = Integer.parseInt(info[0]);
-        return codeId;
+        return Integer.parseInt(info[0]);
     }
 
     // Method used to destructure the config line
