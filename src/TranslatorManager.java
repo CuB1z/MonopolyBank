@@ -20,6 +20,8 @@ public class TranslatorManager implements Serializable {
     }
 
     // Public methods =====================================================================================================
+
+    // Method to add a language
     public void addLanguage(String fileName) throws Exception {
         fileName = String.format(Constants.LANGUAGES_FILE_PATH, fileName);
         Translator translator = new Translator(fileName);
@@ -27,6 +29,7 @@ public class TranslatorManager implements Serializable {
         this.languages.add(translator);
     }
 
+    // Method to set the current language
     public void setLanguage(String language) {
             
         for (Translator translator : languages) {

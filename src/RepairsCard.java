@@ -32,6 +32,7 @@ public class RepairsCard extends MonopolyCode {
 
     // Public methods =====================================================================================================
 
+    // Overriden doOperation() method
     @Override
     public void doOperation(Player p) {
         int houses = 0;
@@ -58,6 +59,7 @@ public class RepairsCard extends MonopolyCode {
         // Pay the amount
         p.pay(amount, true);
 
+        // Check if the player is bankrupt and transfer the properties to the bank if so
         if (p.isBankrupt()) p.transferProperties(null);
         else p.toString();
     }

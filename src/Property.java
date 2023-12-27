@@ -30,6 +30,7 @@ public abstract class Property extends MonopolyCode {
 
     public abstract int getPaymentForRent();
 
+    // Overriden toString() method
     @Override
     public String toString() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
@@ -56,6 +57,7 @@ public abstract class Property extends MonopolyCode {
         }
     }
 
+    // Default doOperation() method
     public void doOperation(Player p) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String output;
@@ -65,8 +67,7 @@ public abstract class Property extends MonopolyCode {
         else if (this.getOwner() != p) {
 
             if (this.isMortgaged()) {
-                output = trs
-                        .translate("You have landed on the property: %s, but it's mortgaged, you don't pay anything");
+                output = trs.translate("You have landed on the property: %s, but it's mortgaged, you don't pay anything");
                 this.terminal.show(String.format(output, this.getDescription()));
                 this.terminal.show("");
                 return;
@@ -97,10 +98,13 @@ public abstract class Property extends MonopolyCode {
     public void doOwnerOperation() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
+        // Show the owner operation menu and get the answer
         int answer = this.showOwnerOperationMenu();
 
+        // Cancel operation if player wants to
         if (answer == 3) return;
         
+        // Else, ask for confirmation
         String msg;
         msg = trs.translate("Do you want to make the operation? (%s/N)");
         this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
@@ -181,20 +185,25 @@ public abstract class Property extends MonopolyCode {
         String output;
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
+        // Show the unmortgage value
         output = trs.translate("You must pay %d");
         this.terminal.show(String.format(output, this.getMortgageValue()));
         this.terminal.show("");
 
+        // Ask for confirmation
         output = trs.translate("Do you want to pay %d? (%s/N)");
         this.terminal.show(String.format(output, this.getMortgageValue(), Constants.DEFAULT_APROVE_STRING));
 
         String aproval = this.terminal.readStr();
         this.terminal.show("");
 
+        // Cancel operation if player wants to
         if (!aproval.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return;
 
+        // Else, get the owner and make the operation
         Player owner = this.getOwner();
 
+        // Check if the player has enough money
         if (owner.getBalance() < this.getMortgageValue())
             this.terminal.show("You don't have enough money");
 

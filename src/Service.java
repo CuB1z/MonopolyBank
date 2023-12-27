@@ -26,10 +26,12 @@ public class Service extends Property{
 
     // Public methods =====================================================================================================
 
+    // Overriden doOperation() method
     public void doOperation(Player p) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String output;
 
+        // Make operations depending on the owner
         if (this.getOwner() == null) super.doBuyOperation(p);
 
         else if (this.getOwner() != p) {

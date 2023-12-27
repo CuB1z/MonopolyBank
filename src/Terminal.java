@@ -18,9 +18,9 @@ public abstract class Terminal implements Serializable {
     public abstract String readStr();
     public abstract void show(String message);
 
-    // Method to flush the screen (implement if needed)
-    public abstract void waitForEnter();
+    // Methods to flush the screen
     public abstract void flushScreen();
+    public abstract void waitForEnter();
 
     // Getters & setters ==================================================================================================
     public TranslatorManager getTranslatorManager() {

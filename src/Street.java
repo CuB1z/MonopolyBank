@@ -40,6 +40,7 @@ public class Street extends Property{
 
     // Public methods =====================================================================================================
 
+    // Overriden toString() method
     @Override
     public String toString() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
@@ -49,7 +50,7 @@ public class Street extends Property{
         return super.toString() + "\n" + output;
     }
 
-    // Method to do owner operations with a street
+    // Overriden doOwnerOperation() method
     @Override
     public void doOwnerOperation() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
@@ -79,7 +80,7 @@ public class Street extends Property{
             this.terminal.show("The operation has been canceled...");
     }
 
-    // Method to show the owner operation menu for a street
+    // Overriden showOnerOperation() method
     @Override
     public int showOwnerOperationMenu() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
@@ -116,7 +117,7 @@ public class Street extends Property{
         }
     }
 
-    // Method to mortgage a street
+    // Overriden mortgage() method
     @Override
     public void mortgage() {
         if (this.isMortgaged()) {
@@ -142,7 +143,7 @@ public class Street extends Property{
         this.showMortgageSummary();
     }
 
-    // Method to buy a house
+    // Method to buy a house if the player has enough money, the property is buildable and not mortgaged
     public void buyHouse() {
         Player owner = this.getOwner();
 
@@ -188,13 +189,10 @@ public class Street extends Property{
         }
     }
 
-    // Method to sell a house
+    // Method to sell a house if the property has houses built
     public void sellHouse() {
         if (!this.isBuilt())
             this.terminal.show("La propiedad no tiene casas");
-
-        else if (this.isMortgaged())
-            this.terminal.show("The property is mortgaged");
 
         else {
             Translator trs = this.terminal.getTranslatorManager().getTranslator();
@@ -217,30 +215,37 @@ public class Street extends Property{
         }
     }
 
+    // Method to build a house
     public void buildHouse() {
         if (this.builtHouses < Constants.MAX_NUMBER_OF_HOUSES) this.builtHouses++;
     }
 
+    // Method to check if the property has houses built
     public boolean isBuilt() {
         return this.builtHouses > 0;
     }
 
+    // Method to check if the property is buildable
     public boolean isBuildable() {
         return this.builtHouses < Constants.MAX_NUMBER_OF_HOUSES;
     }
 
+    // Method to get the number of houses
     public int getHouses() {
         return this.builtHouses == Constants.MAX_NUMBER_OF_HOUSES ? Constants.MAX_NUMBER_OF_HOUSES - 1 : this.builtHouses;
     }
 
+    // Method to get the number of hotels
     public int getHotels() {
         return this.builtHouses == Constants.MAX_NUMBER_OF_HOUSES ? 1 : 0;
     }
     
+    // Method to check if the property has a hotel
     public boolean hasHotel() {
         return this.builtHouses == Constants.MAX_NUMBER_OF_HOUSES;
     }
     
+    // Overriden getPaymentForRent() method
     @Override
     public int getPaymentForRent() {
         return this.costStaying[this.builtHouses];

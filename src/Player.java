@@ -31,6 +31,8 @@ public class Player implements Serializable {
     }
 
     // Public methods =====================================================================================================
+
+    // Method to print the player
     public String toString() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String color = trs.translate(this.color.toString());
@@ -40,6 +42,7 @@ public class Player implements Serializable {
         return String.format(msg, this.name, color, this.balance);
     }
 
+    // Method to show the player summary
     public void showSummary() {
         this.terminal.show(this.toString());
         this.showProperties();
@@ -50,6 +53,7 @@ public class Player implements Serializable {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg;
  
+        // If the payment is not mandatory, cancel or ask for confirmation
         if (!mandatory) {
             if (this.balance < amount) {
                 this.terminal.show("You don't have enough money to pay");
@@ -75,6 +79,7 @@ public class Player implements Serializable {
                 }
             }
 
+        // If the payment is mandatory, force the payment even if the player can't pay and get bankrupt
         } else if (this.balance - amount < 0) {
             this.terminal.show("No tienes suficiente dinero para pagar");
             this.terminal.show("Vende propiedades");
@@ -87,11 +92,13 @@ public class Player implements Serializable {
             // Check if the player is bankrupt
             if (this.balance < amount) this.bankrupt = true;
             
+            // Print player status if it is bankrupt
             if (this.bankrupt) {
                 msg = trs.translate("El jugador %s ha quebrado");
                 this.terminal.show(String.format(msg, this.name));
             }
 
+        // If the payment is mandatory and the player can pay, do the payment
         } else {
             this.balance -= amount;
             msg = trs.translate("Player %s has paid %d");
@@ -121,6 +128,7 @@ public class Player implements Serializable {
             this.terminal.show(String.format(output, newOwner.getName()));
             this.terminal.show("");
 
+        // If the new owner is null, the properties are transferred to the bank
         } else {
             this.terminal.show("The properties have been transferred to the bank");
             this.terminal.show("");
