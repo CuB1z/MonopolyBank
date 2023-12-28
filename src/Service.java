@@ -43,7 +43,7 @@ public class Service extends Property{
             }
 
             // Show property info
-            output = trs.translate("Has caído en la propiedad: %s");
+            output = trs.translate("You have landed on the property: %s");
             this.terminal.show(String.format(output, this.getDescription()));
             this.terminal.show("");
 

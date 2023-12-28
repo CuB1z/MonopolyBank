@@ -186,9 +186,9 @@ public class Game implements Serializable{
                 String colorName = trs.translate(this.players.get(i).getColor().toString());
                 output += i + 1 + ": " + colorName + " ";
             }
-            
             output += ")";
             this.terminal.show(output);
+            
             playerId = this.terminal.readInt();
             this.terminal.show("");
 

@@ -152,11 +152,11 @@ public class Street extends Property{
             this.terminal.show("");
 
         } else if (this.isMortgaged()) {
-            this.terminal.show("La propiedad está hipotecada");
+            this.terminal.show("The property is mortgaged");
             this.terminal.show("");
 
         } else if (owner.getBalance() < this.getHousePrice()) {
-            this.terminal.show("No tienes suficiente dinero");
+            this.terminal.show("You don't have enough money");
             this.terminal.show("");
 
         } else {
@@ -164,12 +164,12 @@ public class Street extends Property{
             Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
             // Show price message
-            output = trs.translate("Debes pagar: %d");
+            output = trs.translate("You must pay %d");
             this.terminal.show(String.format(output, this.getHousePrice()));
             this.terminal.show("");
 
             // Ask for aproval
-            output = trs.translate("Desea pagar %d? (%s/N)");
+            output = trs.translate("Do you want to pay %d? (%s/N)");
             this.terminal.show(String.format(output, this.getHousePrice(), Constants.DEFAULT_APROVE_STRING));
 
             String aproval = this.terminal.readStr();
@@ -180,7 +180,7 @@ public class Street extends Property{
             // Update the builtHouses if the player aproves
             this.buildHouse();
             owner.setBalance(owner.getBalance() - this.getHousePrice());
-            this.terminal.show("Casa comprada");
+            this.terminal.show("House bought");
             this.terminal.show("");
 
             // Show the updated street
@@ -192,7 +192,7 @@ public class Street extends Property{
     // Method to sell a house if the property has houses built
     public void sellHouse() {
         if (!this.isBuilt())
-            this.terminal.show("La propiedad no tiene casas");
+            this.terminal.show("The property doesn't have any houses");
 
         else {
             Translator trs = this.terminal.getTranslatorManager().getTranslator();

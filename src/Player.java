@@ -77,15 +77,15 @@ public class Player implements Serializable {
                     this.terminal.show(this.toString());
                     this.terminal.show("");
 
-                } else this.terminal.show("No se ha realizado el pago");
+                } else this.terminal.show("Payment hasn't been made");
 
                 return;
             }
 
         // If the payment is mandatory, force the payment even if the player can't pay and get bankrupt
         } else if (this.balance - amount < 0) {
-            this.terminal.show("No tienes suficiente dinero para pagar");
-            this.terminal.show("Vende propiedades");
+            this.terminal.show("You don't have enough money to pay");
+            this.terminal.show("Sell properties");
             this.terminal.show("");
 
             // Sell properties
@@ -97,7 +97,7 @@ public class Player implements Serializable {
             
             // Print player status if it is bankrupt
             if (this.bankrupt) {
-                msg = trs.translate("El jugador %s ha quebrado");
+                msg = trs.translate("The player %s has gone bankrupt");
                 this.terminal.show(String.format(msg, this.name));
                 this.terminal.show("");
                 return;
