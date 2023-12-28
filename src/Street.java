@@ -44,7 +44,7 @@ public class Street extends Property{
     @Override
     public String toString() {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
-        String output = trs.translate("  - Houses: %d");
+        String output = trs.translate("  - Buildings: %d");
         output = String.format(output, this.builtHouses);
 
         return super.toString() + "\n" + output;

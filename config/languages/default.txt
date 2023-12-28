@@ -86,7 +86,7 @@
 **;Enter the dice number:
 **;You must pay %d
 **;No properties left to operate on
-**;  - Houses: %d
+**;  - Buildings: %d
 **;  - Mortgaged: %s
 **;Mortgaged
 **;Unmortgaged

@@ -59,6 +59,8 @@ public class Player implements Serializable {
                 this.terminal.show("You don't have enough money to pay");
                 this.terminal.show("Try again when you have more money");
                 this.terminal.show("");
+                return;
+
             } else {
                 msg = trs.translate("Do you want to pay %d? (%s/N)");
                 msg = String.format(msg, amount, Constants.DEFAULT_APROVE_STRING);
@@ -74,9 +76,10 @@ public class Player implements Serializable {
                     this.terminal.show("");
                     this.terminal.show(this.toString());
                     this.terminal.show("");
-                } else {
-                    this.terminal.show("No se ha realizado el pago");
-                }
+
+                } else this.terminal.show("No se ha realizado el pago");
+
+                return;
             }
 
         // If the payment is mandatory, force the payment even if the player can't pay and get bankrupt
@@ -96,16 +99,17 @@ public class Player implements Serializable {
             if (this.bankrupt) {
                 msg = trs.translate("El jugador %s ha quebrado");
                 this.terminal.show(String.format(msg, this.name));
+                this.terminal.show("");
+                return;
             }
+        }
 
         // If the payment is mandatory and the player can pay, do the payment
-        } else {
-            this.balance -= amount;
-            msg = trs.translate("Player %s has paid %d");
-            this.terminal.show(String.format(msg, this.name, amount));
-            this.terminal.show(this.toString());
-            this.terminal.show("");
-        }
+        this.balance -= amount;
+        msg = trs.translate("Player %s has paid %d");
+        this.terminal.show(String.format(msg, this.name, amount));
+        this.terminal.show(this.toString());
+        this.terminal.show("");
     }
 
     // Method to transfer properties
@@ -211,18 +215,7 @@ public class Player implements Serializable {
     // Method to show the properties
     private void showProperties() {
         for (Property p : this.ownedProperties) {
-            if (p instanceof Street) {
-                Street s = (Street) p;
-                this.terminal.show("+ " + s.toString());
-
-            } else if (p instanceof Transport) {
-                Transport t = (Transport) p;
-                this.terminal.show("+ " + t.toString());
-
-            } else {
-                Service s = (Service) p;
-                this.terminal.show("+ " + s.toString());
-            }
+            this.terminal.show(p.toString());
         }
     }
     

@@ -97,7 +97,7 @@ public class Game implements Serializable{
 
         // Ask for player ID and get player
         int playerId = this.getPlayerId();
-        Player player = this.players.get(playerId - 1);
+        Player player = this.players.get(playerId);
 
         if (mCode != null) mCode.doOperation(player);
         // if (mCode != null) this.execDoOperation(mCode, player);
@@ -182,9 +182,9 @@ public class Game implements Serializable{
         while (playerId > this.players.size() || playerId < 1) {
 
             String output = trs.translate("Enter player ID ( ");
-            for (Color color : Color.values()) {
-                String colorName = trs.translate(color.name());
-                output += color.ordinal() + 1 + ": " + colorName + " ";
+            for (int i = 0; i < this.players.size(); i++) {
+                String colorName = trs.translate(this.players.get(i).getColor().toString());
+                output += i + 1 + ": " + colorName + " ";
             }
             
             output += ")";
@@ -196,7 +196,7 @@ public class Game implements Serializable{
                 this.terminal.show("Invalid ID");
         }
 
-        return playerId;
+        return playerId - 1;
     }
 
     //Method used to show the winner

@@ -85,7 +85,7 @@ You have landed on the property: %s;Has caído en la propiedad: %s
 You must pay %d;Debes pagar %d
 Enter the number of the dice:;Introduce el número de los dados: 
 There are no properties left to operate;No quedan propiedades que operar
-  - Houses: %d;  - Casas: %d
+  - Buildings: %d;  - Casas: %d
   - Mortgaged: %s;  - Hipotecada: %s
 Mortgaged;Hipotecada
 Unmortgaged;Deshipotecada
