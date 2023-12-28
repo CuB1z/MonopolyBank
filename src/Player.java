@@ -103,8 +103,8 @@ public class Player implements Serializable {
             this.balance -= amount;
             msg = trs.translate("Player %s has paid %d");
             this.terminal.show(String.format(msg, this.name, amount));
-            this.terminal.show("");
             this.terminal.show(this.toString());
+            this.terminal.show("");
         }
     }
 
@@ -114,10 +114,8 @@ public class Player implements Serializable {
         // Set the new owner for the properties
         for (Property property : this.ownedProperties) {
             property.setOwner(newOwner);
+            if (newOwner == null) property.setMortgaged(false);
         }
-
-        // Clear the owned properties
-        this.ownedProperties.clear();
 
         // Add the properties to the new owner if it is not null
         if (newOwner != null) {
@@ -149,8 +147,8 @@ public class Player implements Serializable {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg = trs.translate("Player %s has received %d");
         this.terminal.show(String.format(msg, this.name, amount));
-        this.terminal.show("");
         this.terminal.show(this.toString());
+        this.terminal.show("");
     }
 
     // Method to count Transport properties

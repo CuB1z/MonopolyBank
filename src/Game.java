@@ -395,7 +395,6 @@ public class Game implements Serializable{
     private void showPlayers(String output) {
         this.terminal.show("---Players---");
         this.terminal.show(output);
-        this.terminal.show("");
         this.terminal.waitForEnter();
     }
 

@@ -1,0 +1,1 @@
+- Cuando un jugador es eliminado, al pedir el codigo de id, éste no se debe mostrar en la pantalla.
