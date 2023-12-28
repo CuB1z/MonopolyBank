@@ -69,7 +69,7 @@ public class Player implements Serializable {
 
                 if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) {
                     this.balance -= amount;
-                    msg = trs.translate("El jugador %s ha pagado %d");
+                    msg = trs.translate("Player %s has paid %d");
                     this.terminal.show(String.format(msg, this.name, amount));
                     this.terminal.show("");
                     this.terminal.show(this.toString());

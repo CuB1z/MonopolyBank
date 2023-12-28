@@ -99,7 +99,8 @@ public class Game implements Serializable{
         int playerId = this.getPlayerId();
         Player player = this.players.get(playerId - 1);
 
-        if (mCode != null) this.execDoOperation(mCode, player);
+        if (mCode != null) mCode.doOperation(player);
+        // if (mCode != null) this.execDoOperation(mCode, player);
         else {
             this.terminal.show("Invalid code");
             this.terminal.show("");
@@ -196,31 +197,6 @@ public class Game implements Serializable{
         }
 
         return playerId;
-    }
-
-    // Method used to exec doOperation depending of class
-    private void execDoOperation(MonopolyCode mCode, Player player) {
-        
-        if (mCode instanceof PaymentCharge){
-            PaymentCharge payCh = (PaymentCharge) mCode;
-            payCh.doOperation(player);
-
-        } else if (mCode instanceof RepairsCard) {
-            RepairsCard repCard = (RepairsCard) mCode;
-            repCard.doOperation(player);
-
-        } else if (mCode instanceof Street) {
-            Street street = (Street) mCode;
-            street.doOperation(player);
-
-        } else if (mCode instanceof Service) {
-            Service service = (Service) mCode;
-            service.doOperation(player);
-        
-        } else {
-            Transport transport = (Transport) mCode;
-            transport.doOperation(player);
-        }
     }
 
     //Method used to show the winner
