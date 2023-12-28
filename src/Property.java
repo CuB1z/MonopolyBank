@@ -186,13 +186,16 @@ public abstract class Property extends MonopolyCode {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
         // Show the unmortgage value
+
+        int unmortgageValue = Math.round(mortgageValue + (mortgageValue * 0.1f));
+
         output = trs.translate("You must pay %d");
-        this.terminal.show(String.format(output, this.getMortgageValue()));
+        this.terminal.show(String.format(output, unmortgageValue));
         this.terminal.show("");
 
         // Ask for confirmation
         output = trs.translate("Do you want to pay %d? (%s/N)");
-        this.terminal.show(String.format(output, this.getMortgageValue(), Constants.DEFAULT_APROVE_STRING));
+        this.terminal.show(String.format(output, unmortgageValue, Constants.DEFAULT_APROVE_STRING));
 
         String aproval = this.terminal.readStr();
         this.terminal.show("");
@@ -204,12 +207,12 @@ public abstract class Property extends MonopolyCode {
         Player owner = this.getOwner();
 
         // Check if the player has enough money
-        if (owner.getBalance() < this.getMortgageValue())
+        if (owner.getBalance() < unmortgageValue)
             this.terminal.show("You don't have enough money");
 
         else {
             this.setMortgaged(false);
-            owner.setBalance(owner.getBalance() - this.getMortgageValue());
+            owner.setBalance(owner.getBalance() - unmortgageValue);
             this.terminal.show("Property unmortgaged");
         }
 

@@ -90,6 +90,7 @@ public class Game implements Serializable{
 
     // Method used to play a turn
     private void playTurn() {
+        
         // Ask for code ID and get mCode
         int codeId = this.getCodeId();
         MonopolyCode mCode = this.monopolyCodeArray[codeId];
