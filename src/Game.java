@@ -100,7 +100,6 @@ public class Game implements Serializable{
         Player player = this.players.get(playerId);
 
         if (mCode != null) mCode.doOperation(player);
-        // if (mCode != null) this.execDoOperation(mCode, player);
         else {
             this.terminal.show("Invalid code");
             this.terminal.show("");
@@ -110,7 +109,12 @@ public class Game implements Serializable{
         this.terminal.waitForEnter();
 
         // Update players array
-        if (player.isBankrupt()) this.players.remove(player);
+        if (player.isBankrupt()) removePlayer(player);
+    }
+
+    // Method that removes the player from the players array
+    private void removePlayer(Player player) {
+        this.players.remove(player);
     }
 
     // Method used to show the main loop menu
