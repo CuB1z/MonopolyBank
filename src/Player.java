@@ -49,7 +49,7 @@ public class Player implements Serializable {
     }
 
     // Method to exec a payment (mandatory or not)
-    public void pay(int amount, boolean mandatory) {
+    public boolean pay(int amount, boolean mandatory) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
         String msg;
  
@@ -59,7 +59,7 @@ public class Player implements Serializable {
                 this.terminal.show("You don't have enough money to pay");
                 this.terminal.show("Try again when you have more money");
                 this.terminal.show("");
-                return;
+                return false;
 
             } else {
                 msg = trs.translate("Do you want to pay %d? (%s/N)");
@@ -76,10 +76,12 @@ public class Player implements Serializable {
                     this.terminal.show("");
                     this.terminal.show(this.toString());
                     this.terminal.show("");
+                    return true;
 
-                } else this.terminal.show("Payment hasn't been made");
-
-                return;
+                } else {
+                    this.terminal.show("Payment hasn't been made");
+                    return false;
+                }
             }
 
         // If the payment is mandatory, force the payment even if the player can't pay and get bankrupt
@@ -100,7 +102,7 @@ public class Player implements Serializable {
                 msg = trs.translate("The player %s has gone bankrupt");
                 this.terminal.show(String.format(msg, this.name));
                 this.terminal.show("");
-                return;
+                return false;
             }
         }
 
@@ -110,6 +112,7 @@ public class Player implements Serializable {
         this.terminal.show(String.format(msg, this.name, amount));
         this.terminal.show(this.toString());
         this.terminal.show("");
+        return true;
     }
 
     // Method to transfer properties

@@ -51,9 +51,12 @@ public abstract class Property extends MonopolyCode {
         this.terminal.show("");
 
         if (answer.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) {
-            p.pay(this.getPrice(), false);
-            this.setOwner(p);
-            p.getOwnedProperties().add(this);
+            boolean maded = p.pay(this.getPrice(), false);
+
+            if (maded) {
+                this.setOwner(p);
+                p.getOwnedProperties().add(this);
+            }
         }
     }
 
