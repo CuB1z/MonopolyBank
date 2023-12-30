@@ -87,11 +87,10 @@ public abstract class Property extends MonopolyCode {
             // Make operations depending on the player's status
             if (p.isBankrupt())
                 p.doBankruptcyTransference(this.getOwner());
-            else
-                this.getOwner().receive(cost);
+                
+            else this.getOwner().receive(cost);
 
-        } else
-            this.doOwnerOperation();
+        } else this.doOwnerOperation();
     }
 
     // Method to do owner operations with a default property (Override if needed)
