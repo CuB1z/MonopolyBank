@@ -31,7 +31,7 @@ public class Game implements Serializable{
         this.terminal.show("");
 
         // Save the game for the first time
-        FileManager.saveFile(this, this.fileName);
+        FileManager.saveFile(this);
 
         // Main Loop
         this.mainLoop();
@@ -84,7 +84,7 @@ public class Game implements Serializable{
             }
 
             // Save the game
-            FileManager.saveFile(this, this.fileName);
+            FileManager.saveFile(this);
         }
     }
 

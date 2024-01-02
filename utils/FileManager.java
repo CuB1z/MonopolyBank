@@ -17,10 +17,10 @@ import java.io.*;
 
 public class FileManager {
 
-    public static void saveFile(Game game, String fileName) {
+    public static void saveFile(Game game) {
 
         // Create finalPath with actualDate
-        String filePath = String.format(Constants.MONOPOLY_OLD_GAME, fileName);
+        String filePath = String.format(Constants.MONOPOLY_OLD_GAME, game.getFileName());
         String finalPath = PathUtils.getFilePath(filePath);
 
         //Try to save the file
