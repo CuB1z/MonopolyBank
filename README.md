@@ -125,4 +125,4 @@
 <br/>
 
 
-© 2023 CuB1. All rights reserved.
+© 2024 CuB1. All rights reserved.
