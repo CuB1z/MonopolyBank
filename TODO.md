@@ -1,1 +1,0 @@
-- No mostrar dos veces el resumen de la operacion de sellactives
