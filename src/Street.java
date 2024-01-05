@@ -60,8 +60,8 @@ public class Street extends Property{
         if (answer == 5) return;
 
         String msg;
-        msg = trs.translate("Do you want to make the operation? (%s/N)");
-        this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
+        msg = trs.translate("Do you want to make the operation? (%s/%s)");
+        this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING, Constants.DEFAULT_CANCEL_STRING));
 
         msg = this.terminal.readStr();
         this.terminal.show("");
@@ -69,6 +69,9 @@ public class Street extends Property{
         boolean aproval = msg.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING);
 
         if (aproval) {
+
+            this.terminal.flushScreen();
+
             switch (answer) {
                 case 1 -> this.buyHouse();
                 case 2 -> this.sellHouse();
@@ -76,8 +79,7 @@ public class Street extends Property{
                 default -> this.unmortgage();
             }
 
-        } else
-            this.terminal.show("The operation has been canceled...");
+        } else this.terminal.show("The operation has been canceled...");
     }
 
     // Overriden showOnerOperation() method
@@ -169,17 +171,21 @@ public class Street extends Property{
             this.terminal.show("");
 
             // Ask for aproval
-            output = trs.translate("Do you want to pay %d? (%s/N)");
-            this.terminal.show(String.format(output, this.getHousePrice(), Constants.DEFAULT_APROVE_STRING));
+            output = trs.translate("Do you want to pay %d? (%s/%s)");
+            this.terminal.show(String.format(output, this.getHousePrice(), Constants.DEFAULT_APROVE_STRING, Constants.DEFAULT_CANCEL_STRING));
 
             String aproval = this.terminal.readStr();
             this.terminal.show("");
 
+            this.terminal.flushScreen();
+
             if (!aproval.toLowerCase().equals(Constants.DEFAULT_APROVE_STRING)) return;
+
+            // Update the owner balance (payment can´t fail [checked before], no need to check if the payment is valid)
+            owner.pay(this.getHousePrice(), false);
 
             // Update the builtHouses if the player aproves
             this.buildHouse();
-            owner.setBalance(owner.getBalance() - this.getHousePrice());
             this.terminal.show("House bought");
             this.terminal.show("");
 
@@ -198,7 +204,7 @@ public class Street extends Property{
             Translator trs = this.terminal.getTranslatorManager().getTranslator();
             Player owner = this.getOwner();
 
-            // Update the owner balance
+            // Update the owner balance (not using owner.receive() [avoiding resume msg])
             owner.setBalance(owner.getBalance() + this.housePrice / 2);
 
             // Update the builtHouses

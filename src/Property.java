@@ -44,8 +44,8 @@ public abstract class Property extends MonopolyCode {
     public void doBuyOperation(Player p) {
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
-        String output = trs.translate("Do you want to buy the property: %s for %d? (%s,N)");
-        this.terminal.show(String.format(output, this.getDescription(), this.getPrice(), Constants.DEFAULT_APROVE_STRING));
+        String output = trs.translate("Do you want to buy the property: %s for %d? (%s/%s)");
+        this.terminal.show(String.format(output, this.getDescription(), this.getPrice(), Constants.DEFAULT_APROVE_STRING, Constants.DEFAULT_CANCEL_STRING));
 
         String answer = this.terminal.readStr();
         this.terminal.show("");
@@ -108,8 +108,8 @@ public abstract class Property extends MonopolyCode {
         
         // Else, ask for confirmation
         String msg;
-        msg = trs.translate("Do you want to make the operation? (%s/N)");
-        this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING));
+        msg = trs.translate("Do you want to make the operation? (%s/%s)");
+        this.terminal.show(String.format(msg, Constants.DEFAULT_APROVE_STRING, Constants.DEFAULT_CANCEL_STRING));
 
         msg = this.terminal.readStr();
         this.terminal.show("");
@@ -196,8 +196,8 @@ public abstract class Property extends MonopolyCode {
         this.terminal.show("");
 
         // Ask for confirmation
-        output = trs.translate("Do you want to pay %d? (%s/N)");
-        this.terminal.show(String.format(output, unmortgageValue, Constants.DEFAULT_APROVE_STRING));
+        output = trs.translate("Do you want to pay %d? (%s/%s)");
+        this.terminal.show(String.format(output, unmortgageValue, Constants.DEFAULT_APROVE_STRING, Constants.DEFAULT_CANCEL_STRING));
 
         String aproval = this.terminal.readStr();
         this.terminal.show("");

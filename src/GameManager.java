@@ -45,7 +45,7 @@ public class GameManager implements Serializable {
 
     // Ask if the user wants to resume a game
     private String askForResumeGame() {
-        this.terminal.show(String.format("Do you want to resume a game? (%s/n)", Constants.DEFAULT_APROVE_STRING));
+        this.terminal.show(String.format("Do you want to resume a game? (%s/%s)", Constants.DEFAULT_APROVE_STRING, Constants.DEFAULT_CANCEL_STRING));
         String answer = this.terminal.readStr();
         this.terminal.show("");
 
@@ -107,9 +107,9 @@ public class GameManager implements Serializable {
             }
         }
 
-        if (fileNumber == Constants.DEFAULT_CANCEL_INT) return null;
-
         this.terminal.show("");
+
+        if (fileNumber == Constants.DEFAULT_CANCEL_INT) return null;
 
         return fileNames[fileNumber - 1].replace(Constants.DEFAULT_GAMES_EXTENSION, "");
     }

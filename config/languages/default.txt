@@ -2,7 +2,7 @@
 **;Available languages:
 *+;Enter the language you want to use:
 **;Invalid value, enter another one:
-**;Do you want to resume a game? (%s/n)
+**;Do you want to resume a game? (%s/%s)
 **;Which game do you want to resume? (%d to cancel)
 **;Enter the file name: / (%s to exit)
 **;Error, the file is corrupt or invalid, creating a new game...
@@ -33,11 +33,11 @@
 **;Enter a valid number
 **;Enter card code:
 **;Enter player ID (
-**;Do you want to exit and save the game? (%s/n)
+**;Do you want to exit and save the game? (%s/%s)
 **;End of the game >> %s is the winner!!
 **;Payment made
 **;Try again when you have more money
-**;Do you want to pay %d? (%s/N)
+**;Do you want to pay %d? (%s/%s)
 **;Enter the property you want to operate on:
 **;%s's properties:
 **;Property not found
@@ -59,7 +59,7 @@
 **;Change language
 **;Save and exit
 **;New budget: %d
-**;Do you want to buy the property: %s for %d? (%s,N)
+**;Do you want to buy the property: %s for %d? (%s/%s)
 **;You have landed on the property: %s, you must pay %d
 **;You have landed on the property: %s
 **;The property is not yours
@@ -68,7 +68,7 @@
 **;Mortgage
 **;Unmortgage
 **;Cancel
-**;Do you want to perform the operation? (%s/N)
+**;Do you want to perform the operation? (%s/%s)
 **;What do you want to do with the property: %s?
 **;The property already has the maximum number of houses
 **;The property is mortgaged

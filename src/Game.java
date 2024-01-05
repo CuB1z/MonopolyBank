@@ -223,7 +223,7 @@ public class Game implements Serializable{
         Translator trs = this.terminal.getTranslatorManager().getTranslator();
 
         String output;
-        output = trs.translate("The game has been saved in the file %s");
+        output = trs.translate("The game has been saved in the file %s") + Constants.DEFAULT_GAMES_EXTENSION;
         output = String.format(output, this.fileName);
 
         this.terminal.flushScreen();

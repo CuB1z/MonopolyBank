@@ -62,8 +62,8 @@ public class Player implements Serializable {
                 return false;
 
             } else {
-                msg = trs.translate("Do you want to pay %d? (%s/N)");
-                msg = String.format(msg, amount, Constants.DEFAULT_APROVE_STRING);
+                msg = trs.translate("Do you want to pay %d? (%s/%s)");
+                msg = String.format(msg, amount, Constants.DEFAULT_APROVE_STRING, Constants.DEFAULT_CANCEL_STRING);
 
                 this.terminal.show(msg);
                 String answer = this.terminal.readStr();

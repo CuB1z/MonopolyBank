@@ -2,7 +2,7 @@ WELCOME TO MONOPOLY BANK;BIENVENIDO AL MONOPOLY BANK
 Available languages:;Lenguajes disponibles:
 Enter the language you want to use:;Introduzca el lenguaje que desea utilizar:
 Invalid value, enter another:;Valor inválido, introduzca otro:
-Do you want to resume a game? (%s/n);¿Quieres reanudar una partida? (%s/n)
+Do you want to resume a game? (%s/%s);¿Quieres reanudar una partida? (%s/%s)
 Which game do you want to resume? (%d to cancel);¿Qué juego quieres reanudar? (%d para cancelar)
 Enter the file name: / (%s to exit);Introduce el nombre del fichero: / (%s para salir)
 Error, the file is corrupt or invalid, creating new game...;Error, el fichero es corrupto o inválido, creando nueva partida...
@@ -33,11 +33,11 @@ Data loaded correctly;Datos cargados correctamente
 Enter a valid number;Introduce un número valido
 Enter card code:;Introduzca código de tarjeta:
 Enter player ID ( ;Introduzca código de jugador ( 
-Do you want to exit and save the game? (%s/n);¿Desea salir y guardar el juego? (%s/n)
+Do you want to exit and save the game? (%s/%s);¿Desea salir y guardar el juego? (%s/%s)
 Game Over >> %s is the winner!!;Fin del juego >> %s es el ganador!!
 Payment made;Pago efectuado
 Try again when you have more money;Vuelve a intentarlo cuando tengas más dinero
-Do you want to pay %d? (%s/N);Desea pagar %d? (%s/N)
+Do you want to pay %d? (%s/%s);Desea pagar %d? (%s/%s)
 Enter desired property to operate:;Introduzca la propiedad que desea operar:
 %s's properties:;Propiedades de %s:
 Property not found;Propiedad no encontrada
@@ -59,7 +59,7 @@ Show summary;Mostrar resumen
 Change language;Cambiar idioma
 Save and exit;Guardar y salir
 New balance: %d;Nuevo presupuesto: %d
-Do you want to buy the property: %s for %d? (%s,N);Quieres comprar la propiedad: %s por %d? (%s,N)
+Do you want to buy the property: %s for %d? (%s/%s);Quieres comprar la propiedad: %s por %d? (%s/%s)
 You have landed on the property: %s, you must pay %d;Has caído en la propiedad: %s, debes pagar %d
 This property doesn't belong to you;La propiedad no es tuya
 Buy house;Comprar casa
@@ -67,7 +67,7 @@ Sell house;Vender casa
 Mortgage;Hipotecar
 Unmortgage;Deshipotecar
 Cancel;Cancelar
-Do you want to make the operation? (%s/N);¿Desea realizar la operación? (%s/N)
+Do you want to make the operation? (%s/%s);¿Desea realizar la operación? (%s/%s)
 What do you want to do with the property: %s?;¿Qué desea hacer con la propiedad: %s?
 The property already has the maximum number of houses;La propiedad ya tiene el máximo de casas
 The property is mortgaged;La propiedad está hipotecada
