@@ -32,6 +32,12 @@ public class RepairsCard extends MonopolyCode {
 
     // Public methods =====================================================================================================
 
+    // Overriden toString() method
+    @Override
+    public String toString() {
+        return super.toString() + "\n";
+    }
+
     // Overriden doOperation() method
     @Override
     public void doOperation(Player p) {
@@ -52,7 +58,7 @@ public class RepairsCard extends MonopolyCode {
         int amount = (houses * this.amountForHouse) + (hotels * this.amountForHotel);
 
         // Show the message
-        this.terminal.show(this.getDescription());
+        this.terminal.show(this.toString());
         this.terminal.show(String.format("You must pay %d", amount));
         this.terminal.show("");
 

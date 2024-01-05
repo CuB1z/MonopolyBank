@@ -152,7 +152,7 @@ public class Game implements Serializable{
 
     //Method used to show the summary
     private void showSummary() {
-        this.terminal.show("---Summary---");
+        this.terminal.show("---[ Summary ]---");
 
         for (Player player : this.players) {
             player.showSummary();
@@ -397,7 +397,7 @@ public class Game implements Serializable{
 
     // Show the players
     private void showPlayers(String output) {
-        this.terminal.show("---Players---");
+        this.terminal.show("---[ Players ]---");
         this.terminal.show(output);
         this.terminal.waitForEnter();
     }

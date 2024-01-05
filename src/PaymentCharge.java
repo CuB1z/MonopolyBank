@@ -32,10 +32,16 @@ public class PaymentCharge extends MonopolyCode {
 
     // Public methods =====================================================================================================
 
+    // Overriden toString() method
+    @Override
+    public String toString() {
+        return super.toString() + "\n";
+    }
+
     // Overriden doOperation() method
     @Override
     public void doOperation(Player player) {
-        this.terminal.show(this.getDescription());
+        this.terminal.show(this.toString());
         if (this.amount == 0) return;
 
         if (this.amount > 0) player.receive(this.amount);

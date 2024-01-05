@@ -24,7 +24,9 @@ Enter the number of players (2-%d):;Introduce el número de jugadores (2-%d):
 Incorrect number of players;Número de jugadores incorrecto
 Enter the name of the player ;Introduce el nombre del jugador 
 Player %s (%s) >> Budget: %d;Jugador %s (%s) >> Presupuesto: %d
----Players---;---Jugadores---
+---[ Players ]---;---[ Jugadores ]---
+---[ Properties ]---;---[ Propiedades ]---
+---[ Summary ]---;---[ Resumen ]---
 Starting operation...;Comenzando operación...
 Loading game data...;Cargando datos del juego...
 Data loaded correctly;Datos cargados correctamente
@@ -56,7 +58,6 @@ Continue playing;Continuar jugando
 Show summary;Mostrar resumen
 Change language;Cambiar idioma
 Save and exit;Guardar y salir
----Summary---;---Resumen---
 New balance: %d;Nuevo presupuesto: %d
 Do you want to buy the property: %s for %d? (%s,N);Quieres comprar la propiedad: %s por %d? (%s,N)
 You have landed on the property: %s, you must pay %d;Has caído en la propiedad: %s, debes pagar %d
@@ -97,7 +98,7 @@ Player %s has received %d;El jugador %s ha recibido %d
 The properties have been transferred to the bank;Las propiedades han sido transferidas al banco
 The properties have been transferred to player %s;Las propiedades han sido transferidas al jugador %s
 You don't have enough money to pay;No tienes suficiente dinero para pagar
-Select the property you want to act on:;Selecciona la propiedad sobre la que quieres actuar:
+Select the property you want to act on [ID]:;Selecciona la propiedad sobre la que quieres actuar [ID]:
 RED;Rojo
 BLUE;Azul
 GREEN;Verde

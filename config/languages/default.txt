@@ -24,7 +24,9 @@
 **;Incorrect number of players
 **;Enter the player name
 **;Player %s (%s) >> Budget: %d
-**;---Players---
+**;---[ Players ]---
+**;---[ Properties ]---
+**;---[ Summary ]---
 **;Starting operation...
 **;Loading game data...
 **;Data loaded successfully
@@ -56,7 +58,6 @@
 **;Show summary
 **;Change language
 **;Save and exit
-**;---Summary---
 **;New budget: %d
 **;Do you want to buy the property: %s for %d? (%s,N)
 **;You have landed on the property: %s, you must pay %d

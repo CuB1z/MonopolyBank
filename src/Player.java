@@ -185,11 +185,12 @@ public class Player implements Serializable {
         while (this.balance < target && this.thereAreThingsToOperate()) {
 
             // Show the properties
+            this.terminal.show("---[ Properties ]---");
             this.showProperties();
             this.terminal.show("");
 
             // Ask for the property
-            this.terminal.show("Select the property you want to act on:");
+            this.terminal.show("Select the property you want to act on [ID]:");
 
             // Read the property
             int propertyId = this.terminal.readInt();
@@ -198,6 +199,8 @@ public class Player implements Serializable {
                 this.terminal.show("Property not found");
                 propertyId = this.terminal.readInt();
             }
+
+            this.terminal.flushScreen();
 
             // Search the property
             Property p = this.searchProperty(propertyId);
@@ -210,6 +213,9 @@ public class Player implements Serializable {
                 else if (!s.isMortgaged()) s.mortgage();
                 
             } else if (!p.isMortgaged()) p.mortgage();
+
+            this.terminal.waitForEnter();
+            this.terminal.flushScreen();
         }
 
         if (this.balance < target) this.terminal.show("There are no properties left to operate");
