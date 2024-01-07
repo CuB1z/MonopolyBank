@@ -31,6 +31,7 @@ Starting operation...;Comenzando operación...
 Loading game data...;Cargando datos del juego...
 Data loaded correctly;Datos cargados correctamente
 Enter a valid number;Introduce un número valido
+Enter a valid input;Introduce una entrada válida
 Enter card code:;Introduzca código de tarjeta:
 Enter player ID ( ;Introduzca código de jugador ( 
 Do you want to exit and save the game? (%s/%s);¿Desea salir y guardar el juego? (%s/%s)
@@ -50,7 +51,7 @@ Error while trying to save the file;Error al guardar el archivo
 Invalid code;Código inválido
 Invalid ID;ID inválido
 Invalid Option;Opción inválida
-Enter CONTINUE;Introduce CONTINUAR
+Press <Enter> to continue;Pulse <Enter> para continuar
 Player %s (%s) Budget: %d;Jugador %s (%s) Presupuesto: %d
 The game has been saved in the file %s;El juego ha sido guardado en el fichero %s
 Enter an option:;Introduzca una opción:

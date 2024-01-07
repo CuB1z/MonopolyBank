@@ -31,6 +31,7 @@
 **;Loading game data...
 **;Data loaded successfully
 **;Enter a valid number
+**;Enter a valid input
 **;Enter card code:
 **;Enter player ID (
 **;Do you want to exit and save the game? (%s/%s)
@@ -50,7 +51,7 @@
 **;Invalid code
 **;Invalid ID
 **;Invalid option
-**;Enter CONTINUE
+**;Press <Enter> to continue
 **;Player %s (%s) Budget: %d
 **;The game has been saved in the file %s
 **;Enter an option:

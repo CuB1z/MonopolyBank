@@ -19,25 +19,40 @@ public class TextTerminal extends Terminal {
     public int readInt(){
         while (true) {
 
-            // Try to read an integer
+            // Try to read an integer and return it if it is not empty
             try {
                 System.out.print(">> ");
-                String answer = this.scanner.next();  
+                String answer = this.scanner.nextLine();
+
+                if (answer.trim().length() == 0) {
+                    this.show("Enter a valid number");
+                    this.show("");
+                    continue;
+                }
+
                 int value = Integer.parseInt(answer);
                 return value;
 
             // If the input is not an integer, show an error message
             } catch (Exception e) {
                 this.show("Enter a valid number");
+                this.show("");
             }  
         }
     }
 
     // Method to read a string
     public String readStr() {
-        System.out.print(">> ");
-        String answer = this.scanner.next();
-        return answer;
+        while (true) {
+            // Try to read a string and return it if it is not empty
+            System.out.print(">> ");
+            String answer = this.scanner.nextLine();
+            if (answer.trim().length() > 0) return answer;
+
+            // If the input is empty, show an error message
+            this.show("Enter a valid input");
+            this.show("");
+        }
     }
 
     // Method to show a translated message
@@ -56,9 +71,8 @@ public class TextTerminal extends Terminal {
 
     // Method to wait for the user to press enter
     public void waitForEnter() {
-        
-        this.show("Enter CONTINUE");
-        System.out.print(">> ");
-        this.scanner.next();
+        String output = this.getTranslatorManager().getTranslator().translate("Press <Enter> to continue");
+        System.out.print(output + "\t");
+        this.scanner.nextLine();
     }
 }
