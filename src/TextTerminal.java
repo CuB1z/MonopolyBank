@@ -37,7 +37,7 @@ public class TextTerminal extends Terminal {
             } catch (Exception e) {
                 this.show("Enter a valid number");
                 this.show("");
-            }  
+            }
         }
     }
 
