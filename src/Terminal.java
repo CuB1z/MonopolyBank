@@ -9,7 +9,7 @@ public abstract class Terminal implements Serializable {
     // Constructor ========================================================================================================
 
     // Zero Constructor
-    public Terminal() throws Exception {
+    public Terminal() {
         this.translatorManager = new TranslatorManager();
     }
 

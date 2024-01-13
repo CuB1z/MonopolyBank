@@ -15,7 +15,7 @@ public class Translator implements Serializable {
     public Translator() {}
 
     // Default Constructor
-    public Translator(String filename) throws Exception {
+    public Translator(String filename) {
         
         // Get the absolute path of the file
         filename = PathUtils.getFilePath(filename);
@@ -25,22 +25,26 @@ public class Translator implements Serializable {
         this.language = rootFile.split("\\.")[0];
 
         // Read the file and complete the dictionary
-        Reader in = new FileReader(filename);
-        BufferedReader buffer = new BufferedReader(in);
-
-        String line;
-        do {
-            line = buffer.readLine();
-
-            if (line != null) {
-                this.dictionary.put(line.split(Constants.DATA_SEPARATOR)[0],
-                                    line.split(Constants.DATA_SEPARATOR)[1]
-                );
-            }
-            
-        } while (line != null);
-
-        buffer.close();
+        try {
+            Reader in = new FileReader(filename);
+            BufferedReader buffer = new BufferedReader(in);
+    
+            String line;
+            do {
+                line = buffer.readLine();
+    
+                if (line != null) {
+                    this.dictionary.put(line.split(Constants.DATA_SEPARATOR)[0],
+                                        line.split(Constants.DATA_SEPARATOR)[1]
+                    );
+                }
+                
+            } while (line != null);
+    
+            buffer.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     // Public methods =====================================================================================================

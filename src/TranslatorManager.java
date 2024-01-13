@@ -11,7 +11,7 @@ public class TranslatorManager implements Serializable {
     // Constructor ========================================================================================================
 
     // Zero Constructor
-    public TranslatorManager() throws Exception {
+    public TranslatorManager() {
         for (String lang : Constants.AVAILABLE_LANGUAGES) {
             this.addLanguage(lang);
         }
@@ -22,7 +22,7 @@ public class TranslatorManager implements Serializable {
     // Public methods =====================================================================================================
 
     // Method to add a language
-    public void addLanguage(String fileName) throws Exception {
+    public void addLanguage(String fileName) {
         fileName = String.format(Constants.LANGUAGES_FILE_PATH, fileName);
         Translator translator = new Translator(fileName);
 

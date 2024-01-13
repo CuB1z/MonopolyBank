@@ -8,7 +8,7 @@ public class TextTerminal extends Terminal {
     // Constructor ========================================================================================================
 
     // Zero Constructor
-    public TextTerminal() throws Exception {
+    public TextTerminal() {
         super();
         this.scanner = new Scanner(System.in);
     }

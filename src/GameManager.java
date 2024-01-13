@@ -11,12 +11,12 @@ public class GameManager implements Serializable {
     // Constructor ========================================================================================================
 
     // Zero Constructor
-    public GameManager() throws Exception {
+    public GameManager() {
         this.terminal = new TextTerminal();
     }
 
     // Public methods =====================================================================================================
-    public void start() throws Exception {
+    public void start() {
 
         // Show the welcome message
         this.terminal.show("WELCOME TO MONOPOLY BANK");
