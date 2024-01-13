@@ -1,0 +1,106 @@
+WELCOME TO MONOPOLY BANK;MONOPOLY BANKERA ONGI ETORRI
+Available languages:;Hizkuntzak eskuragarriak:
+Enter the language you want to use:;Erabili nahi duzun hizkuntza sartu:
+Invalid value, enter another:;Balio baliogabea, sartu beste bat:
+Do you want to resume a game? (%s/%s);Jokoa berreskuratu nahi duzu? (%s/%s)
+Which game do you want to resume? (%d to cancel);Zein jokoa berreskuratu nahi duzu? (%d ezeztatzeko)
+Enter the file name: / (%s to exit);Sartu fitxategiaren izena: / (%s irtenarako)
+Error, the file is corrupt or invalid, creating new game...;Errorea, fitxategia korruptuta edo baliogabea da, jokoa berria sortzen...
+spanish;espainiera
+english;ingelesa
+catalan;katalana
+euskera;euskara
+gallego;galegoa
+---No files available---;---Fitxategiak ez daude eskuragarri---
+The file doesn't exist, enter another name: / (%s to exit);Fitxategia ez dago, sartu beste izen bat: / (%s irtenarako)
+The operation has been canceled...;Operazioa bertan behera utzi da...
+File found...;Fitxategia aurkitua...
+Available files:;Fitxategiak eskuragarriak:
+Creating new game...;Joko berria sortzen...
+Loading saved game...;Partida gordekoa kargatzen...
+Playing...;Jolasten...
+Error!!;Errorea!!
+Enter the number of players (2-%d):;Jokalarien kopurua sartu (2-%d):
+Incorrect number of players;Jokalari kopurua okerra da
+Enter the name of the player ;Jokalariaren izena sartu 
+Player %s (%s) >> Budget: %d;Jokalaria %s (%s) >> Aurrekontua: %d
+---[ Players ]---;---[ Jokalariak ]---
+---[ Properties ]---;---[ Ezaugarriak ]---
+---[ Summary ]---;---[ Laburpena ]---
+Starting operation...;Operazioa hasieratzen...
+Loading game data...;Jokoaren datuak kargatzen...
+Data loaded correctly;Datuak ongi kargatu dira
+Enter a valid number;Zenbaki baliogarria sartu
+Enter a valid input;Sartu sarrera baliogarria
+Enter card code:;Txartelaren kodea sartu:
+Enter player ID ( ;Jokalariaren IDa sartu ( 
+Do you want to exit and save the game? (%s/%s);Irten eta partida gorde nahi duzu? (%s/%s)
+Game Over >> %s is the winner!!;Jokoa amaituta >> %s da irabazlea!!
+Payment made;Ordainketa egin da
+Try again when you have more money;Saiatu berriro diru gehiago izan arte
+Do you want to pay %d? (%s/%s);Ordaindu nahi duzu %d? (%s/%s)
+Enter desired property to operate:;Eskatutako ezaugarria operatzeko sartu:
+%s's properties:;%s-en ezaugarriak:
+Property not found;Ezaugarria ez da aurkitu
+Sell properties;Ezaugarriak saldu
+New balance: %d;Aurrekontu berria: %d
+Payment hasn't been made;Ordainketa ez da egin
+The player %s has gone bankrupt;%s jokalaria konkurtsoan sartu da
+This property doesn't belong to you;Ezaugarria ez da zurea
+Error while trying to save the file;Errorea fitxategia gordetzen saiatzean
+Invalid code;Kode baliogabea
+Invalid ID;ID baliogabea
+Invalid Option;Aukera baliogabea
+Press <Enter> to continue;Sakatu <Enter> jarraitzeko
+Player %s (%s) Budget: %d;%s jokalaria (%s) Aurrekontua: %d
+The game has been saved in the file %s;Jokoa fitxategian gorde da %s
+Enter an option:;Aukera bat sartu:
+Continue playing;Jolasten jarraitu
+Show summary;Laburpena erakutsi
+Change language;Hizkuntza aldatu
+Save and exit;Gorde eta irten
+New balance: %d;Aurrekontu berria: %d
+Do you want to buy the property: %s for %d? (%s/%s);Ezaugarria erosi nahi duzu: %s %d-rentzat? (%s/%s)
+You have landed on the property: %s, you must pay %d;%s ezaugarrian jokatu duzu, %d ordaindu behar duzu
+This property doesn't belong to you;Ezaugarria ez da zurea
+Buy house;Etxea erosi
+Sell house;Etxea saldu
+Mortgage;Hipoteka
+Unmortgage;Hipoteka kentzea
+Cancel;Ezeztatu
+Do you want to make the operation? (%s/%s);Operazioa egin nahi duzu? (%s/%s)
+What do you want to do with the property: %s?;%s ezaugarriarekin zer egin nahi duzu?
+The property already has the maximum number of houses;Ezaugarriak jada etxe kopuru maximoa dauzka
+The property is mortgaged;Ezaugarria hipotekatuta dago
+The property has houses, you must sell them first;Ezaugarriak etxeak dauzka, lehenik saldu behar dituzu
+You don't have enough money;Ez duzu diru nahikorik
+The property doesn't have any houses;Ezaugarriak ez dauzka etxeik
+The property is already mortgaged;Ezaugarria jada hipotekatuta dago
+The property isn't mortgaged;Ezaugarria ez dago hipotekatuta
+House sold, you receive %d;Etxea saldu da, %d jasoko duzu
+Property mortgaged, you receive %d;Ezaugarria hipotekatuta, %d jasoko duzu
+Property unmortgaged;Ezaugarria hipoteka kentzen
+House bought;Etxea erosi da
+The file %d doesn't exist, try again: / (%d to exit);Fitxategia %d ez dago, saiatu berriro: / (%d irtenarako)
+You have landed on the property: %s, but it's mortgaged, you don't pay anything;%s ezaugarrian jokatu duzu, baina hipotekatuta dago, ez duzu ordaindu
+You have landed on the property: %s;%s ezaugarrian jokatu duzu
+You must pay %d;%d ordaindu behar duzu
+Enter the number of the dice:;Zatikia sartu:
+There are no properties left to operate;Ez dago ezaugarriak operatzeko
+    - Buildings: %d;  - Eraikinak: %d
+    - Mortgaged: %s;  - Hipotekatuta: %s
+Mortgaged;Hipotekatuta
+Unmortgaged;Hipoteka kentzea
+Property status: %s >> %s;Ezaugarriaren egoera: %s >> %s
+Yes;Bai
+No;Ez
+Player %s has paid %d;%s jokalariak %d ordaindu du
+Player %s has received %d;%s jokalariak %d jaso du
+The properties have been transferred to the bank;Ezaugarriak bankuari transferitu dira
+The properties have been transferred to player %s;Ezaugarriak %s jokalariari transferitu dira
+You don't have enough money to pay;Ez duzu diru nahikorik ordaintzeko
+Select the property you want to act on [ID]:;Ezaugarria hautatu nahi duzu [ID]:
+RED;Gorria
+BLUE;Urdina
+GREEN;Berdea
+BLACK;Beltza

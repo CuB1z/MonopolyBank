@@ -61,6 +61,6 @@ public class Constants {
     public static final int EXIT_GAME_ID = 4;
     
     // Available languages ==========================================================
-    public static final String[] AVAILABLE_LANGUAGES = {"default", "spanish"};
+    public static final String[] AVAILABLE_LANGUAGES = {"default", "spanish", "catalan", "euskera"};
     public static final String DEFAULT_LANGUAGE_STRING_ID = "english";
 }

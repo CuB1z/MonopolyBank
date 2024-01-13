@@ -1,0 +1,106 @@
+WELCOME TO MONOPOLY BANK;BENVINGUT AL MONOPOLY BANK
+Available languages:;Idiomes disponibles:
+Enter the language you want to use:;Introduïu l'idioma que voleu utilitzar:
+Invalid value, enter another:;Valor no vàlid, introduïu un altre:
+Do you want to resume a game? (%s/%s);Voleu reprendre una partida? (%s/%s)
+Which game do you want to resume? (%d to cancel);Quin joc voleu reprendre? (%d per cancel·lar)
+Enter the file name: / (%s to exit);Introduïu el nom del fitxer: / (%s per sortir)
+Error, the file is corrupt or invalid, creating new game...;Error, el fitxer està corrupte o no és vàlid, creant un nou joc...
+spanish;espanyol
+english;anglès
+catalan;català
+euskera;basc
+gallego;gallec
+---No files available---;---No hi ha fitxers disponibles---
+The file doesn't exist, enter another name: / (%s to exit);El fitxer no existeix, introduïu un altre nom: / (%s per sortir)
+The operation has been canceled...;L'operació s'ha cancel·lat...
+File found...;Fitxer trobat...
+Available files:;Fitxers disponibles:
+Creating new game...;Creant un nou joc...
+Loading saved game...;Carregant partida guardada...
+Playing...;Jugant...
+Error!!;Error!!
+Enter the number of players (2-%d):;Introduïu el nombre de jugadors (2-%d):
+Incorrect number of players;Nombre incorrecte de jugadors
+Enter the name of the player ;Introduïu el nom del jugador 
+Player %s (%s) >> Budget: %d;Jugador %s (%s) >> Pressupost: %d
+---[ Players ]---;---[ Jugadors ]---
+---[ Properties ]---;---[ Propietats ]---
+---[ Summary ]---;---[ Resum ]---
+Starting operation...;Iniciant operació...
+Loading game data...;Carregant dades del joc...
+Data loaded correctly;Dades carregades correctament
+Enter a valid number;Introduïu un número vàlid
+Enter a valid input;Introduïu una entrada vàlida
+Enter card code:;Introduïu el codi de la targeta:
+Enter player ID ( ;Introduïu el codi de jugador ( 
+Do you want to exit and save the game? (%s/%s);Voleu sortir i desar el joc? (%s/%s)
+Game Over >> %s is the winner!!;Fi del joc >> %s és el guanyador!!
+Payment made;Pagament realitzat
+Try again when you have more money;Torneu-ho a provar quan tingueu més diners
+Do you want to pay %d? (%s/%s);Voleu pagar %d? (%s/%s)
+Enter desired property to operate:;Introduïu la propietat desitjada per operar:
+%s's properties:;Propietats de %s:
+Property not found;Propietat no trobada
+Sell properties;Venda de propietats
+New balance: %d;Nou pressupost: %d
+Payment hasn't been made;El pagament no s'ha realitzat
+The player %s has gone bankrupt;El jugador %s ha anat a la fallida
+This property doesn't belong to you;Aquesta propietat no et pertany
+Error while trying to save the file;Error en intentar desar el fitxer
+Invalid code;Codi no vàlid
+Invalid ID;ID no vàlid
+Invalid Option;Opció no vàlida
+Press <Enter> to continue;Premeu <Enter> per continuar
+Player %s (%s) Budget: %d;Jugador %s (%s) Pressupost: %d
+The game has been saved in the file %s;El joc s'ha desat al fitxer %s
+Enter an option:;Introduïu una opció:
+Continue playing;Continuar jugant
+Show summary;Mostrar resum
+Change language;Canviar idioma
+Save and exit;Desar i sortir
+New balance: %d;Nou pressupost: %d
+Do you want to buy the property: %s for %d? (%s/%s);Voleu comprar la propietat: %s per %d? (%s/%s)
+You have landed on the property: %s, you must pay %d;Heu caigut a la propietat: %s, heu de pagar %d
+This property doesn't belong to you;Aquesta propietat no et pertany
+Buy house;Comprar casa
+Sell house;Vendre casa
+Mortgage;Hipotecar
+Unmortgage;Deshipotecar
+Cancel;Cancel·lar
+Do you want to make the operation? (%s/%s);Voleu fer l'operació? (%s/%s)
+What do you want to do with the property: %s?;Què voleu fer amb la propietat: %s?
+The property already has the maximum number of houses;La propietat ja té el màxim de cases
+The property is mortgaged;La propietat està hipotecada
+The property has houses, you must sell them first;La propietat té cases, heu de vendre-les primer
+You don't have enough money;No teniu prou diners
+The property doesn't have any houses;La propietat no té cap casa
+The property is already mortgaged;La propietat ja està hipotecada
+The property isn't mortgaged;La propietat no està hipotecada
+House sold, you receive %d;Casa venuda, rebeu %d
+Property mortgaged, you receive %d;Propietat hipotecada, rebeu %d
+Property unmortgaged;Propietat deshipotecada
+House bought;Casa comprada
+The file %d doesn't exist, try again: / (%d to exit);El fitxer %d no existeix, torneu-ho a provar: / (%d per sortir)
+You have landed on the property: %s, but it's mortgaged, you don't pay anything;Heu caigut a la propietat: %s, però està hipotecada, no pagueu res
+You have landed on the property: %s;Heu caigut a la propietat: %s
+You must pay %d;Heu de pagar %d
+Enter the number of the dice:;Introduïu el número dels daus: 
+There are no properties left to operate;No queden propietats per operar
+    - Buildings: %d;  - Cases: %d
+    - Mortgaged: %s;  - Hipotecada: %s
+Mortgaged;Hipotecada
+Unmortgaged;Deshipotecada
+Property status: %s >> %s;Estat de la propietat: %s >> %s
+Yes;Sí
+No;No
+Player %s has paid %d;El jugador %s ha pagat %d
+Player %s has received %d;El jugador %s ha rebut %d
+The properties have been transferred to the bank;Les propietats s'han transferit al banc
+The properties have been transferred to player %s;Les propietats s'han transferit al jugador %s
+You don't have enough money to pay;No teniu prou diners per pagar
+Select the property you want to act on [ID]:;Seleccioneu la propietat en la qual voleu actuar [ID]:
+RED;Vermell
+BLUE;Blau
+GREEN;Verd
+BLACK;Negre
