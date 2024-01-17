@@ -10,7 +10,6 @@ spanish;espainiera
 english;ingelesa
 catalan;katalana
 euskera;euskara
-gallego;galegoa
 ---No files available---;---Fitxategiak ez daude eskuragarri---
 The file doesn't exist, enter another name: / (%s to exit);Fitxategia ez dago, sartu beste izen bat: / (%s irtenarako)
 The operation has been canceled...;Operazioa bertan behera utzi da...

@@ -10,7 +10,6 @@
 **;english
 **;catalan
 **;euskera
-**;galician
 **;---No files available---
 **;Available files:
 **;The file does not exist, enter another name: / (%s to exit)

@@ -6,11 +6,10 @@ Do you want to resume a game? (%s/%s);¿Quieres reanudar una partida? (%s/%s)
 Which game do you want to resume? (%d to cancel);¿Qué juego quieres reanudar? (%d para cancelar)
 Enter the file name: / (%s to exit);Introduce el nombre del fichero: / (%s para salir)
 Error, the file is corrupt or invalid, creating new game...;Error, el fichero es corrupto o inválido, creando nueva partida...
-spanish;spanish
-english;english
+spanish;español
+english;inglés
 catalan;catalan
-euskera;basque
-gallego;galician
+euskera;euskera
 ---No files available---;---No hay ficheros disponibles---
 The file doesn't exist, enter another name: / (%s to exit);El fichero no existe, introduce otro nombre: / (%s para salir)
 The operation has been canceled...;La operación ha sido cancelada...

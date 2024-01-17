@@ -10,7 +10,6 @@ spanish;espanyol
 english;anglès
 catalan;català
 euskera;basc
-gallego;gallec
 ---No files available---;---No hi ha fitxers disponibles---
 The file doesn't exist, enter another name: / (%s to exit);El fitxer no existeix, introduïu un altre nom: / (%s per sortir)
 The operation has been canceled...;L'operació s'ha cancel·lat...
